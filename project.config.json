@@ -1,0 +1,13 @@
+{
+	"client": "./client",
+	"svr": "./server",
+	"miniprogramRoot": "./client",
+	"qcloudRoot": "./server",
+	"setting": {
+		"newFeature": true
+	},
+	"appid": "wx790b509e5d6f759f",
+	"projectname": "NKhelper",
+	"libVersion": "2.0.4",
+	"condition": {}
+}
