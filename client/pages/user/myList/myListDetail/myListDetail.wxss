@@ -1,0 +1,24 @@
+.block{
+  display: flex;
+  background-color: 	#F5DEB3;
+  flex-direction: column;
+}
+.block-title{
+  display: flex;
+  background-color: 	#F5DEB3;
+  flex-direction: row
+}
+.block-price{
+  display: flex;
+  background-color: 	#F5DEB3;
+  flex-direction: column;
+  margin-left: 300rpx;
+}
+
+.block-details{
+  margin-top: 30rpx;
+  display: flex;
+  background-color: 	#F5DEB3;
+  flex-direction: column;
+  height: 50vh;
+}

@@ -1,0 +1,49 @@
+.list{
+  display: flex;
+  margin-top: 10rpx;
+}
+.block{
+  display: flex;
+  background-color: 	#F5DEB3;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}
+.block-title{
+  display: flex;
+  background-color: 	#F5DEB3;
+  flex-direction: row
+}
+.block-price{
+  display: flex;
+  background-color: 	#F5DEB3;
+  flex-direction: column;
+  margin-left: 500rpx;
+}
+
+.navbar{  
+  flex: none;  
+  display: flex;  
+  background: #fff;  
+}  
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;  
+  line-height: 80rpx;  
+}  
+.navbar .item.active{  
+  color: #FFCC00;  
+}  
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  height: 4rpx;  
+  background: #FFCC00;  
+}  

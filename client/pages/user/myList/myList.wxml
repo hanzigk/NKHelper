@@ -1,0 +1,35 @@
+<!--导航条-->  
+<view class="navbar">  
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+</view>  
+  
+<!--我发送的订单-->  
+<view hidden="{{currentTab!==0}}" class='list-item' wx:for='{{sendorder}}'>
+    <view class='block' bindtap='listdetails' data-list-id="{{item.id}}">
+      <view class='block-title'>
+        <text>{{item.ordername}}</text>
+        <view class='block-price' >
+          <text>{{item.price}}￥</text>
+          <text>{{item.orderstatus}}</text>
+        </view>
+      </view>
+      <text>发起人:{{item.sendername}}</text>
+      <text>接收人:{{item.receivername}}</text>
+   </view>
+</view>
+
+  
+<!--我接收的订单-->  
+<view hidden="{{currentTab!==1}}" class='list-item' wx:for='{{receiveorder}}'>
+    <view class='block' bindtap='listdetails' data-list-id="{{item.id}}">
+      <view class='block-title'>
+        <text>{{item.ordername}}</text>
+        <view class='block-price' >
+          <text>{{item.price}}￥</text>
+          <text>{{item.orderstatus}}</text>
+        </view>
+      </view>
+      <text>发起人:{{item.sendername}}</text>
+      <text>接收人:{{item.receivername}}</text>
+   </view>
+</view>

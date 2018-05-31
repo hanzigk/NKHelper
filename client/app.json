@@ -1,13 +1,35 @@
 {
   "pages":[
+    "pages/user/user",
+    "pages/hot/hot",
+    "pages/hot/hotdetail/hotdetail",
+    "pages/user/myList/myList",
+    "pages/user/myList/myListDetail/myListDetail",
     "pages/index/index",
     "pages/addCgi/addCgi"
   ],
+  "tabBar":{
+    "list":[
+      {
+        "text":"热门",
+        "pagePath":"pages/hot/hot",
+        "iconPath":"images/icons/hot.png",
+        "selectedIconPath":"images/icons/hot-selected.png"
+      },
+      {
+        "text": "个人信息",
+        "pagePath": "pages/user/user",
+        "iconPath": "images/icons/user.png",
+        "selectedIconPath": "images/icons/user-selected.png"
+      }
+    ]
+  },
   "window":{
-    "backgroundColor":"#F6F6F6",
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Wafer Quick Start",
-    "navigationBarTextStyle":"black"
+    "backgroundColor":"#0000",
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "南开帮",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh":true
   }
 }

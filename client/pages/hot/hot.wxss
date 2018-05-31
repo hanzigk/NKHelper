@@ -1,0 +1,41 @@
+.navbar{  
+  flex: none;  
+  display: flex;  
+  background: #fff; 
+  font-family: "楷体";
+  font-size: 32rpx;
+}  
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;  
+  line-height: 80rpx;  
+}  
+.navbar .item.active{  
+  color: #FFCC00;  
+}  
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  height: 4rpx;  
+  background: #FFCC00;  
+}  
+.list{
+  margin-top: 5rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: blanchedalmond;
+  font-family: "楷体";
+  justify-content: space-around;
+  height: 20vh;
+  margin-bottom: 10rpx;
+}
+.list .item
+{
+  display: flex;
+  flex-direction: row;
+}

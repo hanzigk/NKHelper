@@ -1,0 +1,22 @@
+<view >
+  <text>{{orderdetail[mid]. orderstatus}}</text>
+   <view class='block' >
+      <view class='block-title'>
+        <text>{{orderdetail[mid].ordername}}</text>
+        <view class='block-price' >
+          <text>活动类别</text>
+          <text>时间</text>
+        </view>
+      </view>
+      <text>发起人:{{orderdetail[mid].sendername}}</text>
+      <text>接收人:{{orderdetail[mid].receivername}}</text>
+    </view>
+
+<view class='block-details'>
+      <view class='block-title'>
+        <text>{{orderdetail[mid].content}}</text>
+      </view>
+      <text></text>
+      <text></text>
+    </view>
+</view>
