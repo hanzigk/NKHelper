@@ -1,22 +1,44 @@
-<view >
-  <text>{{orderdetail[mid]. orderstatus}}</text>
-   <view class='block' >
-      <view class='block-title'>
-        <text>{{orderdetail[mid].ordername}}</text>
-        <view class='block-price' >
-          <text>活动类别</text>
-          <text>时间</text>
-        </view>
-      </view>
-      <text>发起人:{{orderdetail[mid].sendername}}</text>
-      <text>接收人:{{orderdetail[mid].receivername}}</text>
+<view class='background'>
+  <image src='/images/pig.jpg' class='image'></image>
+  <view class='bar'>
+    <view class='text'>
+      <text style="font-size:30rpx;font-family:黑体;color:#ffff;">发起人</text>
+      <text style="font-size:35rpx;font-family:黑体;padding-top:10rpx;font-weight:bold;color:#eeda9d;">猪小妹</text>
     </view>
+    <view class='text'>
+      <text style="font-size:30rpx;font-family:黑体;color:#ffff;">接单人数</text>
+      <text style="font-size:35rpx;font-family:黑体;padding-top:10rpx;font-weight:bold;color:#eeda9d;">3</text>
+    </view>
+    <view class='text'>
+      <text style="font-size:30rpx;font-family:黑体;color:#ffff;">类别</text>
+      <text style="font-size:35rpx;font-family:黑体;padding-top:10rpx;font-weight:bold;color:#eeda9d;">问答</text>
+    </view>
+  </view>
 
-<view class='block-details'>
-      <view class='block-title'>
-        <text>{{orderdetail[mid].content}}</text>
+  <view class='detail'>
+    <view class='content'>
+
+      <view class='bar'>
+         <view class='text'>
+           <text style="font-size:30rpx;font-family:黑体;color:#ffff;">时间</text>
+           <text style="font-size:35rpx;font-family:黑体;padding-top:10rpx;font-weight:bold;color:#eeda9d;">6/1 20：00</text>
+         </view>
+         <view class='text'>
+           <text style="font-size:30rpx;font-family:黑体;color:#ffff;">地点</text>
+           <text style="font-size:35rpx;font-family:黑体;padding-top:10rpx;font-weight:bold;color:#eeda9d;">天津-津南</text>
+         </view>
       </view>
-      <text></text>
-      <text></text>
+
+      <view class='line-css'></view>
+
+      <view>
+        <text style="font-size:30rpx;font-family:黑体;color:#ffff;">内容详情</text>
+      </view>
+      <view>
+        <text style="font-size:30rpx;font-family:黑体;color:#ffff;">照片</text>
+      </view>
     </view>
+  </view>
+
+  <button class='button-css' plain='true' plain style="color: #eeda9d; border-color: #eeda9d;" >接单</button>
 </view>

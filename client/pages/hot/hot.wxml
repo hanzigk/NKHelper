@@ -1,64 +1,108 @@
-<!--导航条-->  
+
+  <!--导航条-->  
 <view class="navbar">  
   <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
 </view> 
   
-<!--热门-->  
+<view class='background'>
+ <!--热门-->  
 <view hidden="{{currentTab!==0}}" >
-     <view class='list'wx:for="{{hot}}" catchtap='navigate' data-list-id="{{item.id}}">
-    <view class='item'>
-      <text>{{item.hottype}}</text>
-      <text decode='ture' space="true">&nbsp;&nbsp;{{item.time}}</text>
-    </view>
-    <text>{{item.title}}</text>
-    <text>{{item.location}}</text>
+    <view   class='list' wx:for="{{hot}}" bindtap='navigate' data-list-id="{{item.id}}"
+   style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+    <block wx:if='{{item.ordertype==0}}'>
+      <view class='item'>
+         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+      <view class='button-item'>
+      </view>
+    </block>
+    <block wx:if='{{item.ordertype===1}}'>
+       <view class='item'>
+         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+    </block>
+    <block wx:if='{{item.ordertype===2}}'>
+       <view class='item'>
+         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+    </block>
   </view>
 </view>
-  
+
+
 <!--代购-->  
 <view hidden="{{currentTab!==1}}" >
-  <view class='list'wx:for="{{goods}}"  catchtap='navigate' data-list-id="{{item.id}}">
-    <view class='item'>
-      <text>{{item.hottype}}</text>
-      <text decode='ture' space="true">&nbsp;&nbsp;{{item.time}}</text>
-    </view>
-    <text>{{item.title}}</text>
-    <text>{{item.location}}</text>
+  <view class='list'wx:for="{{goods}}"  catchtap='navigate' data-list-id="{{item.id}}"
+    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+      <view class='item'>
+         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+      </view>
   </view>
 </view>
   
 <!--二手买卖-->  
 <view hidden="{{currentTab!==2}}">
-   <view class='list'wx:for="{{sale}}"  catchtap='navigate' data-list-id="{{item.id}}">
+   <view class='list'wx:for="{{sale}}"  catchtap='navigate' data-list-id="{{item.id}}"
+    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
     <view class='item'>
-      <text>{{item.hottype}}</text>
-      <text decode='ture' space="true">&nbsp;&nbsp;{{item.time}}</text>
-    </view>
-    <text>{{item.title}}</text>
-    <text>{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+      </view>
   </view>
 </view>
   
 <!--失物招领-->  
 <view hidden="{{currentTab!==3}}" >
-   <view class='list'wx:for="{{lostandfound}}"  catchtap='navigate' data-list-id="{{item.id}}">
-    <view class='item'>
-      <text>{{item.hottype}}</text>
-      <text decode='ture' space="true">&nbsp;&nbsp;{{item.time}}</text>
-    </view>
-    <text>{{item.title}}</text>
-    <text>{{item.location}}</text>
+   <view class='list'wx:for="{{lostandfound}}"  catchtap='navigate' data-list-id="{{item.id}}"
+    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+     <view class='item'>
+         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+      </view>
   </view>
 </view>
   
 <!--活动-->  
 <view hidden="{{currentTab!==4}}">
-   <view class='list'wx:for="{{activity}}"  catchtap='navigate' data-list-id="{{item.id}}">
-    <view class='item'>
-      <text>{{item.hottype}}</text>
-      <text decode='ture' space="true">&nbsp;&nbsp;{{item.time}}</text>
-    </view>
-    <text>{{item.title}}</text>
-    <text>{{item.location}}</text>
+   <view class='list'wx:for="{{activity}}"  catchtap='navigate' data-list-id="{{item.id}}"
+   style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+   <view class='item'>
+         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+      </view>
   </view>
 </view>
+
+</view>  
