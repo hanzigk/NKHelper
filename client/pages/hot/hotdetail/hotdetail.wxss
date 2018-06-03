@@ -1,24 +1,64 @@
-.block{
+.background{
   display: flex;
-  background-color: 	#F5DEB3;
   flex-direction: column;
+  height: 100vh;
+  background-color: #ab998d;
 }
-.block-title{
-  display: flex;
-  background-color: 	#F5DEB3;
-  flex-direction: row
-}
-.block-price{
-  display: flex;
-  background-color: 	#F5DEB3;
-  flex-direction: column;
-  margin-left: 300rpx;
-}
-
-.block-details{
+.image
+{
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+  margin-left: 600rpx;
   margin-top: 30rpx;
+}
+.bar{
   display: flex;
-  background-color: 	#F5DEB3;
+  flex-direction: row;
+  height: 20vh;
+  justify-content: space-around;
+  align-items: center;
+}
+.bar .text{
+  display: flex;
   flex-direction: column;
-  height: 50vh;
+  align-items: center;
+}
+.detail
+{
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  align-items: center;
+}
+.detail .content
+{
+  display: flex;
+  flex-direction: column;
+  height: 65vh;
+  width: 80vw;
+  background-color: #b7cad8;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+}
+.detail .content .bar{
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+  justify-content: space-around;
+  align-items: center;
+}
+.detail .content .bar .text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.line-css {
+height: 4rpx;
+background:#eeda9d;
+margin: 0rpx;
+}
+.button-css
+{
+ width: 80vw;
 }

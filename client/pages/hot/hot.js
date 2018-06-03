@@ -11,6 +11,7 @@ Page({
     hot: [
       {
         id:"0",
+        ordertype: 0,
         hottype: "代购",
         time: "2017-7-1",
         title: "代买鲜芋仙",
@@ -18,6 +19,7 @@ Page({
       },
       {
         id:"1",
+        ordertype: 0,
         hottype: "二手买卖",
         time: "2017-7-1",
         title: "睫毛膏",
@@ -25,6 +27,7 @@ Page({
       },
       {
         id:"2",
+        ordertype: 0,
         hottype: "失物招领",
         time: "2017-7-1",
         title: "一卡通",
@@ -32,6 +35,7 @@ Page({
       },
       {
         id:"3",
+        ordertype: 2,
         hottype: "活动",
         time: "2017-7-1",
         title: "组局狼人杀",
@@ -39,6 +43,7 @@ Page({
       },
       {
         id:"4",
+        ordertype: 0,
         hottype: "代购",
         time: "2017-7-5",
         title: "帮取快递",

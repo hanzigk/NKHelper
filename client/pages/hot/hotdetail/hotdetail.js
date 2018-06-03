@@ -2,7 +2,7 @@ Page({
   onLoad: function (options) {
     console.log(options.id);
     wx.setNavigationBarTitle({
-      title: '详细信息'
+      title: '订单详情'
     })
     this.setData({
       mid: options.id,
