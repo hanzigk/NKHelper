@@ -6,6 +6,7 @@
     "pages/user/myList/myList",
     "pages/user/myList/myListDetail/myListDetail",
     "pages/index/index",
+    "pages/put_up/add",
     "pages/addCgi/addCgi"
   ],
   "tabBar":{
@@ -15,6 +16,11 @@
         "pagePath":"pages/hot/hot",
         "iconPath":"images/icons/hot.png",
         "selectedIconPath":"images/icons/hot-selected.png"
+      },
+      {
+        "pagePath": "pages/put_up/add",
+        "iconPath": "images/icons/add.png",
+        "selectedIconPath": "images/icons/cross.png"
       },
       {
         "text": "个人信息",
