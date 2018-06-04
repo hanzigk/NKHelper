@@ -2,7 +2,10 @@
   "pages":[
     "pages/hot/hot",
     "pages/user/scoreDetails/scoreDetails",
-    
+    "pages/put_up/daigou/daigou",
+    "pages/put_up/qa/qa",
+    "pages/put_up/activity/activity",
+    "pages/put_up/find/find",
     "pages/hot/hotdetail/hotdetail",
     "pages/user/user",
     "pages/user/myList/myList",

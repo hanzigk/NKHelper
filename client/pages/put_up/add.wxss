@@ -31,28 +31,28 @@ page{
   flex-direction: row;
 }
 .type-text{
-  margin-top:300rpx;
-  margin-left: 10rpx;
+  margin-left: 65rpx;
+  
   flex-direction: row;
 }
 .daigou-text{
-  
+  color:black;
   margin-left: 10rpx;
   flex-direction: row;
 }
 .qa-text{
-  
-  margin-left: 20rpx;
+  color:black;
+  margin-left: 107rpx;
   flex-direction: row;
 }
 .huodong-text{
-  
-  margin-left: 20rpx;
+  color:black;
+  margin-left: 105rpx;
   flex-direction: row;
 }
 .find-text{
-  
-  margin-left: 40rpx;
+  color:black;
+  margin-left: 105rpx;
   flex-direction: row;
 }
 
