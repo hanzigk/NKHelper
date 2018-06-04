@@ -1,53 +1,39 @@
-.navbar{
-  display: grid;
-  flex-direction: row;
-}
-.navbar{  
-  flex: none;  
-  display: flex;  
-  background: #fff; 
-  font-family: "微软雅黑";
-  font-size: 32rpx;
-  color: #ab998d;
-}  
-.navbar .item{  
-  position: relative;  
-  flex: auto;  
-  text-align: center;  
-  line-height: 80rpx;  
-}  
-.navbar .item.active{  
-  color: #b7cad8;  
-}  
-.navbar .item.active:after{  
-  content: "";  
-  display: block;  
-  position: absolute;  
-  bottom: 0;  
-  left: 0;  
-  right: 0;  
-  height: 4rpx;  
-  background: #b7cad8;  
-}  
-.background{
+ .background{
   background-color: #ab998d;
 }
 .list{
   margin-top: 5rpx;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 20vh;
   margin-bottom: 10rpx;
- 
+  justify-content: space-around;
+}
+.list .userinfo
+{
+  display: flex;
+  flex-direction: row;
+  width:650rpx;
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+}
+.list .userinfo .user
+{
+  display: flex;
+  flex-direction: row;
+  width:400rpx;
+}
+.list .userinfo .item
+{
+  display: flex;
+  flex-direction: row;
+  width:300rpx;
 }
 .list .item
 {
   display: flex;
   flex-direction: column;
-  width: 40vw;
-  margin-top: 15rpx;
   margin-left: 50rpx;
-  justify-content: space-evenly;
 }
 .list-item{
   display: flex;
@@ -63,6 +49,7 @@
 .icon-image{
   width: 65rpx;
   height: 65rpx;
+  border-radius: 50%;
 }
 .order-image{
   width: 100rpx;

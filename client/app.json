@@ -1,10 +1,16 @@
 {
   "pages":[
+    "pages/user/scoreDetails/scoreDetails",
     "pages/hot/hot",
     "pages/hot/hotdetail/hotdetail",
     "pages/user/user",
     "pages/user/myList/myList",
     "pages/user/myList/myListDetail/myListDetail",
+    "pages/user/myQ&A/myQ&A",
+    "pages/user/myQ&A/myQ&ADetail/myQ&ADetail",
+    "pages/user/myActivity/myActivity",
+    "pages/user/myActivity/myActivityDetail/myActivityDetail",
+   
     "pages/index/index",
     "pages/addCgi/addCgi"
   ],
