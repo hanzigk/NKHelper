@@ -149,7 +149,7 @@ Page({
     var listid = event.currentTarget.dataset.listId
     console.log(listid);
     wx.navigateTo({
-      url: '/pages/user/myList/myListDetail/myListDetail?id=' + listid,
+      //url: '/pages/user/myList/myListDetail/myListDetail?id=' + listid,
     })
   },
   navbarTap: function (e) {
@@ -160,7 +160,7 @@ Page({
   // 加载
   onLoad: function () {
     wx.setNavigationBarTitle({
-      title: '我的订单'
+      title: '分数详情'
     })
     var that = this
     //更新数据
