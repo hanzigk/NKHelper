@@ -1,22 +1,21 @@
 {
   "pages":[
     "pages/hot/hot",
-    "pages/user/scoreDetails/scoreDetails",
-    "pages/put_up/daigou/daigou",
-    "pages/put_up/qa/qa",
-    "pages/put_up/activity/activity",
-    "pages/put_up/find/find",
     "pages/hot/hotdetail/hotdetail",
     "pages/user/user",
+    "pages/user/scoreDetails/scoreDetails",
     "pages/user/myList/myList",
     "pages/user/myList/myListDetail/myListDetail",
     "pages/user/myQ&A/myQ&A",
     "pages/user/myQ&A/myQ&ADetail/myQ&ADetail",
     "pages/user/myActivity/myActivity",
     "pages/user/myActivity/myActivityDetail/myActivityDetail",
-   
-    "pages/index/index",
     "pages/put_up/add",
+    "pages/put_up/put_upDaigou/put_upDaigou",
+    "pages/put_up/put_upQ&A/put_upQ&A",
+    "pages/put_up/put_upActivity/put_upActivity",
+    "pages/put_up/put_upFind/put_upFind",
+    "pages/index/index",
     "pages/addCgi/addCgi"
   ],
   "tabBar":{
@@ -44,9 +43,9 @@
   "window":{
     "backgroundColor":"#0000",
     "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#b7cad8",
+    "navigationBarBackgroundColor": "#ab998d",
     "navigationBarTitleText": "南开帮",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle":"WHITE",
     "enablePullDownRefresh":true
   }
 }
