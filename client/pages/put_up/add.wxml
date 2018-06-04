@@ -25,4 +25,17 @@
       <text class="huodong-text">约着玩</text>
       <text class="find-text">找东西</text>
   </view>
+
+  <view class="type2">
+      <image class="pinche" bindtap='pinche' src="/images/icons/car.png" style='width:150rpx;height: 150rpx;' />
+      <image class="kuaidi" bindtap='kuaidi' src="/images/icons/kuaidi.png" style='width:150rpx;height: 150rpx;' />
+      <image class="pindan" bindtap='pindan' src="/images/icons/pindan.png" style='width:150rpx;height: 150rpx;' />
+      <image class="ershou" bindtap='ershou' src="/images/icons/ershou.png" style='width:150rpx;height: 150rpx;' />
+  </view>
+  <view class="type2-text">
+      <text class="pinche-text" >拼车</text>
+      <text class="kuaidi-text">代取快递</text>
+      <text class="pindan-text">拼单</text>
+      <text class="ershou-text">二手交易</text>
+  </view>
 </view>
