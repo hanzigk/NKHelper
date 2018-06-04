@@ -20,6 +20,7 @@
       {
         "pagePath": "pages/put_up/add",
         "iconPath": "images/icons/add.png",
+        
         "selectedIconPath": "images/icons/cross.png"
       },
       {
@@ -33,9 +34,9 @@
   "window":{
     "backgroundColor":"#0000",
     "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#000",
+    "navigationBarBackgroundColor": "#b7cad8",
     "navigationBarTitleText": "南开帮",
-    "navigationBarTextStyle":"white",
+    "navigationBarTextStyle":"black",
     "enablePullDownRefresh":true
   }
 }

@@ -1,6 +1,7 @@
 // pages/wxml/index.js
 Page({
   data: {
+    
     navbar: [
       '热门', 
       '代购',
