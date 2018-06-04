@@ -118,12 +118,12 @@ navigate:function(event){
   }
   if (detailid = "1") {
     wx.navigateTo({
-      url: '/pages/user/myList/myList',
+      url: '/pages/user/myQ&A/myQ&A',
     })
   }
   if (detailid = "2") {
     wx.navigateTo({
-      url: '/pages/user/myList/myList',
+      url: '/pages/user/myActivity/myActivity',
     })
   }
   if (detailid = "3") {
