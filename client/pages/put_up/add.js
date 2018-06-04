@@ -40,22 +40,22 @@ Page({
   // 监听页面上拉触底
   daigou:function(){
       wx.navigateTo({
-        url: '../put_up/daigou/daigou',
+        url: '../put_up/put_upDaigou/put_upDaigou',
       })
   },
   find:function(){
     wx.navigateTo({
-      url: '../put_up/find/find',
+      url: '../put_up/put_upFind/put_upFind',
     })
   },
   qa:function(){
     wx.navigateTo({
-      url: '../put_up/qa/qa',
+      url: '../put_up/put_upQ&A/put_upQ&A',
     })
   },
   huodong:function(){
     wx.navigateTo({
-      url: '../put_up/activity/activity',
+      url: '../put_up/put_upActivity/put_upActivity',
     })
   },
   onReachBottom: function () {
