@@ -17,7 +17,7 @@ page{
 }
 .qa{
   
-  margin-left: 20rpx;
+  margin-left: 25rpx;
   flex-direction: row;
 }
 .huodong{
@@ -51,6 +51,57 @@ page{
   flex-direction: row;
 }
 .find-text{
+  color:black;
+  margin-left: 105rpx;
+  flex-direction: row;
+}
+
+.type2{
+  margin-top:20rpx;
+  margin-left: 10rpx;
+  flex-direction: row;
+}
+.pinche{
+  
+  margin-left: 10rpx;
+  flex-direction: row;
+}
+.pindan{
+  
+  margin-left: 20rpx;
+  flex-direction: row;
+}
+.kuaidi{
+  
+  margin-left: 20rpx;
+  flex-direction: row;
+}
+.ershou{
+  
+  margin-left: 40rpx;
+  flex-direction: row;
+}
+.type2-text{
+  margin-left: 65rpx;
+  
+  flex-direction: row;
+}
+.pinche-text{
+  color:black;
+  margin-left: 10rpx;
+  flex-direction: row;
+}
+.pindan-text{
+  color:black;
+  margin-left: 85rpx;
+  flex-direction: row;
+}
+.kuaidi-text{
+  color:black;
+  margin-left: 85rpx;
+  flex-direction: row;
+}
+.ershou-text{
   color:black;
   margin-left: 105rpx;
   flex-direction: row;

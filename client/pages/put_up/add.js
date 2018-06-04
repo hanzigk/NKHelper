@@ -38,6 +38,26 @@ Page({
     this.getTime();
   },
   // 监听页面上拉触底
+  daigou:function(){
+      wx.navigateTo({
+        url: '../put_up/daigou/daigou',
+      })
+  },
+  find:function(){
+    wx.navigateTo({
+      url: '../put_up/find/find',
+    })
+  },
+  qa:function(){
+    wx.navigateTo({
+      url: '../put_up/qa/qa',
+    })
+  },
+  huodong:function(){
+    wx.navigateTo({
+      url: '../put_up/activity/activity',
+    })
+  },
   onReachBottom: function () {
 
   },
