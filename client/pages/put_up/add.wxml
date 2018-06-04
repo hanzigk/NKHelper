@@ -20,7 +20,7 @@
       <image class="find" src="/images/icons/find.png" style='width:150rpx;height: 150rpx;' />
   </view>
   <view class="type-text">
-      <text class="daigou-text">代买</text>
+      <text class="daigou-text"></text>
       <text class="qa-text">提问</text>
       <text class="huodong-text">约着玩</text>
       <text class="find-text">找东西</text>
