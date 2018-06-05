@@ -1,19 +1,63 @@
-const Koa = require('koa')
-const app = new Koa()
-const debug = require('debug')('koa-weapp-demo')
-const response = require('./middlewares/response')
-const bodyParser = require('koa-bodyparser')
-const config = require('./config')
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-// 使用响应处理中间件
-app.use(response)
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var topostRouter = require('./routes/topost');
+var listRouter = require("./routes/list");
+var testRouter = require("./routes/test");
 
-// 解析请求体
-app.use(bodyParser())
+var app = express();
 
-// 引入路由分发
-const router = require('./routes')
-app.use(router.routes())
+app.set('json spaces', 4);
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-// 启动程序，监听端口
-app.listen(config.port, () => debug(`listening on port ${config.port}`))
+app.get('/',function (req, res) {
+  const rea ={code: 0, message: 'ok'}
+  const a = {data: [{row: 1, con: 1}, {row: 2, con: 2}]}
+  res.json({...rea, ...a})
+})
+
+app.get('/1',function (req, res) {
+  const rea ={code: 1, message: 'error'}
+  const a = {error: 'sjoabaile'}
+  res.json({...rea, ...a})
+})
+
+//  POST 请求
+app.post('/', function (req, res) {
+  console.log("主页 POST 请求");
+  res.send('Hello POST');
+})
+
+//  /del_user 页面响应
+app.get('/del_user', function (req, res) {
+  console.log("/del_user 响应 DELETE 请求");
+  res.send('删除页面');
+})
+
+//  /list_user 页面 GET 请求
+app.get('/list_user', function (req, res) {
+  console.log("/list_user GET 请求");
+  res.send('用户列表页面');
+})
+
+// 对页面 abcd, abxcd, ab123cd, 等响应 GET 请求
+app.get('/ab*cd', function(req, res) {
+  console.log("/ab*cd GET 请求");
+  res.send('正则匹配');
+})
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/topost',topostRouter);
+app.use('/list',listRouter);
+app.use('/test',testRouter);
+
+module.exports = app;
