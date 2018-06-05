@@ -9,161 +9,13 @@ Page({
       '失物招领',
       '活动'
       ],
-    hot: [{id:"",
+    hot: [{
+      id:0,
       Order_Type: 0,
-      hottype: "",
       time: "",
       title: "",
-      location: ""
-      }, 
-      ],
-      goods:[
-        {
-          id:"5",
-          hottype:"代购",
-          time:"2017-7-1",
-          title:"代买鲜芋仙",
-          location:"滨江道"},
-        {
-          id:"6",
-          hottype: "代购",
-          time: "2017-7-2",
-          title: "代买鲜芋仙",
-          location: "滨江道"
-        },
-        {
-          id:"7",
-          hottype: "代购",
-          time: "2017-7-3",
-          title: "代买鲜芋仙",
-          location: "滨江道"
-        },
-        {
-          id:"8",
-          hottype: "代购",
-          time: "2017-7-4",
-          title: "代买鲜芋仙",
-          location: "滨江道"
-        },
-        {
-          id:"9",
-          hottype: "代购",
-          time: "2017-7-5",
-          title: "代买鲜芋仙",
-          location: "滨江道"
-        }
-      ],
-      sale: [
-        {
-          id:"10",
-          hottype: "二手买卖",
-          time: "2017-7-1",
-          title: "睫毛膏",
-          location: "南开-津南"
-        },
-        {
-          id:"11",
-          hottype: "二手买卖",
-          time: "2017-7-2",
-          title: "睫毛膏",
-          location: "南开-津南"
-        },
-        {
-          id:"12",
-          hottype: "二手买卖",
-          time: "2017-7-3",
-          title: "睫毛膏",
-          location: "南开-津南"
-        },
-        {
-          id:"13",
-          hottype: "二手买卖",
-          time: "2017-7-4",
-          title: "睫毛膏",
-          location: "南开-津南"
-        },
-        {
-          id:"14",
-          hottype: "二手买卖",
-          time: "2017-7-5",
-          title: "睫毛膏",
-          location: "南开-津南"
-        }
-      ],
-      lostandfound: [
-        {
-          id:"15",
-          hottype: "失物招领",
-          time: "2017-7-1",
-          title: "一卡通",
-          location: "南开-津南"
-        },
-        {
-          id:"16",
-          hottype: "失物招领",
-          time: "2017-7-1",
-          title: "一卡通",
-          location: "南开-津南"
-        },
-        {
-          id:"17",
-          hottype: "失物招领",
-          time: "2017-7-1",
-          title: "一卡通",
-          location: "南开-津南"
-        },
-        {
-          id:"18",
-          hottype: "失物招领",
-          time: "2017-7-1",
-          title: "一卡通",
-          location: "南开-津南"
-        },
-        {
-          id:"19",
-          hottype: "失物招领",
-          time: "2017-7-1",
-          title: "一卡通",
-          location: "南开-津南"
-        }
-      ],
-      activity: [
-        {
-          id:"20",
-          hottype: "活动",
-          time: "2017-7-1",
-          title: "组局狼人杀",
-          location: "南开-津南"
-        },
-        {
-          id:"21",
-          hottype: "活动",
-          time: "2017-7-2",
-          title: "组局狼人杀",
-          location: "南开-津南"
-        },
-        {
-          id:"22",
-          hottype: "活动",
-          time: "2017-7-3",
-          title: "组局狼人杀",
-          location: "南开-津南"
-        },
-        {
-          id:"23",
-          hottype: "活动",
-          time: "2017-7-4",
-          title: "组局狼人杀",
-          location: "南开-津南"
-        },
-        {
-          id:"24",
-          hottype: "活动",
-          time: "2017-7-5",
-          title: "组局狼人杀",
-          location: "南开-津南"
-        }
-      ],
+      content: ""
+      }],
     currentTab: 0
   },
   navbarTap: function (e) {
@@ -184,19 +36,30 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://192.168.43.113:3000/searchAll',//此处填写你后台请求地址
+      url: 'http://10.134.39.81:3000/searchAll',//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-        
+        var array = that.data.hot
+        var i = 0
         console.log(res.data);//在控制台输出在远程后台请求到的数据
-       /* var s="hot.Order_Type";
-        that.setData({ [s]: res.data[0].Order_Type })
-        // success*/
-        that.data.hot[0].Order_Type=res.data[0].Order_Type;
-        that.setData({hot:thar.data.hot})
         
+        //'hot[0].Order_Type'= res.data[0].Order_Type
+       for (i; i < res.data.length; i++) {
+          console.log(res.data[i].Order_Type)
+          console.log(i)
+          array[i]={
+            id: res.data[i].OrderPut_ID,
+            Order_Type:res.data[i].Order_Type,
+            time: res.data[i].Order_Time,
+            title: res.data[i].Order_Title,
+            content: res.data[i].Order_Content
+          }
+        }
+        that.setData({
+          hot:array
+        });
       },
       fail: function (res) {
         // fail

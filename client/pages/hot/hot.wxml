@@ -17,7 +17,7 @@
           <image src="/images/icons/lighting.png"></image>
       </view>
     </view>
-
+    
     <view   class='list' wx:for="{{hot}}" bindtap='navigate' data-list-id="{{item.id}}"
    style='background-image:url("/images/detailbackground.png");-webkit-background-size:cover;'>
     <block wx:if='{{item.Order_Type==0}}'>
@@ -30,7 +30,7 @@
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
         </view>
     </block>
-    <block wx:if='{{item.Order_Type===1}}'>
+    <block wx:if='{{item.Order_Type==1}}'>
        <view class='item'>
          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
@@ -40,7 +40,7 @@
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
     </block>
-    <block wx:if='{{item.Order_Type===2}}'>
+    <block wx:if='{{item.Order_Type==2}}'>
        <view class='item'>
          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
