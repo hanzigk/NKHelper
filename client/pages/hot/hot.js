@@ -9,48 +9,14 @@ Page({
       '失物招领',
       '活动'
       ],
-    hot: [
-      {
-        id:"0",
-        ordertype: 0,
-        hottype: "代购",
-        time: "2017-7-1",
-        title: "代买鲜芋仙",
-        location: "滨江道"
-      },
-      {
-        id:"1",
-        ordertype: 0,
-        hottype: "二手买卖",
-        time: "2017-7-1",
-        title: "睫毛膏",
-        location: "南开-津南"
-      },
-      {
-        id:"2",
-        ordertype: 0,
-        hottype: "失物招领",
-        time: "2017-7-1",
-        title: "一卡通",
-        location: "南开-津南"
-      },
-      {
-        id:"3",
-        ordertype: 2,
-        hottype: "活动",
-        time: "2017-7-1",
-        title: "组局狼人杀",
-        location: "南开-津南"
-      },
-      {
-        id:"4",
-        ordertype: 0,
-        hottype: "代购",
-        time: "2017-7-5",
-        title: "帮取快递",
-        location: "南开老校区"
-      }
-    ],
+    hot: [{id:"",
+      Order_Type: 0,
+      hottype: "",
+      time: "",
+      title: "",
+      location: ""
+      }, 
+      ],
       goods:[
         {
           id:"5",
@@ -216,7 +182,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      url: 'http://192.168.43.113:3000/searchAll',//此处填写你后台请求地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        
+        console.log(res.data);//在控制台输出在远程后台请求到的数据
+       /* var s="hot.Order_Type";
+        that.setData({ [s]: res.data[0].Order_Type })
+        // success*/
+        that.data.hot[0].Order_Type=res.data[0].Order_Type;
+        that.setData({hot:thar.data.hot})
+        
+      },
+      fail: function (res) {
+        // fail
+      },
+      complete: function (res) {
+        // complete
+      }
+    })
   },
 
   /**
