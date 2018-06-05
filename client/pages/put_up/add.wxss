@@ -1,3 +1,10 @@
+.background
+{
+  display: flex;
+  flex-direction: column;
+  background-color: #ab998d;
+  height: 100vh;
+}
 page{
     height:100%;
     min-height:100%;
@@ -6,129 +13,61 @@ page{
     font-size:14px;
 }
 .type{
+  display: flex;
   margin-top:300rpx;
-  margin-left: 10rpx;
   flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
-.daigou{
-  
-  margin-left: 10rpx;
-  flex-direction: row;
+.type .item
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 120rpx;
 }
-.qa{
-  
-  margin-left: 25rpx;
-  flex-direction: row;
+.image{
+  height: 65rpx;
+   width: 65rpx;
 }
-.huodong{
-  
-  margin-left: 20rpx;
-  flex-direction: row;
-}
-.find{
-  
-  margin-left: 40rpx;
-  flex-direction: row;
-}
-.type-text{
-  margin-left: 65rpx;
-  
-  flex-direction: row;
-}
-.daigou-text{
-  color:black;
-  margin-left: 10rpx;
-  flex-direction: row;
-}
-.qa-text{
-  color:black;
-  margin-left: 107rpx;
-  flex-direction: row;
-}
-.huodong-text{
-  color:black;
-  margin-left: 105rpx;
-  flex-direction: row;
-}
-.find-text{
-  color:black;
-  margin-left: 105rpx;
-  flex-direction: row;
-}
-
 .type2{
-  margin-top:20rpx;
-  margin-left: 10rpx;
+  display: flex;
+  margin-top:50rpx;
   flex-direction: row;
+  justify-content: space-around;
 }
-.pinche{
-  
-  margin-left: 10rpx;
-  flex-direction: row;
-}
-.pindan{
-  
-  margin-left: 20rpx;
-  flex-direction: row;
-}
-.kuaidi{
-  
-  margin-left: 20rpx;
-  flex-direction: row;
-}
-.ershou{
-  
-  margin-left: 40rpx;
-  flex-direction: row;
-}
-.type2-text{
-  margin-left: 65rpx;
-  
-  flex-direction: row;
-}
-.pinche-text{
-  color:black;
-  margin-left: 10rpx;
-  flex-direction: row;
-}
-.pindan-text{
-  color:black;
-  margin-left: 85rpx;
-  flex-direction: row;
-}
-.kuaidi-text{
-  color:black;
-  margin-left: 85rpx;
-  flex-direction: row;
-}
-.ershou-text{
-  color:black;
-  margin-left: 105rpx;
-  flex-direction: row;
+.type2 .item
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 120rpx;
 }
 
 .city{
     margin-right:10rpx;
     font-size:16px;
-    color: #007AFF;
+    color: #fff;
     text-align:left;
 }
 
 .weather{
     font-size:16px;
     text-align:left;
-    color: #007AFF;
+    color: #fff;
 }
 .today-time{
     padding:0rpx;
-    color: #007AFF;
+    color: #fff;
     font-size:70rpx;
     margin-top: 5;
     text-align:left;
 }
 .today-date{
     padding:0rpx;
-    color: #007AFF;
+    color: #fff;
     margin-top: 5;
     font-size:40rpx;
     text-align:left;

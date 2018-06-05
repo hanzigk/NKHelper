@@ -1,4 +1,4 @@
-<view class="add">
+<view class='background'>
   <view class="today">
         <view class='time'>
             <view class="today-time">{{todayTime}}</view>
@@ -14,28 +14,41 @@
   </view>
   
   <view class="type">
-      <image class="daigou" bindtap='daigou' src="/images/icons/daigou.png" style='width:150rpx;height: 150rpx;' />
-      <image class="qa" bindtap='qa' src="/images/icons/qa.png" style='width:150rpx;height: 150rpx;' />
-      <image class="huodong" bindtap='huodong' src="/images/icons/huodong.png" style='width:150rpx;height: 150rpx;' />
-      <image class="find" bindtap='find' src="/images/icons/find.png" style='width:150rpx;height: 150rpx;' />
+    <view class='item'>
+        <image class="image" bindtap='daigou' src="/images/icons/daigou.png"  />
+        <text >代买</text>
+    </view>
+    <view class='item'>
+         <image class="image" bindtap='qa' src="/images/icons/qa.png"  />
+         <text>提问</text>
+    </view>
+    <view class='item'>
+         <image class="image" bindtap='huodong' src="/images/icons/huodong.png"  />
+         <text >约着玩</text>
+    </view>
+    <view class='item'>
+        <image class="image" bindtap='find' src="/images/icons/find.png"  />
+        <text >找东西</text>
+    </view>
   </view>
-  <view class="type-text">
-      <text class="daigou-text" >代买</text>
-      <text class="qa-text">提问</text>
-      <text class="huodong-text">约着玩</text>
-      <text class="find-text">找东西</text>
+  
+    <view class="type2">
+    <view class='item'>
+        <image class="image" bindtap='pinche' src="/images/icons/car.png"  />
+        <text >拼车</text>
+    </view>
+    <view class='item'>
+          <image class="image" bindtap='kuaidi' src="/images/icons/kuaidi.png"  />
+          <text >代取快递</text>
+    </view>
+    <view class='item'>
+          <image class="image" bindtap='pindan' src="/images/icons/pindan.png" />
+          <text>拼单</text>
+    </view>
+    <view class='item'>
+         <image class="image"bindtap='ershou' src="/images/icons/ershou.png"  />
+         <text >二手交易</text>
+    </view>
   </view>
 
-  <view class="type2">
-      <image class="pinche" bindtap='pinche' src="/images/icons/car.png" style='width:150rpx;height: 150rpx;' />
-      <image class="kuaidi" bindtap='kuaidi' src="/images/icons/kuaidi.png" style='width:150rpx;height: 150rpx;' />
-      <image class="pindan" bindtap='pindan' src="/images/icons/pindan.png" style='width:150rpx;height: 150rpx;' />
-      <image class="ershou" bindtap='ershou' src="/images/icons/ershou.png" style='width:150rpx;height: 150rpx;' />
-  </view>
-  <view class="type2-text">
-      <text class="pinche-text" >拼车</text>
-      <text class="kuaidi-text">代取快递</text>
-      <text class="pindan-text">拼单</text>
-      <text class="ershou-text">二手交易</text>
-  </view>
 </view>
