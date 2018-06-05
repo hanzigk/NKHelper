@@ -9,12 +9,11 @@ Page({
       '失物招领',
       '活动'
       ],
-    hot: [{id:"",
+    hot: [{Wechat_Number_Put:"",
       Order_Type: 0,
-      hottype: "",
-      time: "",
-      title: "",
-      location: ""
+      Order_Time: "",
+      Order_Title: "",
+      Order_Content:""
       }, 
       ],
       goods:[
@@ -191,11 +190,7 @@ Page({
       success: function (res) {
         
         console.log(res.data);//在控制台输出在远程后台请求到的数据
-       /* var s="hot.Order_Type";
-        that.setData({ [s]: res.data[0].Order_Type })
-        // success*/
-        that.data.hot[0].Order_Type=res.data[0].Order_Type;
-        that.setData({hot:thar.data.hot})
+        
         
       },
       fail: function (res) {
