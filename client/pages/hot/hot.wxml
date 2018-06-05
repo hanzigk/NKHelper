@@ -22,32 +22,32 @@
    style='background-image:url("/images/detailbackground.png");-webkit-background-size:cover;'>
     <block wx:if='{{item.ordertype==0}}'>
       <view class='item'>
-         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
-         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
         </view>
     </block>
     <block wx:if='{{item.ordertype===1}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
-         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
     </block>
     <block wx:if='{{item.ordertype===2}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
-         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
     </block>
   </view>
@@ -68,12 +68,12 @@
   <view class='list'wx:for="{{goods}}"  catchtap='navigate' data-list-id="{{item.id}}"
     style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
       <view class='item'>
-         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
-         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
   </view>
 </scroll-view>
@@ -92,12 +92,12 @@
    <view class='list'wx:for="{{sale}}"  catchtap='navigate' data-list-id="{{item.id}}"
     style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
     <view class='item'>
-         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
-         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
   </view>
 </scroll-view>
@@ -116,12 +116,12 @@
    <view class='list'wx:for="{{lostandfound}}"  catchtap='navigate' data-list-id="{{item.id}}"
     style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
      <view class='item'>
-         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
-         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
   </view>
 </scroll-view>
@@ -140,12 +140,12 @@
    <view class='list'wx:for="{{activity}}"  catchtap='navigate' data-list-id="{{item.id}}"
    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
    <view class='item'>
-         <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.location}}</text>
-         <text style="font-size:30rpx;font-family:黑体;padding-top:5rpx;">{{item.time}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.location}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
   </view>
 </scroll-view>
