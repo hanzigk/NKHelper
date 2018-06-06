@@ -58,6 +58,26 @@ Page({
       url: '../put_up/put_upActivity/put_upActivity',
     })
   },
+  pinche: function () {
+    wx.navigateTo({
+      url: '../put_up/put_upPinche/put_upPinche',
+    })
+  },
+  pindan: function () {
+    wx.navigateTo({
+      url: '../put_up/put_upPindan/put_upPindan',
+    })
+  },
+  kuaidi: function () {
+    wx.navigateTo({
+      url: '../put_up/put_upKuaidi/put_upKuaidi',
+    })
+  },
+  ershou: function () {
+    wx.navigateTo({
+      url: '../put_up/put_upErshou/put_upErshou',
+    })
+  },
   onReachBottom: function () {
 
   },

@@ -15,6 +15,10 @@
     "pages/put_up/put_upQ&A/put_upQ&A",
     "pages/put_up/put_upActivity/put_upActivity",
     "pages/put_up/put_upFind/put_upFind",
+    "pages/put_up/put_upPinche/put_upPinche",
+    "pages/put_up/put_upPindan/put_upPindan",
+    "pages/put_up/put_upKuaidi/put_upKuaidi",
+    "pages/put_up/put_upErshou/put_upErshou",
     "pages/index/index",
     "pages/addCgi/addCgi"
   ],
