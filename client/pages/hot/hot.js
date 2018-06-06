@@ -1,10 +1,7 @@
 // pages/wxml/index.js
 Page({
   data: {
-
     inputValue: '',
-
-
     navbar: [
       '热门', 
       '代买',

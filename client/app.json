@@ -1,8 +1,9 @@
 {
   "pages":[
-    
+
+   
     "pages/hot/hot",
- "pages/hot/hotdetail/hotdetail",
+    "pages/hot/hotdetail/hotdetail",
     "pages/hot/search/search",
     "pages/user/user",
     "pages/user/scoreDetails/scoreDetails",
