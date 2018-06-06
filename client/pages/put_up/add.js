@@ -48,16 +48,7 @@ Page({
       url: '../put_up/put_upActivity/put_upActivity',
     })
   },
-<<<<<<< HEAD
-  pinche: function () {
-    wx.navigateTo({
-      url: '../put_up/put_upPinche/put_upPinche',
-    })
-  },
-  pindan: function () {
-    wx.navigateTo({
-      url: '../put_up/put_upPindan/put_upPindan',
-=======
+
   find: function () {
     wx.navigateTo({
       url: '../put_up/put_upFind/put_upFind',
@@ -66,30 +57,21 @@ Page({
   pinche: function () {
     wx.navigateTo({
       url: '../put_up/put_upFind/put_upPiche',
->>>>>>> e7b332c53766c5eea94248101212a49202dfc97c
     })
   },
   kuaidi: function () {
     wx.navigateTo({
-<<<<<<< HEAD
-      url: '../put_up/put_upKuaidi/put_upKuaidi',
-=======
       url: '../put_up/put_upFind/put_upKuaidi',
     })
   },
   pindan: function () {
     wx.navigateTo({
       url: '../put_up/put_upFind/put_upPindan',
->>>>>>> e7b332c53766c5eea94248101212a49202dfc97c
     })
   },
   ershou: function () {
     wx.navigateTo({
-<<<<<<< HEAD
-      url: '../put_up/put_upErshou/put_upErshou',
-=======
       url: '../put_up/put_upFind/put_upErshou',
->>>>>>> e7b332c53766c5eea94248101212a49202dfc97c
     })
   },
   onReachBottom: function () {
