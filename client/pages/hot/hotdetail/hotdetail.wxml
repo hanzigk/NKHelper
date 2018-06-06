@@ -36,7 +36,7 @@
                     <text class="answerer-des">二手交易</text>
                 </block>
             </view>
-            <view class="follow flex-item">
+            <view class="follow flex-item" catchtap='addorder'>
                 <text>十 接单</text>
             </view>
         </view>
@@ -58,12 +58,12 @@
                 <view class="operation-btn flex-item">
                     <image src="/images/icons/totalnumber.png"></image>
                     <text>
-                    Order_MaxNumber</text>
+                    {{Order_MaxNumber}}</text>
                 </view>
                 <view class="operation-btn flex-item">
                     <image src="/images/icons/remainpeople.png"></image>
                     <text>
-                      Order_NowNumber</text>
+                      {{Order_NowNumber}}</text>
                 </view>
 
             </view>
