@@ -78,12 +78,28 @@ orderdetail: function (event) {
    */
   onLoad: function (options) {
     var that = this;
-    // wx.request({
-    //   url: 'http://10.134.39.81:3000/searchMyPut',//此处填写你后台请求地址
-    //   header: {
-    //     'content-type': 'application/json' // 默认值
-    //   },
-    //   success: function (res) {
+    wx.request({
+      url: 'http://10.134.39.81:3000/searchMyPut?Wechat_Number_Put='+'ludi5757',//此处填写你后台请求地址
+      
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        var array = that.data.hot
+        var i = 0
+        console.log(res.data);
+        for (i; i < res.data.length; i++) {
+          array[i] = {
+            id: res.data[i].OrderPut_ID,
+            Order_Type: res.data[i].Order_Type,
+            time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
+            title: res.data[i].Order_Title,
+            content: res.data[i].Order_Content
+          }
+        }
+        that.setData({
+          hot: array
+        });
   },
 
   /**
