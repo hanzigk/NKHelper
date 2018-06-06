@@ -48,6 +48,7 @@ Page({
       url: '../put_up/put_upActivity/put_upActivity',
     })
   },
+
   find: function () {
     wx.navigateTo({
       url: '../put_up/put_upFind/put_upFind',
