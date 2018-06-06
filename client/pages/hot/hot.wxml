@@ -58,6 +58,7 @@
          <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
+
           <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
@@ -99,6 +100,7 @@
       </view>
         <view class='list-item'>
           <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
       </block>
