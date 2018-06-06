@@ -1,6 +1,13 @@
 Page({
   data: {
   },
+  confirm:function()
+  {
+    console.log(1)
+    wx.switchTab({
+      url: '/pages/hot/hot'
+    });  
+  },
   onLoad: function () {
   
   },

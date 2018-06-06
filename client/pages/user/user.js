@@ -110,25 +110,25 @@ Page({
 navigate:function(event){
   var detailid = event.currentTarget.dataset.detailId
   console.log(detailid);
-  if(detailid="0")
+  if(detailid=="0")
   {
     wx.navigateTo({
       url: '/pages/user/myList/myList',
     })
   }
-  if (detailid = "1") {
+  if (detailid == "1") {
     wx.navigateTo({
       url: '/pages/user/myQ&A/myQ&A',
     })
   }
-  if (detailid = "2") {
+  if (detailid == "2") {
     wx.navigateTo({
       url: '/pages/user/myActivity/myActivity',
     })
   }
-  if (detailid = "3") {
+  if (detailid =="3") {
     wx.navigateTo({
-      url: '/pages/user/myList/myList',
+      url: '/pages/user/scoreDetails/scoreDetails',
     })
   }
 },
