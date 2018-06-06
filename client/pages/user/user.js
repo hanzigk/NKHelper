@@ -34,76 +34,10 @@ Page({
     ],
     order: [
       {
-        ordertype: 0,
-        ordername: "coco",
-        price: "12",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "1"
-      },
-      {
-        ordertype: 0,
-        ordername: "coco",
-        price: "13",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "2"
-      },
-      {
-        ordertype: 1,
-        ordername: "coco",
-        price: "14",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "3"
-      },
-      {
-        ordertype: 2,
-        ordername: "coco",
-        price: "15",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "4"
-      },
-      {
-        ordertype: 2,
-        ordername: "coco",
-        price: "16",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "5"
-      },
-      {
-        ordertype: 0,
-        ordername: "coco",
-        price: "17",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "6"
-      },
-      {
-        ordertype: 1,
-        ordername: "coco",
-        price: "18",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "7"
-      },
-      {
-        ordertype: 2,
-        ordername: "coco",
-        price: "19",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "8"
+        Order_Type: 0,
+        title: "",
+        orderstatus: "",
+        id: 1
       }],
     time: (new Date()).toString()
   },
@@ -143,7 +77,13 @@ orderdetail: function (event) {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    // wx.request({
+    //   url: 'http://10.134.39.81:3000/searchMyPut',//此处填写你后台请求地址
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success: function (res) {
   },
 
   /**
