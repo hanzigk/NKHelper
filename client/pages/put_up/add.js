@@ -7,15 +7,10 @@ Page({
     weather: '',
     todayDate: '',
     todayTime: '',
-    
-    
   },
   onLoad: function () {
     this.loadInfo();
     this.getTime();
-
-    
-    
   },
   // 监听页面初次渲染完成
   onReady: function () {
@@ -43,11 +38,6 @@ Page({
         url: '../put_up/put_upDaigou/put_upDaigou',
       })
   },
-  find:function(){
-    wx.navigateTo({
-      url: '../put_up/put_upFind/put_upFind',
-    })
-  },
   qa:function(){
     wx.navigateTo({
       url: '../put_up/put_upQ&A/put_upQ&A',
@@ -56,6 +46,31 @@ Page({
   huodong:function(){
     wx.navigateTo({
       url: '../put_up/put_upActivity/put_upActivity',
+    })
+  },
+  find: function () {
+    wx.navigateTo({
+      url: '../put_up/put_upFind/put_upFind',
+    })
+  },
+  pinche: function () {
+    wx.navigateTo({
+      url: '../put_up/put_upFind/put_upPiche',
+    })
+  },
+  kuaidi: function () {
+    wx.navigateTo({
+      url: '../put_up/put_upFind/put_upKuaidi',
+    })
+  },
+  pindan: function () {
+    wx.navigateTo({
+      url: '../put_up/put_upFind/put_upPindan',
+    })
+  },
+  ershou: function () {
+    wx.navigateTo({
+      url: '../put_up/put_upFind/put_upErshou',
     })
   },
   onReachBottom: function () {

@@ -38,3 +38,8 @@
   margin-right: 20rpx;
 
 }
+.other-button-hover
+{
+  background-color: #fff;
+  color: #fff; 
+}

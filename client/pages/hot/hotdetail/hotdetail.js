@@ -7,81 +7,39 @@ Page({
     this.setData({
       mid: options.id,
     })
+      var temp=this.data.mid
+      var that = this;
+      wx.request({
+        url: 'http://10.134.39.81:3000/searchByOrderPutID?OrderPut_ID='+temp,//此处填写你后台请求地址
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function (res) {
+          console.log(res.data);    
+          that.setData({
+            ordername: res.data.Order_Title,
+            sendername: res.data.Wechat_Number_Put,
+            Order_Type: res.data.Order_Type,
+            content: res.data.Order_Content,
+            id: res.data.OrderPut_ID,
+            time: res.data.Order_Time,
+            Order_MaxNumber: res.data.Order_MaxNumber,
+            Order_NowNumber: res.data.Order_NowNumber
+          });
+        }
+      })
+    
   },
   data:{
-    orderdetail: [
-      {
-        ordername: "coco",
-        price: "12",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "1",
-        content: "第一杯"
-      },
-      {
-        ordername: "coco",
-        price: "13",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "2",
-        content: "第二杯"
-      },
-      {
-        ordername: "coco",
-        price: "14",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "3",
-        content: "第三杯"
-      },
-      {
-        ordername: "coco",
-        price: "15",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "4",
-        content: "第四杯"
-      },
-      {
-        ordername: "coco",
-        price: "16",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "5",
-        content: "第五杯"
-      },
-      {
-        ordername: "coco",
-        price: "17",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "6",
-        content: "第六杯"
-      },
-      {
-        ordername: "coco",
-        price: "18",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "7",
-        content: "第七杯"
-      },
-      {
-        ordername: "coco",
-        price: "19",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "8",
-        content: "第八杯"
-      }
-    ]
+        id: 0,
+        ordername:"",
+        sendername: "",
+        receivername: "",
+        content: "",
+        Order_Type:0,
+        time:"",
+        Order_MaxNumber:"",
+        Order_NowNumber: "",
+        mid:0
   }
 })

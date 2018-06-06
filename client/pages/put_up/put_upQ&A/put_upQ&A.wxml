@@ -6,4 +6,5 @@
      <image src='/images/icons/addphoto.png' class='image'></image>
      <text style="color:white;font-size:30rpx;font-family:黑体;padding-top:5rpx">添加照片</text>
   </view>
+  <button hover="true" plain='true' hover-class="other-button-hover" style="width:750rpx;color: #eeda9d; border-color: #eeda9d;"  bindtap='confirm'>确认</button>
 </view>
