@@ -1,4 +1,5 @@
-// pages/wxml/index.js
+// pages/wxml/index.js]
+var app = getApp();
 Page({
 
   /**
@@ -76,7 +77,7 @@ Page({
   },
 
   login:function(userinfo){
-    app=getApp();
+    
     var that=this;
     wx.login({
       success: function (res) {
