@@ -9,7 +9,7 @@ App({
           if (res.code) {
             //发起网络请求
             wx.request({
-              url: 'https://test.com/onLogin',
+              url: 'http://10.134.39.81:3000/onLogin',
               data: {
                 code: res.code
               }
