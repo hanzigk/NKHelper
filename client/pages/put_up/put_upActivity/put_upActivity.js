@@ -61,6 +61,7 @@ Page({
           url: '/pages/hot'
         })
 
+
       }
     })
   }

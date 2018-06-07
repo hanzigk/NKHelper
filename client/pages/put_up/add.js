@@ -35,7 +35,8 @@ Page({
   // 监听页面上拉触底
   daigou:function(){
       wx.navigateTo({
-        url: '../put_up/put_upDaigou/put_upDaigou',
+        //url: '../put_up/put_upDaigou/put_upDaigou',
+        url: '../put_up/put_upActivity/put_upActivity?type=0'
       })
   },
   qa:function(){
