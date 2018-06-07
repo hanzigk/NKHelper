@@ -34,9 +34,11 @@ Page({
     ],
     order: [
       {
-        Order_Type: 0,
-        title: "",
-        orderstatus: "",
+        ordertype: 0,
+        ordername: "",
+        time:"",
+        ordermax:0,
+        ordernow:0,
         id: 1
       }],
     time: (new Date()).toString()
@@ -75,33 +77,33 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var that = this;
-    wx.request({
-      url: 'http://10.134.39.81:3000/searchMyPut?Wechat_Number_Put=' + 'ludi5757',//此处填写你后台请求地址
-
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        var array = that.data.hot
-        var i = 0
-        console.log(res.data);
-        for (i; i < res.data.length; i++) {
-          array[i] = {
-            id: res.data[i].OrderPut_ID,
-            Order_Type: res.data[i].Order_Type,
-            time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
-            title: res.data[i].Order_Title,
-            content: res.data[i].Order_Content
-          }
+onLoad: function (options) {
+  var that = this;
+  wx.request({
+    url: 'http://10.134.39.81:3000/searchMyPut?Wechat_Number_Put=ludi5757',//此处填写你后台请求地址
+    header: {
+      'content-type': 'application/json' // 默认值
+    },
+    success: function (res) {
+      var array = that.data.order
+      var i = 0
+      console.log(res.data);
+      for (i; i < res.data.length; i++) {
+        array[i] = {
+          id: res.data[i].OrderPut_ID,
+          ordertype: res.data[i].Order_Type,
+          time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
+          ordername: res.data[i].Order_Title,
+          ordermax: res.data[i].Order_MaxNumber,
+          ordernow: res.data[i].Order_NowNumber
         }
-        that.setData({
-          hot: array
-        });
-      },
-    })
-  },
+      }
+      that.setData({
+        order: array
+      });
+    }
+  })
+},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
