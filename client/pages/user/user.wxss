@@ -15,6 +15,14 @@
 button[class='hiddenbtn']::after{
   border: 0;
 }
+.noorder
+{
+  align-items:center;
+  color:#FFF;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40rpx;
+}
 .user-image{
   margin-top: 20rpx;
   width: 300rpx;

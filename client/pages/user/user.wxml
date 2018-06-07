@@ -2,7 +2,7 @@
  <view class='user-info' >
    <image  class='user-image' src='{{user.imagePath}}' style=''></image>
      <button class='hiddenbtn' bindgetuserinfo='login' open-type='getUserInfo'  style="font-size:40rpx;font-family:黑体;font-weight:bold;padding-top:20rpx" >{{user.name}}</button>
-     <text style="font-size:32rpx;font-family:黑体;padding-top:5rpx">积分:{{user.score}}</text>
+     <text style="font-size:32rpx;font-family:黑体;padding-top:5rpx">积分:{{score}}</text>
      
      <view class='bar'>
        <view class='user-text' wx:for="{{details}}" catchtap='navigate' data-detail-id="{{item.detailsid}}">
@@ -16,7 +16,7 @@
    <image class='icon-image' src='/images/icons/order.png' ></image>
    <text style="font-size:32rpx;font-family:;padding-top:5rpx">我的订单</text>
  </view>
-
+<block wx:if='{{details[0].detailsnumber>0}}'>
 <scroll-view scroll-y style="height: 40vh;">
   <view   class='details' wx:for="{{order}}" bindtap='orderdetail' data-order-id="{{item.id}}"data-receiver-name="{{item.receivername}}"
    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
@@ -158,5 +158,9 @@
     </block>
   </view>
 </scroll-view>
+</block>
+<block wx:if='{{details[0].detailsnumber==0}}'>
+    <text class="noorder" style="font-size:50rpx;font-family:幼体;" >这里空空如也哦</text>
+</block>
 
 </view>
