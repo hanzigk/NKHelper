@@ -83,14 +83,11 @@ orderdetail: function (event) {
       url: '/pages/user/myList/myListDetail/myListDetail?id=' + orderid + '&receivername=' + receivername,
     })
   },
-<<<<<<< HEAD
+
 
   login:function(userinfo){
     
-=======
-login:function(userinfo){
-    app=getApp();
->>>>>>> cea938914b73efb6efe7546120842852417bd636
+
     var that=this;
     wx.login({
       success: function (res) {
