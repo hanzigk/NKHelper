@@ -76,6 +76,7 @@ Page({
   },
 
   login:function(userinfo){
+    app=getApp();
     var that=this;
     wx.login({
       success: function (res) {
@@ -88,6 +89,7 @@ Page({
             },
             success:function(opt){
               console.log(opt);
+              app.globalData.Wechat_Number=opt.data.openid;
               if (userinfo.detail.errMsg == 'getUserInfo:ok') {
                 console.log(userinfo);
                 var temp = that.data.user;
