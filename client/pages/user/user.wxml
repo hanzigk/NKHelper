@@ -1,7 +1,7 @@
 <view class='user'>
  <view class='user-info' >
    <image  class='user-image' src='{{user.imagePath}}' style=''></image>
-     <text style="font-size:40rpx;font-family:黑体;font-weight:bold;padding-top:20rpx">{{user.name}}</text>
+     <button class='hiddenbtn' bindgetuserinfo='login' open-type='getUserInfo'  style="font-size:40rpx;font-family:黑体;font-weight:bold;padding-top:20rpx" >{{user.name}}</button>
      <text style="font-size:32rpx;font-family:黑体;padding-top:5rpx">积分:{{user.score}}</text>
      
      <view class='bar'>
@@ -25,97 +25,35 @@
          <image class='icon-image' src='/images/icons/order1.png' ></image>
       </view>
        <view class='user-text'>
-        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
-        <block wx:if='{{item.Order_Type==0}}'>
+        <text style="font-size:50rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
         <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.orderstatus}}</text>
-        </block>
        </view>
        <view class='details-info'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
+          <text style="font-size:50rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
        </view>
     </block>
-    <block wx:if='{{item.ordertype==1}}'>
+    <block wx:if='{{item.ordertype===1}}'>
        <view class='image-info'>
          <image class='icon-image' src='/images/icons/Q&A.png' ></image>
       </view>
        <view class='user-text'>
-        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
+        <text style="font-size:50rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
         <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.orderstatus}}</text>
        </view>
        <view class='details-info'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
+          <text style="font-size:50rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
        </view>
     </block>
-    <block wx:if='{{item.ordertype==2}}'>
+    <block wx:if='{{item.ordertype===2}}'>
        <view class='image-info'>
           <image class='icon-image' src='/images/icons/activity.png' ></image>
       </view>
         <view class='user-text'>
-        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
+        <text style="font-size:50rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
         <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.orderstatus}}</text>
        </view>
        <view class='details-info'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
-       </view>
-    </block>
-     <block wx:if='{{item.ordertype==3}}'>
-      <view class='image-info'>
-         <image class='icon-image' src='/images/icons/order1.png' ></image>
-      </view>
-       <view class='user-text'>
-        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
-        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.orderstatus}}</text>
-       </view>
-       <view class='details-info'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
-       </view>
-    </block>
-     <block wx:if='{{item.ordertype==4}}'>
-      <view class='image-info'>
-         <image class='icon-image' src='/images/icons/order1.png' ></image>
-      </view>
-       <view class='user-text'>
-        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
-        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.orderstatus}}</text>
-       </view>
-       <view class='details-info'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
-       </view>
-    </block>
-     <block wx:if='{{item.ordertype==5}}'>
-      <view class='image-info'>
-         <image class='icon-image' src='/images/icons/order1.png' ></image>
-      </view>
-       <view class='user-text'>
-        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
-        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.orderstatus}}</text>
-       </view>
-       <view class='details-info'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
-       </view>
-    </block>
-     <block wx:if='{{item.ordertype==6}}'>
-      <view class='image-info'>
-         <image class='icon-image' src='/images/icons/order1.png' ></image>
-      </view>
-       <view class='user-text'>
-        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
-        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.orderstatus}}</text>
-       </view>
-       <view class='details-info'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
-       </view>
-    </block>
-     <block wx:if='{{item.ordertype==7}}'>
-      <view class='image-info'>
-         <image class='icon-image' src='/images/icons/order1.png' ></image>
-      </view>
-       <view class='user-text'>
-        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
-        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.orderstatus}}</text>
-       </view>
-       <view class='details-info'>
-          <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
+          <text style="font-size:50rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
        </view>
     </block>
   </view>

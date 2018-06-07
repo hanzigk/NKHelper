@@ -9,6 +9,12 @@
  flex-direction: column;
  align-items:center;
 }
+.hiddenbtn{
+  background-color: #ab998d;
+}
+button[class='hiddenbtn']::after{
+  border: 0;
+}
 .user-image{
   margin-top: 20rpx;
   width: 300rpx;
