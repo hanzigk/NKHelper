@@ -56,22 +56,22 @@ Page({
   },
   pinche: function () {
     wx.navigateTo({
-      url: '../put_up/put_upFind/put_upPiche',
+      url: '../put_up/put_upPinche/put_upPinche',
     })
   },
   kuaidi: function () {
     wx.navigateTo({
-      url: '../put_up/put_upFind/put_upKuaidi',
+      url: '../put_up/put_upKuaidi/put_upKuaidi',
     })
   },
   pindan: function () {
     wx.navigateTo({
-      url: '../put_up/put_upFind/put_upPindan',
+      url: '../put_up/put_upPindan/put_upPindan',
     })
   },
   ershou: function () {
     wx.navigateTo({
-      url: '../put_up/put_upFind/put_upErshou',
+      url: '../put_up/put_upErshou/put_upErshou',
     })
   },
   onReachBottom: function () {
