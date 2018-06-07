@@ -1,7 +1,7 @@
 <!--answer.wxml-->
 <view class="container">
     <view class="question" bindtap="toQuestion">
-        <text class="question-title">选择 Kindle 而不是纸质书的原因是什么？</text>
+        <text class="question-title">{{ordername}}</text>
     </view>
     <view class="answerer-wrp">
         <view class="bg-half"></view>
@@ -10,41 +10,70 @@
                 <image src="/images/pig.jpg"></image>
             </view>
             <view class="answerer-info flex-item">
-                <text class="answerer-name">猪小妹</text>
-                <text class="answerer-des">代购</text>
+                <text class="answerer-name">{{sendername}}</text>
+                <block wx:if='{{Order_Type==0}}'>
+                    <text class="answerer-des">代买</text>
+                </block>
+                  <block wx:if='{{Order_Type==1}}'>
+                    <text class="answerer-des">提问</text>
+                </block>
+                  <block wx:if='{{Order_Type==2}}'>
+                    <text class="answerer-des">约着玩</text>
+                </block>
+                  <block wx:if='{{Order_Type==3}}'>
+                    <text class="answerer-des">找东西</text>
+                </block>
+                  <block wx:if='{{Order_Type==4}}'>
+                    <text class="answerer-des">拼车</text>
+                </block>
+                  <block wx:if='{{Order_Type==5}}'>
+                    <text class="answerer-des">代取快递</text>
+                </block>
+                  <block wx:if='{{Order_Type==6}}'>
+                    <text class="answerer-des">拼单</text>
+                </block>
+                  <block wx:if='{{Order_Type==7}}'>
+                    <text class="answerer-des">二手交易</text>
+                </block>
+            </view>
+            <view class="follow flex-item" catchtap='addorder'>
+                <text>十 接单</text>
             </view>
         </view>
     </view>
     <view class="answer-content">
-        <text>难道不明白纸质书更贵啊！！！
-
-            若觉得kindle更贵，我觉得要么阅读量太少，那确实没有买kindle的必要。要么买的都是盗版的纸质书？我不清楚不加以评论。。。
-
-            另外，用kindle看小说的怎么真心不懂了。题主不看小说么？难道题主拿来看教科书还是技术文档？还是题主觉得小说就是小时代内样的？（对小时代没偏见，尊重多样性）
-
-            而且纸质书搬起来真心困难啊！当初毕业带不回来，忍痛卖了不少好桑心！
-
-            碎片时间阅读总不能天天背着一本书吧，那么占地方。
-
-            看到描述最后一段，感觉有骗答案的嫌疑
-
+        <text>{{content}}
         </text>
-    
+      
         <text>
-            难道不明白纸质书更贵啊！！！
-
-            若觉得kindle更贵，我觉得要么阅读量太少，那确实没有买kindle的必要。要么买的都是盗版的纸质书？我不清楚不加以评论。。。
-
-            另外，用kindle看小说的怎么真心不懂了。题主不看小说么？难道题主拿来看教科书还是技术文档？还是题主觉得小说就是小时代内样的？（对小时代没偏见，尊重多样性）
-
-            而且纸质书搬起来真心困难啊！当初毕业带不回来，忍痛卖了不少好桑心！
-
-            碎片时间阅读总不能天天背着一本书吧，那么占地方。
-
-            看到描述最后一段，感觉有骗答案的嫌疑
+        {{time}}
         </text>
-  
+       
+        <text>
+        接单人:{{mreceivername}}
+        </text>
     </view>
 
+    <view class="answer-footer flex-wrp">
+        
+        <view class="operation-wrp flex-item">
+            <view class="operation flex-wrp flex-tab">
+                <view class="operation-btn flex-item">
+                    <image src="/images/icons/totalnumber.png"></image>
+                    <text>
+                    {{Order_MaxNumber}}</text>
+                </view>
+                <view class="operation-btn flex-item">
+                    <image src="/images/icons/remainpeople.png"></image>
+                    <text>
+                      {{Order_NowNumber}}</text>
+                </view>
+
+            </view>
+        </view>
+
+
+
+    </view>
 </view>
 

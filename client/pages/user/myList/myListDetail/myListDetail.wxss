@@ -77,13 +77,18 @@
 .answerer .follow text{
     display: inline-block;
     padding: 15rpx 20rpx;
-    color: #40bcd0;
-    border: solid 2px #40bcd0;
+    color: #ab998d;
+    border: solid 2px #ab998d;
     border-radius: 6rpx;
 }
 .answer-content{
+    display: flex;
+    flex-direction: column;
     padding: 30rpx 40rpx;
     background: #ffffff;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-around;
 }
 .answer-content text{
     font-size: 32rpx;

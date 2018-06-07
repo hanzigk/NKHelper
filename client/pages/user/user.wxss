@@ -53,8 +53,9 @@
 }
 .details-info
 {
+  position: absolute;
  display: flex;
- margin-left: 370rpx;
+ right: 50rpx;
 }
 .image-info
 {

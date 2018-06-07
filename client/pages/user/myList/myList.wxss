@@ -56,9 +56,10 @@
 }
 .list .userinfo .item
 {
+  position: absolute;
   display: flex;
-  flex-direction: row;
-  width:300rpx;
+  flex-direction: column;
+  right:50rpx;
 }
 .list .item
 {
