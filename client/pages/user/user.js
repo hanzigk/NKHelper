@@ -5,14 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user:{
-      imagePath:"/images/pig.jpg",
-      name:"猪小妹",
-      score:"5"
+    user: {
+      imagePath: "/images/pig.jpg",
+      name: "猪小妹",
+      score: "5"
     },
-    details:[
+    details: [
       {
-        detailsid:"0",
+        detailsid: "0",
         detailsnumber: "20",
         text: "订单"
       },
@@ -43,38 +43,37 @@ Page({
       }],
     time: (new Date()).toString()
   },
-navigate:function(event){
-  var detailid = event.currentTarget.dataset.detailId
-  console.log(detailid);
-  if(detailid=="0")
-  {
+  navigate: function (event) {
+    var detailid = event.currentTarget.dataset.detailId
+    console.log(detailid);
+    if (detailid == "0") {
+      wx.navigateTo({
+        url: '/pages/user/myList/myList',
+      })
+    }
+    if (detailid == "1") {
+      wx.navigateTo({
+        url: '/pages/user/myQ&A/myQ&A',
+      })
+    }
+    if (detailid == "2") {
+      wx.navigateTo({
+        url: '/pages/user/myActivity/myActivity',
+      })
+    }
+    if (detailid == "3") {
+      wx.navigateTo({
+        url: '/pages/user/scoreDetails/scoreDetails',
+      })
+    }
+  },
+  orderdetail: function (event) {
+    var orderid = event.currentTarget.dataset.orderId
+    console.log(orderid);
     wx.navigateTo({
-      url: '/pages/user/myList/myList',
+      url: '/pages/user/myList/myListDetail/myListDetail?id=' + orderid,
     })
-  }
-  if (detailid == "1") {
-    wx.navigateTo({
-      url: '/pages/user/myQ&A/myQ&A',
-    })
-  }
-  if (detailid == "2") {
-    wx.navigateTo({
-      url: '/pages/user/myActivity/myActivity',
-    })
-  }
-  if (detailid =="3") {
-    wx.navigateTo({
-      url: '/pages/user/scoreDetails/scoreDetails',
-    })
-  }
-},
-orderdetail: function (event) {
-  var orderid = event.currentTarget.dataset.orderId
-  console.log(orderid);
-    wx.navigateTo({
-      url: '/pages/user/myList/myListDetail/myListDetail?id='+orderid,
-    })
-},
+  },
   /**
    * 生命周期函数--监听页面加载
    */
