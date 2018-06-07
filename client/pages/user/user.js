@@ -103,7 +103,7 @@ orderdetail: function (event) {
                 wx.request({
                   url: 'http://10.134.39.81:3000/addUser',
                   data: {
-                    Wechat_Number:opt.data.id,
+                    Wechat_Number:opt.data.openid,
                     Wechat_Name: userinfo.detail.userInfo.nickName,
                     Phone_Number:null,
                     NickName: userinfo.detail.userInfo.nickName,
@@ -116,7 +116,56 @@ orderdetail: function (event) {
           });
 
         } else {
-          console.log('登录失败！' + res.errMsg)
+          //console.log('登录失败！' + res.errMsg)
+          wx.showModal({
+            title: 'Oops!',
+            content: '不授权就不能用了哟/r/n点击确定打开设置重新授权',
+            success: function (res) {
+              if (res.confirm) {
+                //console.log('用户点击确定')
+                wx.openSetting({
+                  success: function (res) {
+                    if (!res.authSetting["scope.userInfo"]) {
+                      wx.request({
+                        url: 'http://10.134.39.81:3000/onLogin',
+                        data: {
+                          code: res.code
+                        },
+                        success: function (opt) {
+                          console.log(opt);
+                          app.globalData.Wechat_Number = opt.data.openid;
+                          if (userinfo.detail.errMsg == 'getUserInfo:ok') {
+                            console.log(userinfo);
+                            var temp = that.data.user;
+                            temp = {
+                              name: userinfo.detail.userInfo.nickName,
+                              imagePath: userinfo.detail.userInfo.avatarUrl
+                            };
+                            that.setData({
+                              user: temp
+                            });
+                            wx.request({
+                              url: 'http://10.134.39.81:3000/addUser',
+                              data: {
+                                Wechat_Number: opt.data.openid,
+                                Wechat_Name: userinfo.detail.userInfo.nickName,
+                                Phone_Number: null,
+                                NickName: userinfo.detail.userInfo.nickName,
+                                Address: null
+                              }
+                            });
+                          }
+
+                        }
+                      });
+                    }
+                  }
+                })
+              } else if (res.cancel) {
+                //console.log('用户点击取消')
+              }
+            }
+          })
         }
       }
     });
