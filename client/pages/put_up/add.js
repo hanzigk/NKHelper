@@ -36,43 +36,50 @@ Page({
   daigou:function(){
       wx.navigateTo({
         //url: '../put_up/put_upDaigou/put_upDaigou',
-        url: '../put_up/put_upActivity/put_upActivity?type=0'
+        url: '../put_up/put_upActivity/put_upActivity?type=0',
       })
   },
   qa:function(){
     wx.navigateTo({
-      url: '../put_up/put_upQ&A/put_upQ&A',
+      //url: '../put_up/put_upQ&A/put_upQ&A',
+      url: '../put_up/put_upActivity/put_upActivity?type=1',
     })
   },
   huodong:function(){
     wx.navigateTo({
-      url: '../put_up/put_upActivity/put_upActivity',
+      //url: '../put_up/put_upActivity/put_upActivity',
+      url: '../put_up/put_upActivity/put_upActivity?type=2',
     })
   },
 
   find: function () {
     wx.navigateTo({
-      url: '../put_up/put_upFind/put_upFind',
+      //url: '../put_up/put_upFind/put_upFind',
+      url: '../put_up/put_upActivity/put_upActivity?type=3',
     })
   },
   pinche: function () {
     wx.navigateTo({
-      url: '../put_up/put_upFind/put_upPiche',
+      //url: '../put_up/put_upFind/put_upPiche',
+      url: '../put_up/put_upActivity/put_upActivity?type=4',
     })
   },
   kuaidi: function () {
     wx.navigateTo({
-      url: '../put_up/put_upFind/put_upKuaidi',
+      //url: '../put_up/put_upFind/put_upKuaidi',
+      url: '../put_up/put_upActivity/put_upActivity?type=5',
     })
   },
   pindan: function () {
     wx.navigateTo({
-      url: '../put_up/put_upFind/put_upPindan',
+      //url: '../put_up/put_upFind/put_upPindan',
+      url: '../put_up/put_upActivity/put_upActivity?type=6',
     })
   },
   ershou: function () {
     wx.navigateTo({
-      url: '../put_up/put_upFind/put_upErshou',
+      //url: '../put_up/put_upFind/put_upErshou',
+      url: '../put_up/put_upActivity/put_upActivity?type=7',
     })
   },
   onReachBottom: function () {

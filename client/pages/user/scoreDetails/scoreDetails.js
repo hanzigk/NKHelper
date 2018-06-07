@@ -2,144 +2,15 @@
 var app = getApp()
 Page({
   data: {
-    sendorder: [
+    scoredetail: [
       {
+        username: "",
+        time:"",
+        userscore:"",
         ordertype: 0,
-        ordername: "coco",
-        price: "12",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "1"
-      },
-      {
-        ordertype: 0,
-        ordername: "coco",
-        price: "13",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "2"
-      },
-      {
-        ordertype: 1,
-        ordername: "coco",
-        price: "14",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "3"
-      },
-      {
-        ordertype: 2,
-        ordername: "coco",
-        price: "15",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "4"
-      },
-      {
-        ordertype: 2,
-        ordername: "coco",
-        price: "16",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "5"
-      },
-      {
-        ordertype: 0,
-        ordername: "coco",
-        price: "17",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "6"
-      },
-      {
-        ordertype: 1,
-        ordername: "coco",
-        price: "18",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "7"
-      },
-      {
-        ordertype: 2,
-        ordername: "coco",
-        price: "19",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "8"
-      }
-    ],
-    receiveorder: [
-      {
-        ordername: "coco",
-        price: "12",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "1"
-      },
-      {
-        ordername: "coco",
-        price: "13",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "2"
-      },
-      {
-        ordername: "coco",
-        price: "14",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "3"
-      },
-      {
-        ordername: "coco",
-        price: "15",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "4"
-      },
-      {
-        ordername: "coco",
-        price: "16",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "5"
-      },
-      {
-        ordername: "coco",
-        price: "17",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "6"
-      },
-      {
-        ordername: "coco",
-        price: "18",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "7"
-      },
-      {
-        ordername: "coco",
-        price: "19",
-        orderstatus: "已成交",
-        sendername: "A",
-        receivername: "B",
-        id: "8"
+        ordertitle:"",
+        id: "0",
+        receivername:""
       }
     ],
     navbar: ['我发出的订单', '我接收的订单'],
@@ -147,9 +18,10 @@ Page({
   },
   listdetails: function (event) {
     var listid = event.currentTarget.dataset.listId
+    var username = event.currentTarget.dataset.userName
     console.log(listid);
     wx.navigateTo({
-      //url: '/pages/user/myList/myListDetail/myListDetail?id=' + listid,
+      url: '/pages/user/myList/myListDetail/myListDetail?id='+listid+'&receivername='+username,
     })
   },
   navbarTap: function (e) {
@@ -157,14 +29,34 @@ Page({
       currentTab: e.currentTarget.dataset.idx
     })
   },
-  // 加载
-  onLoad: function () {
+  onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '分数详情'
     })
-    var that = this
-    //更新数据
-    that.setData({
+    var that = this;
+    wx.request({
+      url: 'http://10.134.39.81:3000/searchMyGet?Wechat_Number_Get=ludi5757',//此处填写你后台请求地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        var array = that.data.scoredetail
+        var i = 0
+        console.log(res.data);
+        for (i; i < res.data.length; i++) {
+        array[i] = {
+              id: res.data[i].OrderGet_ID,
+              time: res.data[i].Order_Time,
+              ordertitle: res.data[i].Order_Title,
+              username: res.data[i].Wechat_Number_Put,
+              userscore: res.data[i].Credit_PtoG,
+              receivername: res.data[i].Wechat_Number_Get
+            }
+        }
+        that.setData({
+          scoredetail: array,
+        });
+      }
     })
-  }
+  },
 })
