@@ -18,42 +18,142 @@
  </view>
 
 <scroll-view scroll-y style="height: 40vh;">
-  <view   class='details' wx:for="{{order}}" bindtap='orderdetail' data-order-id="{{item.id}}"
+  <view   class='details' wx:for="{{order}}" bindtap='orderdetail' data-order-id="{{item.id}}"data-receiver-name="{{item.receivername}}"
    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
     <block wx:if='{{item.ordertype==0}}'>
       <view class='image-info'>
          <image class='icon-image' src='/images/icons/order1.png' ></image>
       </view>
        <view class='user-text'>
-        <text style="font-size:50rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
-        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.orderstatus}}</text>
+        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
+        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.time}}</text>
        </view>
        <view class='details-info'>
-          <text style="font-size:50rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
+          <block wx:if='{{item.ordermax==item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">已完成</text>
+          </block>
+          <block wx:if='{{item.ordermax>item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">未完成</text>
+          </block>
        </view>
     </block>
-    <block wx:if='{{item.ordertype===1}}'>
+    <block wx:if='{{item.ordertype==1}}'>
        <view class='image-info'>
          <image class='icon-image' src='/images/icons/Q&A.png' ></image>
       </view>
        <view class='user-text'>
-        <text style="font-size:50rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
-        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.orderstatus}}</text>
+        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
+        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.time}}</text>
        </view>
        <view class='details-info'>
-          <text style="font-size:50rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
+         <block wx:if='{{item.ordermax==item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">已完成</text>
+          </block>
+          <block wx:if='{{item.ordermax>item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">未完成</text>
+          </block>
        </view>
     </block>
-    <block wx:if='{{item.ordertype===2}}'>
+    <block wx:if='{{item.ordertype==2}}'>
        <view class='image-info'>
           <image class='icon-image' src='/images/icons/activity.png' ></image>
       </view>
         <view class='user-text'>
-        <text style="font-size:50rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
-        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.orderstatus}}</text>
+        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
+        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.time}}</text>
        </view>
        <view class='details-info'>
-          <text style="font-size:50rpx;font-family:黑体;font-weight:bold;">{{item.price}}￥</text>
+          <block wx:if='{{item.ordermax==item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">已完成</text>
+          </block>
+          <block wx:if='{{item.ordermax>item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">未完成</text>
+          </block>
+       </view>
+    </block>
+     <block wx:if='{{item.ordertype==3}}'>
+      <view class='image-info'>
+         <image class='icon-image' src='/images/icons/order1.png' ></image>
+      </view>
+       <view class='user-text'>
+        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
+        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.time}}</text>
+       </view>
+       <view class='details-info'>
+          <block wx:if='{{item.ordermax==item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">已完成</text>
+          </block>
+          <block wx:if='{{item.ordermax>item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">未完成</text>
+          </block>
+       </view>
+    </block>
+     <block wx:if='{{item.ordertype==4}}'>
+      <view class='image-info'>
+         <image class='icon-image' src='/images/icons/order1.png' ></image>
+      </view>
+       <view class='user-text'>
+        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
+        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.time}}</text>
+       </view>
+       <view class='details-info'>
+          <block wx:if='{{item.ordermax==item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">已完成</text>
+          </block>
+          <block wx:if='{{item.ordermax>item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">未完成</text>
+          </block>
+       </view>
+    </block>
+     <block wx:if='{{item.ordertype==5}}'>
+      <view class='image-info'>
+         <image class='icon-image' src='/images/icons/order1.png' ></image>
+      </view>
+       <view class='user-text'>
+        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
+        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.time}}</text>
+       </view>
+       <view class='details-info'>
+           <block wx:if='{{item.ordermax==item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">已完成</text>
+          </block>
+          <block wx:if='{{item.ordermax>item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">未完成</text>
+          </block>
+       </view>
+    </block>
+     <block wx:if='{{item.ordertype==6}}'>
+      <view class='image-info'>
+         <image class='icon-image' src='/images/icons/order1.png' ></image>
+      </view>
+       <view class='user-text'>
+        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
+        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.time}}</text>
+       </view>
+       <view class='details-info'>
+           <block wx:if='{{item.ordermax==item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">已完成</text>
+          </block>
+          <block wx:if='{{item.ordermax>item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">未完成</text>
+          </block>
+       </view>
+    </block>
+     <block wx:if='{{item.ordertype==7}}'>
+      <view class='image-info'>
+         <image class='icon-image' src='/images/icons/order1.png' ></image>
+      </view>
+       <view class='user-text'>
+        <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
+        <text style="font-size:25rpx;font-family:黑体;padding-top:5rpx">{{item.time}}</text>
+       </view>
+       <view class='details-info'>
+         <block wx:if='{{item.ordermax==item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">已完成</text>
+          </block>
+          <block wx:if='{{item.ordermax>item.ordernow}}'>
+           <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">未完成</text>
+          </block>
        </view>
     </block>
   </view>

@@ -5,141 +5,29 @@ Page({
      sendorder:[
        {
          ordertype:0,
-         ordername: "coco",
-         price: "12",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id:"1"
-       },
-       {
-         ordertype: 0,
-         ordername: "coco",
-         price: "13",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "2"
-       },
-       {
-         ordertype: 1,
-         ordername: "coco",
-         price: "14",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "3"
-       },
-       {
-         ordertype: 2,
-         ordername: "coco",
-         price: "15",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "4"
-       },
-       {
-         ordertype: 2,
-         ordername: "coco",
-         price: "16",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "5"
-       },
-       {
-         ordertype: 0,
-         ordername: "coco",
-         price: "17",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "6"
-       },
-       {
-         ordertype: 1,
-         ordername: "coco",
-         price: "18",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "7"
-       },
-       {
-         ordertype: 2,
-         ordername: "coco",
-         price: "19",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "8"
+         receivername:"",
+         ordermax: "",
+         ordernow: "",
+         sendername: "",
+         ordertitle: "",
+         ordertime:"",
+         id:0
        }
      ],
      receiveorder: [
        {
-         ordername: "coco",
-         price: "12",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "1"
-       },
+         ordertype: 0,
+         ordermax: "",
+         ordernow:"",
+         sendername: "",
+         ordertitle: "",
+         ordertime: "",
+         id: 0
+       }
+     ],
+     orderindex:[
        {
-         ordername: "coco",
-         price: "13",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "2"
-       },
-       {
-         ordername: "coco",
-         price: "14",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "3"
-       },
-       {
-         ordername: "coco",
-         price: "15",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "4"
-       },
-       {
-         ordername: "coco",
-         price: "16",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "5"
-       },
-       {
-         ordername: "coco",
-         price: "17",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "6"
-       },
-       {
-         ordername: "coco",
-         price: "18",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "7"
-       },
-       {
-         ordername: "coco",
-         price: "19",
-         orderstatus: "已成交",
-         sendername: "A",
-         receivername: "B",
-         id: "8"
+         id:-1
        }
      ],
      navbar: ['我发出的订单', '我接收的订单'],
@@ -147,24 +35,124 @@ Page({
   },
   listdetails: function (event) {
     var listid = event.currentTarget.dataset.listId
+    var receivername = event.currentTarget.dataset.receiverName
     console.log(listid);
+    console.log(receivername);
     wx.navigateTo({
-      url: '/pages/user/myList/myListDetail/myListDetail?id=' + listid,
+      url: '/pages/user/myList/myListDetail/myListDetail?id='+listid+'&receivername='+receivername,
     })
   },
   navbarTap: function (e) {
     this.setData({
       currentTab: e.currentTarget.dataset.idx
     })
+    var that = this;
+    wx.request({
+      url: 'http://10.134.39.81:3000/searchMyGet?Wechat_Number_Get=ludi5757',//此处填写你后台请求地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        var array = that.data.receiveorder
+        var i = 0
+        console.log(res.data);
+        for (i; i < res.data.length; i++) {
+            array[i] = {
+              id: res.data[i].OrderGet_ID,
+              ordertype: res.data[i].Order_Type,
+              ordertime: res.data[i].Order_Time,
+              ordertitle: res.data[i].Order_Title,
+              content: res.data[i].Order_Content,
+              sendername: res.data[i].Wechat_Number_Get,
+              ordermax: res.data[i].Order_MaxNumber,
+              ordernow: res.data[i].Order_NowNumber
+            }
+        }
+        that.setData({
+          receiveorder: array
+        });
+      }
+    })
   },
   // 加载
-  onLoad: function () {
-    wx.setNavigationBarTitle({
-      title: '我的订单'
-    })
-    var that = this
-    //更新数据
-    that.setData({
+   onLoad: function (options) {
+     wx.setNavigationBarTitle({
+       title: '我的订单'
+     })
+    var that = this;
+    wx.request({
+      url: 'http://10.134.39.81:3000/searchMyPut?Wechat_Number_Put=ludi5757',//此处填写你后台请求地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        var array = that.data.sendorder
+        var indexarray = that.data.orderindex
+        var i = 0
+        var temp=-1;
+        var j=0;
+        var count=0;
+        //
+        var ordertype= 0;
+        var receivername="";
+        var ordermax= 0;
+        var ordernow = 0;
+        var sendername= "";
+        var ordertitle="";
+        var ordertime="";
+        var id=0;
+        console.log(res.data);
+        for (i; i < res.data.length; i++) {
+          temp=-1;
+          for (j = 0; j < indexarray.length;j++){
+            if (res.data[i].OrderPut_ID == indexarray[j].id)//表明已经发布过
+            {
+              temp=j;
+            }
+          }
+          if(temp==-1)//未发布过
+          {
+            array[count] = {
+              id: res.data[i].OrderPut_ID,
+              ordertype: res.data[i].Order_Type,
+              ordertime: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
+              ordertitle: res.data[i].Order_Title,
+              sendername: res.data[i].Wechat_Number_Put,
+              receivername: res.data[i].Wechat_Number_Get,
+              ordermax: res.data[i].Order_MaxNumber,
+              ordernow: res.data[i].Order_NowNumber
+            }
+            indexarray[j-1]={
+              id: res.data[i].OrderPut_ID
+            }
+            count++;
+          }else{
+            console.log(temp);
+            ordertype = array[temp].ordertype;
+            ordermax = array[temp].ordermax;
+            ordernow = array[temp].ordernow;
+            sendername = array[temp].sendername;
+            ordertitle = array[temp].ordertitle;
+            ordertime = array[temp].ordertime;
+            id = array[temp].id;
+            receivername=array[temp].receivername
+            array[temp]={
+              id: id,
+              ordertype: ordertype,
+              ordertime: ordertime,// 1000//res.data[i].Order_Time,
+              ordertitle: ordertitle,
+              sendername: sendername,
+              ordermax: ordermax,
+              ordernow: ordernow,
+              receivername:receivername+';'+res.data[i].Wechat_Number_Get
+            }
+          }
+        }
+        that.setData({
+          sendorder: array,
+          orderindex: indexarray
+        });
+      }
     })
   }
 })
