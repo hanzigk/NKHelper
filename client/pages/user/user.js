@@ -5,10 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
+<<<<<<< HEAD
     user:{
       imagePath:"/images/pig.jpg",
       name:"猪小妹",
       score:"5"
+=======
+    user: {
+      imagePath: "/images/pig.jpg",
+      name: "点击登录",
+      score: "5"
+>>>>>>> 5cb14fbc5bcd8be559d96557c82618ac10d9f37e
     },
     details:[
       {
@@ -80,12 +87,62 @@ orderdetail: function (event) {
     wx.navigateTo({
       url: '/pages/user/myList/myListDetail/myListDetail?id=' + orderid + '&receivername=' + receivername,
     })
-},
+  },
+login:function(userinfo){
+    app=getApp();
+    var that=this;
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'http://10.134.39.81:3000/onLogin',
+            data: {
+              code: res.code
+            },
+            success:function(opt){
+              console.log(opt);
+              app.globalData.Wechat_Number=opt.data.openid;
+              if (userinfo.detail.errMsg == 'getUserInfo:ok') {
+                console.log(userinfo);
+                var temp = that.data.user;
+                temp = {
+                  name: userinfo.detail.userInfo.nickName,
+                  imagePath: userinfo.detail.userInfo.avatarUrl
+                };
+                that.setData({
+                  user: temp
+                });
+                wx.request({
+                  url: 'http://10.134.39.81:3000/addUser',
+                  data: {
+                    Wechat_Number:opt.data.id,
+                    Wechat_Name: userinfo.detail.userInfo.nickName,
+                    Phone_Number:null,
+                    NickName: userinfo.detail.userInfo.nickName,
+                    Address:null
+                  }
+                }); 
+            }
+
+          }
+          });
+
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    });
+    
+    
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
 onLoad: function (options) {
   var that = this;
+  
   wx.request({
     url: 'http://10.134.39.81:3000/searchMyPut?Wechat_Number_Put=ludi5757',//此处填写你后台请求地址
     header: {
