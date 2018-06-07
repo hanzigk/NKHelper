@@ -1,4 +1,5 @@
-// pages/wxml/index.js
+// pages/wxml/index.js]
+var app = getApp();
 Page({
 
   /**
@@ -71,8 +72,11 @@ orderdetail: function (event) {
       url: '/pages/user/myList/myListDetail/myListDetail?id=' + orderid + '&receivername=' + receivername,
     })
   },
-login:function(userinfo){
-    app=getApp();
+
+
+  login:function(userinfo){
+    
+
     var that=this;
     wx.login({
       success: function (res) {
