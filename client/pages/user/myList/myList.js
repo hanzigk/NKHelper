@@ -39,7 +39,7 @@ Page({
     console.log(listid);
     console.log(receivername);
     wx.navigateTo({
-      url: '/pages/user/myList/myListDetail/myListDetail?id=' + listid + '&receivername=' + receivername,
+      url: '/pages/user/myList/myListDetail/myListDetail?id='+listid+'&receivername='+receivername,
     })
   },
   navbarTap: function (e) {

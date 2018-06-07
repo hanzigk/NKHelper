@@ -5,33 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-<<<<<<< HEAD
-    user:{
-      imagePath:"/images/pig.jpg",
-      name:"猪小妹",
-      score:"5"
-=======
     user: {
       imagePath: "/images/pig.jpg",
       name: "点击登录",
       score: "5"
->>>>>>> 5cb14fbc5bcd8be559d96557c82618ac10d9f37e
     },
     details:[
       {
         detailsid:"0",
         detailsnumber: "20",
         text: "订单"
-      },
-      {
-        detailsid: "1",
-        detailsnumber: "38",
-        text: "问答"
-      },
-      {
-        detailsid: "2",
-        detailsnumber: "1",
-        text: "活动"
       },
       {
         detailsid: "3",
