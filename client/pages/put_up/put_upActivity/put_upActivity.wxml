@@ -42,6 +42,13 @@
         </view>
     </view>
 
+    <view>
+      <!--
+      <image src='/images/icons/addphoto.png' class='image' catchtap="chooseImageTap" src="{{logo}}"></image>
+      -->
+      <image src='/images/icons/addphoto.png' class='image'></image>
+    </view>
+
     <view class="weui-btn-area">
        <button class="weui-btn" type="primary" bindtap="showTopTips">确定</button>
     </view>

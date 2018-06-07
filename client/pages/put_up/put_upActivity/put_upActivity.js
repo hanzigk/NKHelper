@@ -7,6 +7,7 @@ Page({
     NowNumber: 0,
     Title:"",
     Content:"",
+    logo: '/images/icons/addphoto.png'
   },
   onLoad: function (options) {
     console.log(options.type);
@@ -80,7 +81,7 @@ Page({
     wx.request({
       url: 'http://127.0.0.1:3000/addOrderPut',
       data: {
-        "Wechat_Number_Put": "chenxingqiming",
+        "Wechat_Number_Put": getApp().globalData.Wechat_Number,
         "Order_Type":that.data.mytype,
         "Order_Content":that.data.Content,
         "Order_MaxNumber":that.data.Number[that.data.PutNumber],
@@ -88,17 +89,44 @@ Page({
         "Order_Title":that.data.Title
       },
       success:function(res){
+        console.log(res);
+        console.log(res.data);
+        if(res.data=="error:outoflimit"){
+          wx.showToast({
+            title: '已发未完成任务数量达到上限',
+            icon: 'none',
+            duration:1500
+          });
+          return;
+        };
+        if(res.data=="database error"){
+          wx.showToast({
+            title: '请登录',
+            icon: 'none',
+            duration: 1500,
+            success:function(){
+              setTimeout(function(){
+                wx.switchTab({
+                  url: '/pages/user/user'
+                })
+              },1500)
+            }
+          });
+          return;
+        };
         wx.showToast({
           title: '发任务成功！',
           icon: 'success',
-          duration: 1500
+          duration: 1500,
+          success:function(){
+            setTimeout(function(){
+              wx.switchTab({
+                url: '/pages/hot/hot',
+              })
+            },1500)
+          }
         })
-        //wx.navigateTo({
-          //url: '/pages/hot'
-        //})
-
-      }
+      },
     })
   }
-
 })
