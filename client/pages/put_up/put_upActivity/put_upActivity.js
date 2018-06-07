@@ -3,9 +3,16 @@ Page({
   data: {
     PutNumber: 0,
     Number: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    mytype: 0,
+    NowNumber: 0,
+    Title:"",
+    Content:"",
   },
-  onLoad: function () {
-
+  onLoad: function (options) {
+    console.log(options.type);
+    this.setData({
+      mytype: options.type,
+    })
   },
   // 监听页面初次渲染完成
   onReady: function () {
@@ -39,28 +46,56 @@ Page({
     })
   },
 
+  watchNumber:function(event){
+    this.setData({
+      NowNumber: event.detail.cursor,
+      Content: event.detail.value
+    })
+  },
+
+  TitleChange:function(event){
+    this.setData({
+      Title:event.detail.value
+    })
+  },
+
   showTopTips: function(){
     var that = this;
+    if (that.data.Title == "") {
+      wx.showToast({
+        title: '请输入标题',
+        icon: 'none',
+        duration: 1500
+      });
+      return;
+    }
+    if (that.data.Content==""){
+      wx.showToast({
+        title: '请输入正文',
+        icon: 'none',
+        duration: 1500
+      });
+      return;
+    }
     wx.request({
       url: 'http://127.0.0.1:3000/addOrderPut',
       data: {
         "Wechat_Number_Put": "chenxingqiming",
-        "Order_Type":"2",
-        "Order_Content":"fdj",
+        "Order_Type":that.data.mytype,
+        "Order_Content":that.data.Content,
         "Order_MaxNumber":that.data.Number[that.data.PutNumber],
         "Order_Photo":"null",
-        "Order_Title":"ceshi"
+        "Order_Title":that.data.Title
       },
       success:function(res){
         wx.showToast({
           title: '发任务成功！',
           icon: 'success',
           duration: 1500
-        }),
-        wx.navigateTo({
-          url: '/pages/hot'
         })
-
+        //wx.navigateTo({
+          //url: '/pages/hot'
+        //})
 
       }
     })

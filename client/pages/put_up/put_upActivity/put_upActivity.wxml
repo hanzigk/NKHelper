@@ -9,16 +9,16 @@
     placeholder-class='input-placeholder' maxlength='5' comfirm-type='next'></input>
     -->
 
-    <view class="weui-cells__title" style='font-size:30rpx'>标题(必填)，2-20字</view>
+    <view class="weui-cells__title" style='font-size:30rpx'>标题</view>
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd">
-                <input class="weui-input" placeholder="请输入标题" placeholder-style='font-size:35rpx' focus='true'/>
+                <input class="weui-input" placeholder="请输入标题" placeholder-style='font-size:35rpx' focus='true' bindinput='TitleChange'/>
             </view>
         </view>
     </view>
 
-    <view class="weui-cells__title" style='font-size:30rpx'>接单人数(必填)</view>
+    <view class="weui-cells__title" style='font-size:30rpx'>接单人数</view>
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_select">
             <view class="weui-cell__hd weui-cell__hd_in-select-after">
@@ -32,12 +32,12 @@
         </view>
     </view>
 
-    <view class="weui-cells__title" style='font-size:30rpx'>正文(必填)，15-200字</view>
+    <view class="weui-cells__title" style='font-size:30rpx'>正文</view>
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
             <view class="weui-cell__bd">
-                <textarea class="weui-textarea" placeholder="请输入正文" placeholder-style='font-size:35rpx' style="height: 3.3em" />
-                <view class="weui-textarea-counter" style='font-size:30rpx'>0/200</view>
+                <textarea class="weui-textarea" placeholder="请输入正文" placeholder-style='font-size:35rpx' style="height: 3.3em" bindinput='watchNumber'/>
+                <view class="weui-textarea-counter" style='font-size:30rpx'>{{NowNumber}}/140</view>
             </view>
         </view>
     </view>

@@ -1,9 +1,0 @@
-<view class='background'>
-    <textarea class='title' placeholder='标题(必填)，4-40字' placeholder-style='color:white;font-size:30rpx;font-family:黑体'  maxlength='40'auto-focus='true'></textarea>
-    <textarea class='content' placeholder='正文(必填)，15-500字' placeholder-style='color:white;font-size:30rpx;font-family:黑体'  maxlength='500'auto-focus='true'></textarea>
-
-  <view class='addimage'>
-     <image src='/images/icons/addphoto.png' class='image'></image>
-     <text style="color:white;font-size:30rpx;font-family:黑体;padding-top:5rpx">添加照片</text>
-  </view>
-</view>
