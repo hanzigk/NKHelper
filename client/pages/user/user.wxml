@@ -54,7 +54,7 @@
           </block>
        </view>
     </block>
-    <block wx:if='{{item.ordertype===2}}'>
+    <block wx:if='{{item.ordertype==2}}'>
        <view class='image-info'>
           <image class='icon-image' src='/images/icons/activity.png' ></image>
       </view>
