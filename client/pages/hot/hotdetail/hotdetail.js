@@ -32,9 +32,12 @@ Page({
   addorder:function(event)
   {
     var that = this;
+    var temp=-1;
     wx.checkSession({
       success: function () {
+        console.log("判断会话")
         //session_key 未过期，并且在本生命周期一直有效
+        temp=1;
       },
       fail: function () {
         // session_key 已经失效，需要重新执行登录流程
@@ -43,6 +46,7 @@ Page({
         })
      }
     })
+    if(temp==1){
     wx.request({
       url: 'http://10.134.39.81:3000/addOrderGet?OrderGet_ID='+this.data.id+'&Wechat_Number_Get=chenxingqiming',//此处填写你后台请求地址
       header: {
@@ -71,7 +75,7 @@ Page({
         }
         console.log(res.data);
       }
-    })
+    })}
   },
   data:{
         id: 0,
