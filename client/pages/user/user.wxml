@@ -1,6 +1,6 @@
-<scroll-view scroll-y >
 
 <view class='user'>
+<scroll-view scroll-y>
  <view class='user-info' >
    <image  class='user-image' src='{{user.imagePath}}' style=''></image>
      <button class='hiddenbtn' bindgetuserinfo='login' open-type='getUserInfo'  style="font-size:40rpx;font-family:黑体;font-weight:bold;padding-top:20rpx" >{{user.name}}</button>
@@ -29,8 +29,8 @@
 
 <!--我发送的订单-->  
 <view hidden="{{currentTab!==0}}" >
-<block wx:if='{{details[0].detailsnumber>0}}'>
-  <view class='list' wx:for='{{sendorder}}'style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'bindtap='listdetails' data-list-id="{{item.id}}"data-receiver-name="{{item.receivername}}">
+<block wx:if='{{putnumber>0}}'>
+  <view class='list' wx:for='{{sendorder}}'style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'bindtap='listdetails' data-order-id="{{item.id}}"data-receiver-name="{{item.receivername}}">
   <view class='userinfo'>
    <view class='user1'>
      <image class='icon-image' src='/images/pig.jpg'></image>
@@ -48,14 +48,43 @@
   </view>
   <view class='item'>
      <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordertitle}}</text>
-     <text style="font-size:30rpx;font-family:黑体;">{{item.content}}</text>
+     <text style="font-size:30rpx;font-family:黑体;"></text>
   </view>
  </view>
  </block>
-<block wx:if='{{details[0].detailsnumber==0}}'>
+<block wx:if='{{putnumber==0}}'>
     <text class="noorder" style="font-size:50rpx;font-family:幼体;" >这里空空如也哦</text>
 </block>
 </view>
 
+<!--我接收的订单-->  
+<view hidden="{{currentTab!==1}}" >
+<block wx:if='{{getnumber>0}}'>
+  <view class='list' wx:for='{{receiveorder}}'style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'bindtap='listdetails' data-order-id="{{item.id}}">
+  <view class='userinfo'>
+   <view class='user1'>
+     <image class='icon-image' src='/images/pig.jpg'></image>
+     <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.sendername}}</text>
+   </view>
+   <view class='item'>
+      <text style="font-size:25rpx;font-family:黑体;">{{item.ordertime}}</text>
+      <block  wx:if='{{item.ordermax==item.ordernow}}'>
+      <text style="font-size:30rpx;font-family:黑体;font-weight:bold;"> 已完成</text>
+      </block>
+      <block  wx:if='{{item.ordermax>item.ordernow}}'>
+      <text style="font-size:30rpx;font-family:黑体;font-weight:bold;"> 未完成</text>
+      </block>
+   </view>
+  </view>
+  <view class='item'>
+     <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordertitle}}</text>
+     <text style="font-size:30rpx;font-family:黑体;"></text>
+  </view>
+ </view>
+ </block>
+<block wx:if='{{getnumber==0}}'>
+    <text class="noorder" style="font-size:50rpx;font-family:幼体;" >这里空空如也哦</text>
+</block>
 </view>
 </scroll-view>
+</view>

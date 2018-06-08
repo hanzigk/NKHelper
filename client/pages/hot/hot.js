@@ -18,54 +18,63 @@ Page({
     hot: [{
       id: 0,
       Order_Type: 0,
+      sendername:"",
       time: "",
       title: "",
       content: ""
     }],
     sales: [{
       id:0,
+      sendername: "",
       time: "",
       title: "",
       content: ""
       }],
     Q_A: [{
       id: 0,
+      sendername: "",
       time: "",
       title: "",
       content: ""
     }],
     activity: [{
       id: 0,
+      sendername: "",
       time: "",
       title: "",
       content: ""
     }],
     lostandfound: [{
       id: 0,
+      sendername: "",
       time: "",
       title: "",
       content: ""
     }],
     car: [{
       id: 0,
+      sendername: "",
       time: "",
       title: "",
       content: ""
     }],
     delivery: [{
       id: 0,
+      sendername: "",
       time: "",
       title: "",
       content: ""
     }],
     buy: [{
       id: 0,
+      sendername: "",
       time: "",
       title: "",
       content: ""
     }],
     second_hand: [{
       id: 0,
+      sendername: "",
       time: "",
       title: "",
       content: ""
@@ -99,7 +108,8 @@ Page({
               Order_Type: res.data[i].Order_Type,
               time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
               title: res.data[i].Order_Title,
-              content: res.data[i].Order_Content
+              content: res.data[i].Order_Content,
+              sendername:res.data[i].Nickname,
             }
           }
           that.setData({
@@ -130,14 +140,16 @@ Page({
               id: res.data[i].OrderPut_ID,
               time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
               title: res.data[i].Order_Title,
-              content: res.data[i].Order_Content
+              content: res.data[i].Order_Content,
+              sendername: res.data[i].Nickname,
           }}else{
             array[i] = {
               id: res.data[i].OrderPut_ID,
               Order_Type: res.data[i].Order_Type,
               time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
               title: res.data[i].Order_Title,
-              content: res.data[i].Order_Content
+              content: res.data[i].Order_Content,
+              sendername: res.data[i].Nickname,
             }}
         }
         if (temp == 1) {that.setData({sales: array });}
@@ -211,7 +223,8 @@ Page({
             Order_Type:res.data[i].Order_Type,
             time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
             title: res.data[i].Order_Title,
-            content: res.data[i].Order_Content
+            content: res.data[i].Order_Content,
+            sendername: res.data[i].Nickname,
           }
         }
         that.setData({
