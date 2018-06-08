@@ -317,7 +317,8 @@ login:function(userinfo){
                                 Wechat_Name: userinfo.detail.userInfo.nickName,
                                 Phone_Number: null,
                                 NickName: userinfo.detail.userInfo.nickName,
-                                Address: null
+                                Address: null,
+                                Image: userinfo.detail.userInfo.avatarUrl
                               }
                             });
                           }
