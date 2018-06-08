@@ -7,7 +7,7 @@
         <view class="bg-half"></view>
         <view class="answerer flex-wrp">
             <view class="avatar flex-item">
-                <image src="/images/pig.jpg"></image>
+                <image src="{{image}}"></image>
             </view>
             <view class="answerer-info flex-item">
                 <text class="answerer-name">{{sendername}}</text>

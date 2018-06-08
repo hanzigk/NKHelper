@@ -37,7 +37,7 @@ button[class='hiddenbtn']::after{
  width: 700rpx;
  height: 100rpx;
  align-items:center;
- background-color: #eeda9d;
+ background-color: #ab998d;
  justify-content: space-around;
 }
 .user-text{
