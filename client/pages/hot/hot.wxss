@@ -48,16 +48,21 @@
 .list .item
 {
   display: flex;
-  flex-direction: column;
-  width: 40vw;
-  margin-top: 15rpx;
+  width: 150rpx;
+  margin-top: 60rpx;
   margin-left: 50rpx;
   justify-content: space-evenly;
 }
 .list-item{
   display: flex;
   flex-direction: column;
-  margin-top: 90rpx;
+  width:420rpx;
+  margin-top: 50rpx;
+}
+.click{
+  display: flex;
+  flex-direction: column;
+  margin-top: 120rpx;
 }
 .details{
   display: flex;

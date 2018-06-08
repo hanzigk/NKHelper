@@ -64,17 +64,25 @@
     <block wx:if='{{hot[0].title!=""}}'>
     <view   class='list' wx:for="{{hot}}" bindtap='navigate' data-list-id="{{item.id}}"
    style='background-image:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+
+    <!--
     <block wx:if='{{item.Order_Type==0}}'>
-    
+    -->
+    <block>
       <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
-         <image class='order-image' src='{{item.image}}' margin-top="20rpx" ></image>
+         <image class='order-image' src='{{item.image}}'></image>
       </view>
-        <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
-        </view>
+      <view class='list-item'>
+        <text style="font-size:35rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:3rpx;">{{item.sendername}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;">{{item.time}}</text>
+      </view>
+      <view class='click'>
+        <image class='icon-image' src='/images/icons/heart2.png'></image>
+      </view>
     </block>
+
+    <!--
     <block wx:if='{{item.Order_Type==1}}'>
        <view class='item'>
          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
@@ -146,6 +154,8 @@
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
       </block>
+      -->
+
   </view>
   </block>
 </scroll-view>
