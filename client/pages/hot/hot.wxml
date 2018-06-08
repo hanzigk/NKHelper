@@ -123,6 +123,7 @@
           <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
+    
       </block>
       <block wx:if='{{item.Order_Type==6}}'>
        <view class='item'>

@@ -526,7 +526,10 @@ onLoad: function (options) {
               detailsnumber: on.data.orderNumber,
               text: "订单"
             };
-
+          }
+        })
+      }
+    })
   },
 
   /**

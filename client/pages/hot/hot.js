@@ -109,7 +109,7 @@ Page({
               time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
               title: res.data[i].Order_Title,
               content: res.data[i].Order_Content,
-              sendername:res.data[i].Nickname,
+              sendername:res.data[i].Nickname
             }
           }
           that.setData({
@@ -141,7 +141,7 @@ Page({
               time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
               title: res.data[i].Order_Title,
               content: res.data[i].Order_Content,
-              sendername: res.data[i].Nickname,
+              sendername:res.data[i].Nickname
           }}else{
             array[i] = {
               id: res.data[i].OrderPut_ID,
@@ -149,7 +149,7 @@ Page({
               time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
               title: res.data[i].Order_Title,
               content: res.data[i].Order_Content,
-              sendername: res.data[i].Nickname,
+              sendername:res.data[i].Nickname
             }}
         }
         if (temp == 1) {that.setData({sales: array });}
@@ -218,13 +218,14 @@ Page({
         var i = 0
         console.log(res.data);
        for (i; i < res.data.length; i++) {
+         console.log(res.data[i].Nickname)
           array[i]={
             id: res.data[i].OrderPut_ID,
             Order_Type:res.data[i].Order_Type,
             time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
             title: res.data[i].Order_Title,
             content: res.data[i].Order_Content,
-            sendername: res.data[i].Nickname,
+            sendername:res.data[i].Nickname
           }
         }
         that.setData({
@@ -261,7 +262,8 @@ Page({
             Order_Type: res.data[i].Order_Type,
             time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
             title: res.data[i].Order_Title,
-            content: res.data[i].Order_Content
+            content: res.data[i].Order_Content,
+            sendername: res.data[i].Nickname
           }
         }
         that.setData({
