@@ -25,7 +25,7 @@ Page({
           id: res.data[0].OrderPut_ID,
           time: res.data[0].Order_Time,
           Order_MaxNumber: res.data[0].Order_MaxNumber,
-          Order_NowNumber: res.data[0].Order_NowNumber
+          Order_NowNumber: res.data[0].Order_NowNumber,
         });
       }
     })
@@ -35,28 +35,38 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
+        var i=0;
         var array=that.data.receivername;
-        //console.log(res.data);
-       
-        /*that.setData({
-          ordername: res.data[0].Order_Title,
-          sendername: res.data[0].Nickname,
-          //receivername: res.data[0].Wechat_Number_Put,
-          Order_Type: res.data[0].Order_Type,
-          content: res.data[0].Order_Content,
-          id: res.data[0].OrderPut_ID,
-          time: res.data[0].Order_Time,
-          Order_MaxNumber: res.data[0].Order_MaxNumber,
-          Order_NowNumber: res.data[0].Order_NowNumber
-        });*/
+        console.log(res.data);
+        for (i; i < res.data.length; i++) {
+          array[i] = {
+            nickname:res.data[i].Nickname,
+            WechatNumber: res.data[i].Wechat_Number_Get
+        }
+        }
+        that.setData({
+          receivername: array,
+
+        });
       }
     })
+  },
+  navigate:function (event)
+  {
+    var receivername = event.currentTarget.dataset.receiverName 
+    var listid = event.currentTarget.dataset.listId
+    var wechatnumber = event.currentTarget.dataset.wechatNumber
+    console.log(receivername);
+    console.log(wechatnumber );
+    wx.navigateTo({
+      url: '/pages/user/myList/myListDetail/receiver/receiver?receivername=' + receivername + '&listid=' + listid + '&Wechat_Number_Get=' + wechatnumber 
+      })
   },
   data: {
     id: 0,
     ordername: "",
     sendername: "",
-    receivername: [],
+    receivername: [{ WechatNumber: "",nickname:""}],
     content: "",
     Order_Type: 0,
     time: "",

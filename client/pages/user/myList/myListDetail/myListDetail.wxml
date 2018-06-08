@@ -48,9 +48,9 @@
         <text>
         {{time}}
         </text>
-       <view wx:for='{{receivername}}'>
+       <view wx:for='{{receivername}}'catchtap='navigate' data-receiver-name='{{item.nickname}}' data-list-id='{{mid}}'data-wechat-number='{{item.WechatNumber}}'>
         <text>
-         接单人:{{item}}
+         接单人:{{item.nickname}}
         </text>
        </view>
     </view>

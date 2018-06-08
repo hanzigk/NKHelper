@@ -1,5 +1,6 @@
 {
   "pages":[
+    
     "pages/hot/hot",
     "pages/hot/hotdetail/hotdetail",
     "pages/hot/search/search",
@@ -7,6 +8,7 @@
     "pages/user/scoreDetails/scoreDetails",
     "pages/user/myList/myList",
     "pages/user/myList/myListDetail/myListDetail",
+    "pages/user/myList/myListDetail/receiver/receiver",
     "pages/put_up/add",
     "pages/put_up/put_upActivity/put_upActivity",
     "pages/index/index",
