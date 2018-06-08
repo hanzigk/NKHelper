@@ -85,47 +85,48 @@ navigate:function(event){
     })
   }
 },
-  navbarTap: function (e) {
-    this.setData({
-      currentTab: e.currentTarget.dataset.idx
-    })
-    var that = this;
-    wx.request({
-      url: 'http://10.134.39.81:3000/searchMyGet?Wechat_Number_Get=ludi5757',//此处填写你后台请求地址
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        var array = that.data.receiveorder
-        var i = 0
-        console.log(res.data);
-        for (i; i < res.data.length; i++) {
-          array[i] = {
-            id: res.data[i].OrderGet_ID,
-            ordertype: res.data[i].Order_Type,
-            ordertime: res.data[i].Order_Time,
-            ordertitle: res.data[i].Order_Title,
-            content: res.data[i].Order_Content,
-            sendername: res.data[i].Wechat_Number_Get,
-            ordermax: res.data[i].Order_MaxNumber,
-            ordernow: res.data[i].Order_NowNumber
-          }
+navbarTap: function (e) {
+  this.setData({
+    currentTab: e.currentTarget.dataset.idx
+  })
+  var that = this;
+  wx.request({
+    url: 'http://10.134.39.81:3000/searchMyGet?Wechat_Number_Get=ludi5757',//此处填写你后台请求地址
+    header: {
+      'content-type': 'application/json' // 默认值
+    },
+    success: function (res) {
+      var array = that.data.receiveorder
+      var i = 0
+      console.log(res.data);
+      for (i; i < res.data.length; i++) {
+        array[i] = {
+          id: res.data[i].OrderGet_ID,
+          ordertype: res.data[i].Order_Type,
+          ordertime: res.data[i].Order_Time,
+          ordertitle: res.data[i].Order_Title,
+          content: res.data[i].Order_Content,
+          sendername: res.data[i].Wechat_Number_Get,
+          ordermax: res.data[i].Order_MaxNumber,
+          ordernow: res.data[i].Order_NowNumber
         }
-        that.setData({
-          receiveorder: array
-        });
       }
-    })
-  },
+      that.setData({
+        receiveorder: array
+      });
+    }
+  })
+},
 orderdetail: function (event) {
   var orderid = event.currentTarget.dataset.orderId
   var receivername = event.currentTarget.dataset.receiverName
   console.log(orderid);
-    wx.navigateTo({
-      url: '/pages/user/myList/myListDetail/myListDetail?id=' + orderid + '&receivername=' + receivername,
-    })
-  },
-  login:function(userinfo){
+  wx.navigateTo({
+    url: '/pages/user/myList/myListDetail/myListDetail?id=' + orderid + '&receivername=' + receivername,
+  })
+},
+
+login:function(userinfo){
     var that=this;
     wx.login({
       success: function (res) {
@@ -149,6 +150,7 @@ orderdetail: function (event) {
                 that.setData({
                   user: temp
                 });
+                console.log(temp.imagePath);
                 wx.request({
                   url: 'http://10.134.39.81:3000/addUser',
                   data: {
@@ -156,9 +158,11 @@ orderdetail: function (event) {
                     Wechat_Name: userinfo.detail.userInfo.nickName,
                     Phone_Number:null,
                     NickName: userinfo.detail.userInfo.nickName,
-                    Address:null
+                    Address:null,
+                    Image:userinfo.detail.userInfo.avatarUrl
                   }
                 }); 
+                
                 wx.request({
                   url: 'http://10.134.39.81:3000/getUserMessage',
                   data:{
@@ -329,11 +333,18 @@ orderdetail: function (event) {
             }
           })
         }
+      },
+      fail:function(){
+        wx.showToast({
+          title: '网络中断',
+          icon: 'none',
+          duration: 1500
+        })
+        return;
       }
     });
-    
-    
-  },
+},
+
 
   /**
    * 生命周期函数--监听页面加载

@@ -1,4 +1,5 @@
 <view class='background'>
+
   <view class="today">
         <view class='time'>
             <view class="today-time">{{todayTime}}</view>
@@ -9,6 +10,9 @@
             <view class="weather">{{weather}}|{{temp}}</view>
         </view>
   </view>
+
+  <view class="weui-article__h1">---请选择任务类型---</view>
+
   
   <view class="type">
     <view class='item'>
