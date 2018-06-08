@@ -1,0 +1,46 @@
+<view>
+    <view class="weui-cells__title" style='font-size:30rpx'>用户名</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="{{receivername}}" placeholder-style='font-size:35rpx' focus='true' bindinput='TitleChange'/>
+            </view>
+        </view>
+    </view>
+
+    <view class="weui-cells__title" style='font-size:30rpx'>评分</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label" style='color:gray;font-size:35rpx'>评分</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="bindCountryChange" value="{{PutNumber}}" range="{{Number}}">
+                    <view class="weui-select weui-select_in-select-after" style='color:gray;font-size:35rpx'>{{Number[PutNumber]}}</view>
+                </picker>
+            </view>
+        </view>
+    </view>
+
+    <view class="weui-cells__title" style='font-size:30rpx'>评论</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <textarea class="weui-textarea" placeholder="{{Content}}" placeholder-style='font-size:35rpx' style="height: 3.3em" bindinput='watchNumber'/>
+                <view class="weui-textarea-counter" style='font-size:30rpx'>{{NowNumber}}/140</view>
+            </view>
+        </view>
+    </view>
+
+    <block wx:if='{{choose==-1}}'>
+    <view class="weui-btn-area">
+       <button class="weui-btn" type="primary" bindtap="showTopTips">确定</button>
+    </view>
+   </block>
+
+    <block wx:if='{{choose==0}}'>
+    <view class="weui-btn-area">
+       <button class="weui-btn" type="primary" bindtap="showTopTips" disabled='true'>确定</button>
+    </view>
+   </block>
+</view>
