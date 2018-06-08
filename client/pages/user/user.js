@@ -1,4 +1,4 @@
-// pages/wxml/index.js]
+﻿// pages/wxml/index.js]
 var app = getApp();
 Page({
   data: {
@@ -6,6 +6,8 @@ Page({
       imagePath: "/images/pig.jpg",
       name: "点击登录",
     },
+    putnumber: 0,
+    getnumber: 0,
     score: "",
     details:[
       {
@@ -38,6 +40,7 @@ Page({
         sendername: "",
         ordertitle: "",
         ordertime: "",
+        content:"",
         id: 0
       }
     ],
@@ -86,45 +89,51 @@ navigate:function(event){
   }
 },
 navbarTap: function (e) {
-  this.setData({
-    currentTab: e.currentTarget.dataset.idx
-  })
-  var that = this;
-  wx.request({
-    url: 'http://10.134.39.81:3000/searchMyGet?Wechat_Number_Get=ludi5757',//此处填写你后台请求地址
-    header: {
-      'content-type': 'application/json' // 默认值
-    },
-    success: function (res) {
-      var array = that.data.receiveorder
-      var i = 0
-      console.log(res.data);
-      for (i; i < res.data.length; i++) {
-        array[i] = {
-          id: res.data[i].OrderGet_ID,
-          ordertype: res.data[i].Order_Type,
-          ordertime: res.data[i].Order_Time,
-          ordertitle: res.data[i].Order_Title,
-          content: res.data[i].Order_Content,
-          sendername: res.data[i].Wechat_Number_Get,
-          ordermax: res.data[i].Order_MaxNumber,
-          ordernow: res.data[i].Order_NowNumber
+    this.setData({
+      currentTab: e.currentTarget.dataset.idx
+    })
+    var that = this;
+    wx.request({
+      url: 'http://10.134.39.81:3000/searchMyGet',//此处填写你后台请求地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+    data: {
+        Wechat_Number_Get: getApp().globalData.Wechat_Number
+      },
+      success: function (res) {
+        var array = that.data.receiveorder
+        var i = 0
+        console.log(res.data);
+        that.setData({
+          getnumber: res.data.length
+        });
+        for (i; i < res.data.length; i++) {
+          array[i] = {
+            id: res.data[i].OrderGet_ID,
+            ordertype: res.data[i].Order_Type,
+            ordertime: res.data[i].Order_Time,
+            ordertitle: res.data[i].Order_Title,
+            content: res.data[i].Order_Content,
+            sendername: res.data[i].Wechat_Number_Get,
+            ordermax: res.data[i].Order_MaxNumber,
+            ordernow: res.data[i].Order_NowNumber
+          }
         }
+        that.setData({
+          receiveorder: array
+        });
       }
-      that.setData({
-        receiveorder: array
-      });
-    }
-  })
-},
-orderdetail: function (event) {
+    })
+  },
+  listdetails: function (event) {
   var orderid = event.currentTarget.dataset.orderId
   var receivername = event.currentTarget.dataset.receiverName
   console.log(orderid);
-  wx.navigateTo({
-    url: '/pages/user/myList/myListDetail/myListDetail?id=' + orderid + '&receivername=' + receivername,
-  })
-},
+    wx.navigateTo({
+      url: '/pages/user/myList/myListDetail/myListDetail?id=' + orderid,
+    })
+  },
 
 login:function(userinfo){
     var that=this;
@@ -150,7 +159,6 @@ login:function(userinfo){
                 that.setData({
                   user: temp
                 });
-                console.log(temp.imagePath);
                 wx.request({
                   url: 'http://10.134.39.81:3000/addUser',
                   data: {
@@ -158,11 +166,9 @@ login:function(userinfo){
                     Wechat_Name: userinfo.detail.userInfo.nickName,
                     Phone_Number:null,
                     NickName: userinfo.detail.userInfo.nickName,
-                    Address:null,
-                    Image:userinfo.detail.userInfo.avatarUrl
+                    Address:null
                   }
                 }); 
-                
                 wx.request({
                   url: 'http://10.134.39.81:3000/getUserMessage',
                   data:{
@@ -180,7 +186,6 @@ login:function(userinfo){
                           score: de.data[0].Credit
                         });
                         //console.log(on.data.orderNumber);
-                        
                         var temp2 = that.data.details;
                         //console.log(de.data[0].Total_Order);
                         temp2[0] = {
@@ -201,7 +206,7 @@ login:function(userinfo){
                   }
                 });
                 wx.request({
-                  url: 'http://10.134.39.81:3000/searchMyPut',//此处填写你后台请求地址
+                  url: 'http://10.134.39.81:3000/getMyPut',//此处填写你后台请求地址
                   header: {
                     'content-type': 'application/json' // 默认值
                   },
@@ -209,8 +214,7 @@ login:function(userinfo){
                     Wechat_Number_Put: getApp().globalData.Wechat_Number                   
                   },
                   success: function (res) {
-                    console.log(res.data)
-                    var array = that.data.order
+                    var array = that.data.sendorder
                     var indexarray = that.data.orderindex
                     var i = 0
                     var temp = -1;
@@ -218,13 +222,18 @@ login:function(userinfo){
                     var count = 0;
                     //
                     var ordertype = 0;
-                    var ordername = "";
                     var receivername = "";
-                    var time = "";
                     var ordermax = 0;
                     var ordernow = 0;
+                    var sendername = "";
+                    var ordertitle = "";
+                    var ordertime = "";
                     var id = 0;
+                    var content="";
                     console.log(res.data);
+                    that.setData({
+                      putnumber: res.data.length,
+                    });
                     for (i; i < res.data.length; i++) {
                       temp = -1;
                       for (j = 0; j < indexarray.length; j++) {
@@ -238,30 +247,34 @@ login:function(userinfo){
                         array[count] = {
                           id: res.data[i].OrderPut_ID,
                           ordertype: res.data[i].Order_Type,
-                          time: res.data[i].Order_Time,
-                          ordername: res.data[i].Order_Title,
+                          ordertime: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
+                          ordertitle: res.data[i].Order_Title,
+                          sendername: res.data[i].Nickname,
                           receivername: res.data[i].Wechat_Number_Get,
                           ordermax: res.data[i].Order_MaxNumber,
-                          ordernow: res.data[i].Order_NowNumber
+                          ordernow: res.data[i].Order_NowNumber,
+                          content: res.data[i].Order_Content
                         }
                         indexarray[j - 1] = {
                           id: res.data[i].OrderPut_ID
                         }
                         count++;
                       } else {
-                        //console.log(temp);
+                        console.log(temp);
                         ordertype = array[temp].ordertype;
                         ordermax = array[temp].ordermax;
                         ordernow = array[temp].ordernow;
-                        ordername = array[temp].ordername;
-                        time = array[temp].time;
+                        sendername = array[temp].sendername;
+                        ordertitle = array[temp].ordertitle;
+                        ordertime = array[temp].ordertime;
                         id = array[temp].id;
                         receivername = array[temp].receivername
                         array[temp] = {
                           id: id,
                           ordertype: ordertype,
-                          time: time,// 1000//res.data[i].Order_Time,
-                          ordername: ordername,
+                          ordertime: ordertime,// 1000//res.data[i].Order_Time,
+                          ordertitle: ordertitle,
+                          sendername: sendername,
                           ordermax: ordermax,
                           ordernow: ordernow,
                           receivername: receivername + ';' + res.data[i].Wechat_Number_Get
@@ -269,18 +282,14 @@ login:function(userinfo){
                       }
                     }
                     that.setData({
-                      order: array,
+                      sendorder: array,
                       orderindex: indexarray
                     });
                   }
                 })
-            }
-
-          }
-          
+              }
+            }        
           });
-
-
         } else {
           //console.log('登录失败！' + res.errMsg)
           wx.showModal({
@@ -317,8 +326,7 @@ login:function(userinfo){
                                 Wechat_Name: userinfo.detail.userInfo.nickName,
                                 Phone_Number: null,
                                 NickName: userinfo.detail.userInfo.nickName,
-                                Address: null,
-                                Image: userinfo.detail.userInfo.avatarUrl
+                                Address: null
                               }
                             });
                           }
@@ -334,18 +342,11 @@ login:function(userinfo){
             }
           })
         }
-      },
-      fail:function(){
-        wx.showToast({
-          title: '网络中断',
-          icon: 'none',
-          duration: 1500
-        })
-        return;
       }
     });
-},
-
+    
+    
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -365,37 +366,19 @@ onLoad: function (options) {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+    if(getApp().globalData.Wechat_Number!="")
+    {
+    var that = this;
     wx.request({
       url: 'http://10.134.39.81:3000/getUserMessage',
       data: {
-        Wechat_Number: opt.data.openid
+        Wechat_Number: getApp().globalData.Wechat_Number
       },
       success: function (de) {
         wx.request({
           url: 'http://10.134.39.81:3000/getOrderNumber',
           data: {
-            Wechat_Number: opt.data.openid
+            Wechat_Number: getApp().globalData.Wechat_Number
           },
           success: function (on) {
             that.setData({
@@ -497,8 +480,8 @@ onLoad: function (options) {
         });
       }
     })
-    },
-  
+    }
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
