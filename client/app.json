@@ -41,7 +41,7 @@
     ]
   },
   "window":{
-    "backgroundColor":"#0000",
+    "backgroundColor": "#0000",
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#ab998d",
     "navigationBarTitleText": "南开帮",

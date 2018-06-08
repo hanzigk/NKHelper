@@ -5,7 +5,7 @@ Page({
   data: {
     inputValue: '',
     navbar: [
-      '热门', 
+      '热门',
       '代买',
       '提问',
       '约着玩',
@@ -14,22 +14,22 @@ Page({
       '代取快递',
       '拼单',
       '二手交易'
-      ],
+    ],
     hot: [{
       id: 0,
       Order_Type: 0,
-      sendername:"",
+      sendername: "",
       time: "",
       title: "",
       content: ""
     }],
     sales: [{
-      id:0,
+      id: 0,
       sendername: "",
       time: "",
       title: "",
       content: ""
-      }],
+    }],
     Q_A: [{
       id: 0,
       sendername: "",
@@ -88,10 +88,9 @@ Page({
       currentTab: e.currentTarget.dataset.idx,
     })
     var temp = e.currentTarget.dataset.idx
-    var temp1=temp-1
-    var that=this
-    if(temp==0)
-    {
+    var temp1 = temp - 1
+    var that = this
+    if (temp == 0) {
       wx.request({
         url: 'http://10.134.39.81:3000/searchAll',//此处填写你后台请求地址
         header: {
@@ -108,7 +107,7 @@ Page({
               time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
               title: res.data[i].Order_Title,
               content: res.data[i].Order_Content,
-              sendername:res.data[i].Nickname
+              sendername: res.data[i].Nickname
             }
           }
           that.setData({
@@ -116,65 +115,66 @@ Page({
           });
         }
       })
-    }else{
-    wx.request({
-      url: 'http://10.134.39.81:3000/searchByType?type='+temp1,//此处填写你后台请求地址
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res.data);
-        if(temp==1) {var array = that.data.sales}
-        if (temp == 2) {var array = that.data.Q_A}
-        if (temp == 3) {var array = that.data.activity}
-        if (temp == 4) {var array = that.data.lostandfound}
-        if (temp == 5) {var array = that.data.car}
-        if (temp == 6) {var array = that.data.delivery}
-        if (temp == 7) {var array = that.data.buy}
-        if (temp == 8) {var array = that.data.second_hand}
-        var i = 0
-        for (i; i < res.data.length; i++) {
-          if(temp==0){
-             array[i] = {
-              id: res.data[i].OrderPut_ID,
-              time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
-              title: res.data[i].Order_Title,
-              content: res.data[i].Order_Content,
-              sendername:res.data[i].Nickname
-          }}else{
-            array[i] = {
-              id: res.data[i].OrderPut_ID,
-              Order_Type: res.data[i].Order_Type,
-              time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
-              title: res.data[i].Order_Title,
-              content: res.data[i].Order_Content,
-              sendername:res.data[i].Nickname
-            }}
+    } else {
+      wx.request({
+        url: 'http://10.134.39.81:3000/searchByType?type=' + temp1,//此处填写你后台请求地址
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function (res) {
+          console.log(res.data);
+          if (temp == 1) { var array = that.data.sales }
+          if (temp == 2) { var array = that.data.Q_A }
+          if (temp == 3) { var array = that.data.activity }
+          if (temp == 4) { var array = that.data.lostandfound }
+          if (temp == 5) { var array = that.data.car }
+          if (temp == 6) { var array = that.data.delivery }
+          if (temp == 7) { var array = that.data.buy }
+          if (temp == 8) { var array = that.data.second_hand }
+          var i = 0
+          for (i; i < res.data.length; i++) {
+            if (temp == 0) {
+              array[i] = {
+                id: res.data[i].OrderPut_ID,
+                time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
+                title: res.data[i].Order_Title,
+                content: res.data[i].Order_Content,
+                sendername: res.data[i].Nickname
+              }
+            } else {
+              array[i] = {
+                id: res.data[i].OrderPut_ID,
+                Order_Type: res.data[i].Order_Type,
+                time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
+                title: res.data[i].Order_Title,
+                content: res.data[i].Order_Content,
+                sendername: res.data[i].Nickname
+              }
+            }
+          }
+          if (temp == 1) { that.setData({ sales: array }); }
+          if (temp == 2) { that.setData({ Q_A: array }); }
+          if (temp == 3) { that.setData({ activity: array }); }
+          if (temp == 4) { that.setData({ lostandfound: array }); }
+          if (temp == 5) { that.setData({ car: array }); }
+          if (temp == 6) { that.setData({ delivery: array }); }
+          if (temp == 7) { that.setData({ buy: array }); }
+          if (temp == 8) { that.setData({ second_hand: array }); }
+        },
+        fail: function () {
+          console.log("failure")
         }
-        if (temp == 1) {that.setData({sales: array });}
-        if (temp == 2) { that.setData({ Q_A: array }); }
-        if (temp == 3) { that.setData({ activity: array }); }
-        if (temp == 4) { that.setData({ lostandfound: array }); }
-        if (temp == 5) { that.setData({ car: array }); }
-        if (temp == 6) { that.setData({ delivery: array }); }
-        if (temp == 7) { that.setData({ buy: array }); }
-        if (temp == 8) { that.setData({ second_hand: array }); }
-      },
-      fail:function()
-      {
-        console.log("failure")
-      }
       })
-      }
+    }
   },
-  navigate:function(event){
-    var listid =event.currentTarget.dataset.listId;
+  navigate: function (event) {
+    var listid = event.currentTarget.dataset.listId;
     console.log(listid);
     wx.navigateTo({
-      url: '/pages/hot/hotdetail/hotdetail?id='+listid,
+      url: '/pages/hot/hotdetail/hotdetail?id=' + listid,
     })
   },
-  searchdetail:function(event){
+  searchdetail: function (event) {
     wx.navigateTo({
       url: '/pages/hot/search/search',
     })
@@ -210,25 +210,26 @@ Page({
     var that = this;
     wx.request({
       url: 'http://10.134.39.81:3000/searchAll',//此处填写你后台请求地址
-      header: { 'content-type': 'application/json' // 默认值
+      header: {
+        'content-type': 'application/json' // 默认值
       },
       success: function (res) {
         var array = that.data.hot
         var i = 0
         console.log(res.data);
-       for (i; i < res.data.length; i++) {
-         console.log(res.data[i].Nickname)
-          array[i]={
+        for (i; i < res.data.length; i++) {
+          console.log(res.data[i].Nickname)
+          array[i] = {
             id: res.data[i].OrderPut_ID,
-            Order_Type:res.data[i].Order_Type,
+            Order_Type: res.data[i].Order_Type,
             time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
             title: res.data[i].Order_Title,
             content: res.data[i].Order_Content,
-            sendername:res.data[i].Nickname
+            sendername: res.data[i].Nickname
           }
         }
         that.setData({
-          hot:array
+          hot: array
         });
       }
     })
