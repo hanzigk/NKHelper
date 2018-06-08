@@ -75,6 +75,10 @@
   height: 65rpx;
   border-radius:50%;
 }
+.myicon-image{
+  width: 65rpx;
+  height: 65rpx;
+}
 .order-image{
   width: 100rpx;
   height: 100rpx;
