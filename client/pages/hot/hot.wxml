@@ -24,81 +24,81 @@
    style='background-image:url("/images/detailbackground.png");-webkit-background-size:cover;'>
     <block wx:if='{{item.Order_Type==0}}'>
       <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
         </view>
     </block>
     <block wx:if='{{item.Order_Type==1}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
     </block>
     <block wx:if='{{item.Order_Type==2}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
     </block>
     <block wx:if='{{item.Order_Type==3}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
       </block>
       <block wx:if='{{item.Order_Type==4}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
       </block>
          <block wx:if='{{item.Order_Type==5}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
       </block>
       <block wx:if='{{item.Order_Type==6}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
       </block>
       <block wx:if='{{item.Order_Type==7}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
       </block>
@@ -120,11 +120,11 @@
   <view class='list'wx:for="{{sales}}"  catchtap='navigate' data-list-id="{{item.id}}"
     style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
       <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
   </view>
@@ -144,11 +144,11 @@
    <view class='list'wx:for="{{Q_A}}"  catchtap='navigate' data-list-id="{{item.id}}"
     style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
     <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
   </view>
@@ -168,11 +168,11 @@
    <view class='list'wx:for="{{activity}}"  catchtap='navigate' data-list-id="{{item.id}}"
     style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
      <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
   </view>
@@ -192,11 +192,11 @@
    <view class='list'wx:for="{{lostandfound}}"  catchtap='navigate' data-list-id="{{item.id}}"
    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
    <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
   </view>
@@ -216,11 +216,11 @@
    <view class='list'wx:for="{{car}}"  catchtap='navigate' data-list-id="{{item.id}}"
    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
    <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
   </view>
@@ -240,11 +240,11 @@
    <view class='list'wx:for="{{delivery}}"  catchtap='navigate' data-list-id="{{item.id}}"
    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
    <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
   </view>
@@ -264,11 +264,11 @@
    <view class='list'wx:for="{{buy}}"  catchtap='navigate' data-list-id="{{item.id}}"
    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
    <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
   </view>
@@ -288,11 +288,11 @@
    <view class='list'wx:for="{{second_hand}}"  catchtap='navigate' data-list-id="{{item.id}}"
    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
    <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
          <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
       </view>
         <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
   </view>
