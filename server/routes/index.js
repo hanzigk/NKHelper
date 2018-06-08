@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mysql = require("mysql");
 var url = require('url');
+var request = require('request');
 var connection = mysql.createConnection({
   host      :'localhost',
   user      :'root',
@@ -13,9 +14,41 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+//onlogin?code=***
+router.get('/onlogin',function (req, res, next) {
+  let code = req.query.code;
+  console.log("code:"+code);
+
+  request.get({
+    uri:'https://api.weixin.qq.com/sns/jscode2session',
+    json:true,
+    qs:{
+      grant_type:'authorization_code',
+      appid:'wx790b509e5d6f759f',
+      secret:'3a104c90a9e7bca5cacfcd21f10c223f',
+      js_code:code
+    }
+  },(err,response,data) => {
+    if(response.statusCode === 200){
+      //console.log(response);
+      console.log(data);
+
+      console.log("[openid]:", data.openid);
+      console.log("[session_key]:", data.session_key);
+
+      //TODO: 生成一个唯一字符串sessionid作为键，将openid和session_key作为值，存入redis，超时时间设置为2小时
+      //伪代码: redisStore.set(sessionid, openid + session_key, 7200)
+      res.json({ openid: data.openid});
+    }else{
+      console.log("[error]:",err);
+      res.json(err);
+    }
+  })
+})
+
 //在主页中，获得所有未被人满接的订单信息，按时间排序
 router.get('/searchAll',function (req, res) {
-  var tempSQL = 'SELECT * FROM order_put WHERE Order_NowNumber < Order_MaxNumber ORDER BY OrderPut_ID';
+  var tempSQL = 'SELECT order_put.*,user.* FROM order_put JOIN user ON order_put.Wechat_Number_Put = user.Wechat_Number WHERE order_put.Order_NowNumber < order_put.Order_MaxNumber ORDER BY OrderPut_ID DESC';
   connection.query(tempSQL,function (err, result) {
     if(err){
       console.log('[SELECT ERROR] - ',err.message);
@@ -30,7 +63,7 @@ router.get('/searchAll',function (req, res) {
 //搜索，按关键字搜索，/searchByKey?keyword=***
 router.get('/searchByKey',function (req, res) {
   var params = url.parse(req.url,true).query;
-  var tempSQL = 'SELECT * FROM order_put WHERE Order_NowNumber < Order_MaxNumber AND Order_Content LIKE "%' + params.keyword + '%" ORDER BY OrderPut_ID';
+  var tempSQL = 'SELECT order_put.*,user.* FROM order_put JOIN user ON order_put.Wechat_Number_Put = user.Wechat_Number WHERE order_put.Order_NowNumber < order_put.Order_MaxNumber AND order_put.Order_Content LIKE "%' + params.keyword + '%" ORDER BY OrderPut_ID DESC';
   connection.query(tempSQL,function (err, result) {
     if(err){
       console.log('[SELECT ERROR] - ',err.message);
@@ -45,7 +78,7 @@ router.get('/searchByKey',function (req, res) {
 //按类型，获得所有未被人满接的订单信息，按时间排序，/searchByType?type=***
 router.get('/searchByType',function (req, res) {
   var params = url.parse(req.url,true).query;
-  var tempSQL = 'SELECT * FROM order_put WHERE Order_NowNumber < Order_MaxNumber AND Order_Type = ' + params.type + ' ORDER BY OrderPut_ID';
+  var tempSQL = 'SELECT order_put.*,user.* FROM order_put JOIN user ON order_put.Wechat_Number_Put = user.Wechat_Number WHERE order_put.Order_NowNumber < order_put.Order_MaxNumber AND order_put.Order_Type = ' + params.type + ' ORDER BY OrderPut_ID DESC';
   connection.query(tempSQL,function (err, result) {
     if(err){
       console.log('[SELECT ERROR] - ',err.message);
@@ -57,27 +90,74 @@ router.get('/searchByType',function (req, res) {
   })
 })
 
-//查看我发的任务，返回订单信息和接订单人的名字，/searchMyPut?Wechat_Number_Put=***
+//按OrderPut_ID，获得所有未被人满接的订单信息，按时间排序，/searchByOrderPutID?OrderPut_ID=***
+router.get('/searchByOrderPutID',function (req, res) {
+  var params = url.parse(req.url,true).query;
+  var tempSQL = 'SELECT order_put.*,user.* FROM order_put JOIN user ON order_put.Wechat_Number_Put = user.Wechat_Number WHERE OrderPut_ID = ' + params.OrderPut_ID;
+  connection.query(tempSQL,function (err, result) {
+    if(err){
+      console.log('[SELECT ERROR] - ',err.message);
+      res.end();
+      return;
+    }
+    //console.log(result);
+    res.end(JSON.stringify(result));
+  })
+})
+
+//查看我发的任务，返回订单信息和接订单人的名字，/searchMyPut?Wechat_Number_Put=***,//这个方法有问题
 router.get('/searchMyPut',function (req, res) {
   var params = url.parse(req.url,true).query;
   var tempSQL = 'SELECT * FROM order_put JOIN order_get ON order_put.Wechat_Number_Put = "' + params.Wechat_Number_Put
-    + '" AND order_put.OrderPut_ID = order_get.OrderGet_ID ORDER BY order_put.OrderPut_ID';
+    + '" AND order_put.OrderPut_ID = order_get.OrderGet_ID ORDER BY order_put.OrderPut_ID DESC';
   connection.query(tempSQL,function (err, result) {
     if(err){
       console.log('[SELECT ERROR] - ',err.message);
       res.end();
       return;
     }
-    //console.log(result);
+    console.log(result);
     res.end(JSON.stringify(result));
   })
 })
 
-//查看我接的任务，返回订单信息和发订单人的名字，/searchMyGet?Wechat_Number_Get=***
+//查看我发的任务,//getMyPut?Wechat_Number_Put=***
+router.get('/getMyPut',function (req, res) {
+  var params = url.parse(req.url,true).query;
+  var tempSQL = 'SELECT order_put.*,user.* FROM order_put JOIN user ON order_put.Wechat_Number_Put = user.Wechat_Number WHERE Wechat_Number_Put = "'+ params.Wechat_Number_Put +'" Order BY order_put.OrderPut_ID DESC';
+  connection.query(tempSQL,function (err, result) {
+    if(err){
+      console.log('[SELECT ERROR] - ',err.message);
+      res.end();
+      return;
+    }
+    console.log(result);
+    res.end(JSON.stringify(result));
+  })
+})
+
+//查看我发的一个任务的详细情况，包括接受任务的人的信息，//getMyOnePut?OrderGet_ID=***
+router.get('/getMyOnePut',function (req, res) {
+  var params = url.parse(req.url,true).query;
+  var tempSQL = 'SELECT * FROM order_get JOIN user ON order_get.Wechat_Number_Get = user.Wechat_Number WHERE OrderGet_ID = '+ params.OrderGet_ID;
+  connection.query(tempSQL,function (err, result) {
+    if(err){
+      console.log('[SELECT ERROR] - ',err.message);
+      res.end();
+      return;
+    }
+    console.log(result);
+    res.end(JSON.stringify(result));
+  })
+})
+
+//查看我接的任务，返回订单信息和发订单人的信息，/searchMyGet?Wechat_Number_Get=***
 router.get('/searchMyGet',function (req, res) {
   var params = url.parse(req.url,true).query;
-  var tempSQL = 'SELECT * FROM order_get JOIN order_put ON order_get.Wechat_Number_Get = "' + params.Wechat_Number_Get
-    +'" AND order_get.OrderGet_ID = order_put.OrderPut_ID ORDER BY order_Get.OrderGet_ID';
+  var tempSQL = 'SELECT * FROM (((SELECT * FROM order_get JOIN order_put ON order_get.Wechat_Number_Get = \n' +
+    '"'+ params.Wechat_Number_Get +'" AND order_get.OrderGet_ID = order_put.OrderPut_ID) AS table1 )\n' +
+    'JOIN `user` ON table1.Wechat_Number_Put = `user`.Wechat_Number) \n' +
+    'ORDER BY table1.OrderGet_ID DESC';
   connection.query(tempSQL,function (err, result) {
     if(err){
       console.log('[SELECT ERROR] - ',err.message);
@@ -89,11 +169,11 @@ router.get('/searchMyGet',function (req, res) {
   })
 })
 
-//增加user，这个用户第一次登陆，/addUser?Wechat_Number=***&Wechat_Name=***&Phone_Number=***&Nickname=***&Address=***
+//增加user，这个用户第一次登陆，/addUser?Wechat_Number=***&Wechat_Name=***&Phone_Number=***&NickName=***&Address=***&Image=***
 router.get('/addUser',function (req, res) {
   var params = url.parse(req.url,true).query;
   var tempSQL = 'INSERT INTO user VALUES ("'+ params.Wechat_Number + '","'+ params.Wechat_Name+ '","'
-    + params.Phone_Number +'","'+ params.Nickname +'","'+ params.Address +'",80,0)';
+    + params.Phone_Number +'","'+ params.NickName +'","'+ params.Address +'",80,0,"'+ params.Image +'")';
   connection.query(tempSQL,function (err, result) {
     if(err){
       console.log('[INSERT ERROR] - ',err.message);
@@ -132,7 +212,7 @@ router.get('/addOrderPut',function (req,res) {
     var first_count = first_result[0]['COUNT(*)'];
     console.log('first_count:'+ first_count);
     if(first_count==3){
-      res.end('已发任务数量已满');
+      res.end('error:outoflimit');
       return;
     }
     //得到当前任务数量，确定任务ID
@@ -405,12 +485,73 @@ router.get('/cancelOrder',function (req, res) {
       return;
     }
     console.log(result);
-    res.end("取消订单成功 ");
+    res.end("取消订单成功！");
     return;
   })
 })
 
+//添加评论,/addComment?OrderGet_ID=***&Wechat_Number_Get=***&Comment=***
+router.get('/addComment',function (req, res) {
+  var params = url.parse(req.url, true).query;
+  var tempSQL = 'UPDATE order_get SET Comment = "' + params.Comment + '" WHERE OrderGet_ID = ' + params.OrderGet_ID + ' AND Wechat_Number_Get = "' + params.Wechat_Number_Get + '"';
+  connection.query(tempSQL,function (err, result) {
+    if(err){
+      console.log('[UPDATE ERROR] - ',err.message);
+      res.end('database error');
+      return;
+    }
+    console.log(result);
+    res.end("添加评论成功！");
+    return;
+  })
+})
 
+//获得用户信息,/getUserMessage?Wechat_Number=***
+router.get('/getUserMessage',function(req,res){
+  var params = url.parse(req.url, true).query;
+  var tempSQL = 'SELECT * FROM user WHERE Wechat_Number = "'+ params.Wechat_Number +'"';
+  connection.query(tempSQL,function (err, result) {
+    if(err){
+      console.log('[SELECT ERROR] - ',err.message);
+      res.end('database error');
+      return;
+    }
+    console.log(result);
+    res.end(JSON.stringify(result));
+    return;
+  })
+})
+
+//获取用户订单数,/getOrderNumber?Wechat_Number=***
+router.get('/getOrderNumber',function (req, res) {
+  var params = url.parse(req.url, true).query;
+  var tempSQL0 = 'SELECT COUNT(*) FROM order_put WHERE Wechat_Number_Put = "'+ params.Wechat_Number +'"';
+  connection.query(tempSQL0,function (err, result) {
+    if(err){
+      console.log('[SELECT ERROR] - ',err.message);
+      res.end('database error');
+      return;
+    }
+    console.log(result);
+    var putNumber = result[0]['COUNT(*)'];
+    console.log("putNumber:"+ putNumber);
+    var tempSQL1 = 'SELECT COUNT(*) FROM order_get WHERE Wechat_Number_Get = "'+ params.Wechat_Number +'"';
+    connection.query(tempSQL1,function (secont_err, second_result) {
+      if(secont_err){
+        console.log('[SELECT ERROR] - ',secont_err.message);
+        res.end('database error');
+        return;
+      }
+      console.log(second_result);
+      var getNumber = second_result[0]['COUNT(*)'];
+      console.log("getNumber:"+ getNumber);
+      var orderNumber = putNumber + getNumber;
+      var rea={orderNumber:orderNumber};
+      res.json(rea);
+      return;
+    })
+  })
+})
 
 /* GET home page. */
 /*
