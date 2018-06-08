@@ -26,7 +26,8 @@ Page({
           time: res.data[0].Order_Time,
           Order_MaxNumber: res.data[0].Order_MaxNumber,
           Order_NowNumber: res.data[0].Order_NowNumber,
-          image: res.data[0].Image
+          image: res.data[0].Image,
+          
         });
       }
     })
@@ -40,14 +41,24 @@ Page({
         var array=that.data.receivername;
         console.log(res.data);
         for (i; i < res.data.length; i++) {
+          if(getApp().globalData.Wechat_Number==res.data[i].Wechat_Number)
+          {
+            that.setData({
+              comment: res.data[i].Comment
+
+            });
+            
+            //console.log(res.data[i].Comment);
+          }
           array[i] = {
             nickname:res.data[i].Nickname,
             WechatNumber: res.data[i].Wechat_Number_Get
+            
         }
         }
         that.setData({
-          receivername: array,
-
+          receivername: array
+          
         });
       }
     })
@@ -76,6 +87,7 @@ Page({
     Order_MaxNumber: "",
     Order_NowNumber: "",
     mid: 0,
-    image:""
+    image:"",
+    comment:""
   }
 })
