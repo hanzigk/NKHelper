@@ -1,7 +1,7 @@
 <!--answer.wxml-->
 <view class="container">
     <view class="question" bindtap="toQuestion">
-        <text class="question-title">{{ordername}}</text>
+        <text class="question-title" style="font-size:24">{{ordername}}</text>
     </view>
     <view class="answerer-wrp">
         <view class="bg-half"></view>

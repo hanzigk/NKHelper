@@ -18,7 +18,7 @@ Page({
           console.log(res.data);    
           that.setData({
             ordername: res.data[0].Order_Title,
-            sendername: res.data[0].Wechat_Number_Put,
+            sendername: res.data[0].Nickname,
             Order_Type: res.data[0].Order_Type,
             content: res.data[0].Order_Content,
             id: res.data[0].OrderPut_ID,

@@ -1,4 +1,6 @@
 // pages/wxml/index.js
+
+var sliderWidth = 96;
 Page({
   data: {
     inputValue: '',
@@ -68,11 +70,13 @@ Page({
       title: "",
       content: ""
     }],
-    currentTab: 0
+    currentTab: 0,
+    inputShowed: false,
+    inputVal: ""
   },
   navbarTap: function (e) {
     this.setData({
-      currentTab: e.currentTarget.dataset.idx
+      currentTab: e.currentTarget.dataset.idx,
     })
     console.log(e.currentTarget.dataset.idx)
     var temp = e.currentTarget.dataset.idx
@@ -164,6 +168,29 @@ Page({
       url: '/pages/hot/search/search',
     })
   },
+
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
