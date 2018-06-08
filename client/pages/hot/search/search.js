@@ -1,6 +1,7 @@
 // pages/wxml/index.js
 Page({
   data: {
+    inputShowed: false,
     inputValue: '',
     search: [{
       id: 0,
@@ -11,6 +12,29 @@ Page({
     }],
     currentTab: 0
   },
+
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputValue: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputValue: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputValue: e.detail.value
+    });
+  },
+
   navigate: function (event) {
     var listid = event.currentTarget.dataset.listId;
     console.log(listid);

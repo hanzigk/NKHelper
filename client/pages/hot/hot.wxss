@@ -9,6 +9,8 @@
   font-family: "微软雅黑";
   font-size: 32rpx;
   color: #ab998d;
+  flex-direction: row;
+  align-items: center;
 }  
 .navbar .item{  
   display: inline-block;
@@ -93,6 +95,16 @@
   margin-left: 50rpx;
 }
 
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}
 
 /**index.wxss**/
 

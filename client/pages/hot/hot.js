@@ -1,4 +1,6 @@
 // pages/wxml/index.js
+
+var sliderWidth = 96;
 Page({
   data: {
     inputValue: '',
@@ -77,11 +79,13 @@ Page({
       title: "",
       content: ""
     }],
-    currentTab: 0
+    currentTab: 0,
+    inputShowed: false,
+    inputVal: ""
   },
   navbarTap: function (e) {
     this.setData({
-      currentTab: e.currentTarget.dataset.idx
+      currentTab: e.currentTarget.dataset.idx,
     })
     console.log(e.currentTarget.dataset.idx)
     var temp = e.currentTarget.dataset.idx
@@ -176,11 +180,34 @@ Page({
       url: '/pages/hot/search/search',
     })
   },
+
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(2)
+    //console.log(2)
     var that = this;
     wx.request({
       url: 'http://10.134.39.81:3000/searchAll',//此处填写你后台请求地址
@@ -218,7 +245,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    wx.request({
+      url: 'http://10.134.39.81:3000/searchAll',//此处填写你后台请求地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        var array = that.data.hot
+        var i = 0
+        console.log(res.data);
+        for (i; i < res.data.length; i++) {
+          array[i] = {
+            id: res.data[i].OrderPut_ID,
+            Order_Type: res.data[i].Order_Type,
+            time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
+            title: res.data[i].Order_Title,
+            content: res.data[i].Order_Content
+          }
+        }
+        that.setData({
+          hot: array
+        });
+      }
+    })
   },
 
   /**
@@ -239,7 +289,30 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var that = this;
+    wx.request({
+      url: 'http://10.134.39.81:3000/searchAll',//此处填写你后台请求地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        var array = that.data.hot
+        var i = 0
+        console.log(res.data);
+        for (i; i < res.data.length; i++) {
+          array[i] = {
+            id: res.data[i].OrderPut_ID,
+            Order_Type: res.data[i].Order_Type,
+            time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
+            title: res.data[i].Order_Title,
+            content: res.data[i].Order_Content
+          }
+        }
+        that.setData({
+          hot: array
+        });
+      }
+    })
   },
 
   /**
