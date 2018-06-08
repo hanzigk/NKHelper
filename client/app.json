@@ -1,7 +1,5 @@
 {
   "pages":[
-
-   
     "pages/hot/hot",
     "pages/hot/hotdetail/hotdetail",
     "pages/hot/search/search",

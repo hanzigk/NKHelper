@@ -1,15 +1,10 @@
 // pages/wxml/index.js]
 var app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     user: {
       imagePath: "/images/pig.jpg",
       name: "点击登录",
-      
     },
     score: "",
     details:[
@@ -34,11 +29,36 @@ Page({
         ordernow:0,
         id: 1
       }],
+    sendorder: [
+      {
+        ordertype: 0,
+        receivername: "",
+        ordermax: "",
+        ordernow: "",
+        sendername: "",
+        ordertitle: "",
+        ordertime: "",
+        id: 0
+      }
+    ],
+    receiveorder: [
+      {
+        ordertype: 0,
+        ordermax: "",
+        ordernow: "",
+        sendername: "",
+        ordertitle: "",
+        ordertime: "",
+        id: 0
+      }
+    ],
     orderindex: [
       {
         id: -1
       }],
-    time: (new Date()).toString()
+    navbar: ['我发出的订单', '我接收的订单'],
+    time: (new Date()).toString(),
+    currentTab: 0
   },
 navigate:function(event){
   var detailid = event.currentTarget.dataset.detailId
@@ -65,6 +85,38 @@ navigate:function(event){
     })
   }
 },
+  navbarTap: function (e) {
+    this.setData({
+      currentTab: e.currentTarget.dataset.idx
+    })
+    var that = this;
+    wx.request({
+      url: 'http://10.134.39.81:3000/searchMyGet?Wechat_Number_Get=ludi5757',//此处填写你后台请求地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        var array = that.data.receiveorder
+        var i = 0
+        console.log(res.data);
+        for (i; i < res.data.length; i++) {
+          array[i] = {
+            id: res.data[i].OrderGet_ID,
+            ordertype: res.data[i].Order_Type,
+            ordertime: res.data[i].Order_Time,
+            ordertitle: res.data[i].Order_Title,
+            content: res.data[i].Order_Content,
+            sendername: res.data[i].Wechat_Number_Get,
+            ordermax: res.data[i].Order_MaxNumber,
+            ordernow: res.data[i].Order_NowNumber
+          }
+        }
+        that.setData({
+          receiveorder: array
+        });
+      }
+    })
+  },
 orderdetail: function (event) {
   var orderid = event.currentTarget.dataset.orderId
   var receivername = event.currentTarget.dataset.receiverName
@@ -73,11 +125,7 @@ orderdetail: function (event) {
       url: '/pages/user/myList/myListDetail/myListDetail?id=' + orderid + '&receivername=' + receivername,
     })
   },
-
-
   login:function(userinfo){
-    
-
     var that=this;
     wx.login({
       success: function (res) {
@@ -135,8 +183,7 @@ orderdetail: function (event) {
                           detailsid: "0",
                           detailsnumber: on.data.orderNumber,
                           text: "订单"
-                        };
-                        
+                        };  
                         temp2[1] = {
                           detailsid: "3",
                           detailsnumber: de.data[0].Total_Order,
@@ -146,11 +193,7 @@ orderdetail: function (event) {
                           details: temp2
                         });
                       }
-                    })
-                      
-                    
-                    
-                    
+                    })  
                   }
                 });
                 wx.request({
