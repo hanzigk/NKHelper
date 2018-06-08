@@ -11,7 +11,7 @@
         </view>
   </view>
 
-  <view class="weui-article__h1">---请选择任务类型---</view>
+  <view class="ordertype">---请选择任务类型---</view>
 
   
   <view class="type">
