@@ -7,7 +7,7 @@
         <view class="bg-half"></view>
         <view class="answerer flex-wrp">
             <view class="avatar flex-item" catchtap='navigate'data-receiver-name='{{sendername}}' data-list-id='{{mid}}'data-wechat-number='{{Wechat_Number_Put}}'data-get-put='1' >
-                <image src="/images/pig.jpg"></image>
+                <image src="{{image}}"></image>
             </view>
             <view class="answerer-info flex-item">
                 <text class="answerer-name">{{sendername}}</text>
