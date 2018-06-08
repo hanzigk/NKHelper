@@ -60,6 +60,7 @@ Page({
     time: (new Date()).toString(),
     currentTab: 0
   },
+
 navigate:function(event){
   var detailid = event.currentTarget.dataset.detailId
   console.log(detailid);
