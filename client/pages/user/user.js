@@ -29,7 +29,8 @@ Page({
         time:"",
         ordermax:0,
         ordernow:0,
-        id: 1
+        id: 1,
+        image: ""
       }],
     sendorder: [
       {
@@ -41,7 +42,8 @@ Page({
         ordertitle: "",
         ordertime: "",
         content:"",
-        id: 0
+        id: 0,
+        image:""
       }
     ],
     receiveorder: [
@@ -52,14 +54,16 @@ Page({
         sendername: "",
         ordertitle: "",
         ordertime: "",
-        id: 0
+        id: 0,
+
+        image: ""
       }
     ],
     orderindex: [
       {
         id: -1
       }],
-    navbar: ['我发出的订单', '我接收的订单'],
+    navbar: ['我发布的订单', '我接受的订单'],
     time: (new Date()).toString(),
     currentTab: 0
   },
@@ -117,7 +121,11 @@ navbarTap: function (e) {
             content: res.data[i].Order_Content,
             sendername: res.data[i].Nickname,
             ordermax: res.data[i].Order_MaxNumber,
-            ordernow: res.data[i].Order_NowNumber
+            ordernow: res.data[i].Order_NowNumber,
+
+
+            image: res.data[i].Image,
+
           }
         }
         that.setData({
@@ -254,7 +262,10 @@ login:function(userinfo){
                           receivername: res.data[i].Wechat_Number_Get,
                           ordermax: res.data[i].Order_MaxNumber,
                           ordernow: res.data[i].Order_NowNumber,
-                          content: res.data[i].Order_Content
+                          content: res.data[i].Order_Content,
+
+                          image: res.data[i].Image
+
                         }
                         indexarray[j - 1] = {
                           id: res.data[i].OrderPut_ID
@@ -269,7 +280,10 @@ login:function(userinfo){
                         ordertitle = array[temp].ordertitle;
                         ordertime = array[temp].ordertime;
                         id = array[temp].id;
+
+                        image = array[temp].image;
                         receivername = array[temp].receivername
+
                         array[temp] = {
                           id: id,
                           ordertype: ordertype,
@@ -278,7 +292,10 @@ login:function(userinfo){
                           sendername: sendername,
                           ordermax: ordermax,
                           ordernow: ordernow,
-                          receivername: receivername + ';' + res.data[i].Wechat_Number_Get
+                          receivername: receivername + ';' + res.data[i].Wechat_Number_Get,
+
+                          image:image
+
                         }
                       }
                     }
@@ -417,7 +434,7 @@ onLoad: function (options) {
       }
     });
     wx.request({
-      url: 'http://10.134.39.81:3000/searchMyPut',//此处填写你后台请求地址
+      url: 'http://10.134.39.81:3000/getMyPut',//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },
@@ -425,8 +442,7 @@ onLoad: function (options) {
         Wechat_Number_Put: getApp().globalData.Wechat_Number
       },
       success: function (res) {
-        console.log(res.data)
-        var array = that.data.order
+        var array = that.data.sendorder
         var indexarray = that.data.orderindex
         var i = 0
         var temp = -1;
@@ -434,13 +450,18 @@ onLoad: function (options) {
         var count = 0;
         //
         var ordertype = 0;
-        var ordername = "";
         var receivername = "";
-        var time = "";
         var ordermax = 0;
         var ordernow = 0;
+        var sendername = "";
+        var ordertitle = "";
+        var ordertime = "";
         var id = 0;
+        var content = "";
         console.log(res.data);
+        that.setData({
+          putnumber: res.data.length,
+        });
         for (i; i < res.data.length; i++) {
           temp = -1;
           for (j = 0; j < indexarray.length; j++) {
@@ -454,38 +475,45 @@ onLoad: function (options) {
             array[count] = {
               id: res.data[i].OrderPut_ID,
               ordertype: res.data[i].Order_Type,
-              time: res.data[i].Order_Time,
-              ordername: res.data[i].Order_Title,
+              ordertime: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
+              ordertitle: res.data[i].Order_Title,
+              sendername: res.data[i].Nickname,
               receivername: res.data[i].Wechat_Number_Get,
               ordermax: res.data[i].Order_MaxNumber,
-              ordernow: res.data[i].Order_NowNumber
+              ordernow: res.data[i].Order_NowNumber,
+              content: res.data[i].Order_Content,
+              image: res.data[i].Image
             }
             indexarray[j - 1] = {
               id: res.data[i].OrderPut_ID
             }
             count++;
           } else {
-            //console.log(temp);
+            console.log(temp);
             ordertype = array[temp].ordertype;
             ordermax = array[temp].ordermax;
             ordernow = array[temp].ordernow;
-            ordername = array[temp].ordername;
-            time = array[temp].time;
+            sendername = array[temp].sendername;
+            ordertitle = array[temp].ordertitle;
+            ordertime = array[temp].ordertime;
             id = array[temp].id;
+            image = array[temp].image;
             receivername = array[temp].receivername
             array[temp] = {
               id: id,
               ordertype: ordertype,
-              time: time,// 1000//res.data[i].Order_Time,
-              ordername: ordername,
+              ordertime: ordertime,// 1000//res.data[i].Order_Time,
+              ordertitle: ordertitle,
+              sendername: sendername,
               ordermax: ordermax,
               ordernow: ordernow,
-              receivername: receivername + ';' + res.data[i].Wechat_Number_Get
+              receivername: receivername + ';' + res.data[i].Wechat_Number_Get,
+              image: image
             }
           }
         }
         that.setData({
-          order: array,
+          sendorder: array,
           orderindex: indexarray
         });
       }
@@ -504,37 +532,7 @@ onLoad: function (options) {
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    if (getApp().globalData.Wechat_Number != "") {
-      var that = this;
-      wx.request({
-        url: 'http://10.134.39.81:3000/getUserMessage',
-        data: {
-          Wechat_Number: getApp().globalData.Wechat_Number
-        },
-        success: function (de) {
-          wx.request({
-            url: 'http://10.134.39.81:3000/getOrderNumber',
-            data: {
-              Wechat_Number: getApp().globalData.Wechat_Number
-            },
-            success: function (on) {
-              that.setData({
-                score: de.data[0].Credit
-              });
-              //console.log(on.data.orderNumber);
-
-              var temp2 = that.data.details;
-              //console.log(de.data[0].Total_Order);
-              temp2[0] = {
-                detailsid: "0",
-                detailsnumber: on.data.orderNumber,
-                text: "订单"
-              };
-            }
-          })
-        }
-      })
-    }
+    
   },
 
   /**
@@ -570,6 +568,94 @@ onLoad: function (options) {
             };
           }
         })
+      }
+    })
+    wx.request({
+      url: 'http://10.134.39.81:3000/getMyPut',//此处填写你后台请求地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      data: {
+        Wechat_Number_Put: getApp().globalData.Wechat_Number
+      },
+      success: function (res) {
+        var array = that.data.sendorder
+        var indexarray = that.data.orderindex
+        var i = 0
+        var temp = -1;
+        var j = 0;
+        var count = 0;
+        //
+        var ordertype = 0;
+        var receivername = "";
+        var ordermax = 0;
+        var ordernow = 0;
+        var sendername = "";
+        var ordertitle = "";
+        var ordertime = "";
+        var id = 0;
+        var content = "";
+        console.log(res.data);
+        that.setData({
+          putnumber: res.data.length,
+        });
+        for (i; i < res.data.length; i++) {
+          temp = -1;
+          for (j = 0; j < indexarray.length; j++) {
+            if (res.data[i].OrderPut_ID == indexarray[j].id)//表明已经发布过
+            {
+              temp = j;
+            }
+          }
+          if (temp == -1)//未发布过
+          {
+            array[count] = {
+              id: res.data[i].OrderPut_ID,
+              ordertype: res.data[i].Order_Type,
+              ordertime: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
+              ordertitle: res.data[i].Order_Title,
+              sendername: res.data[i].Nickname,
+              receivername: res.data[i].Wechat_Number_Get,
+              ordermax: res.data[i].Order_MaxNumber,
+              ordernow: res.data[i].Order_NowNumber,
+
+              image: res.data[i].Image,
+              content: res.data[i].Order_Content
+            }
+            indexarray[j - 1] = {
+              id: res.data[i].OrderPut_ID
+            }
+            count++;
+          } else {
+            console.log(temp);
+            ordertype = array[temp].ordertype;
+            ordermax = array[temp].ordermax;
+            ordernow = array[temp].ordernow;
+            sendername = array[temp].sendername;
+            ordertitle = array[temp].ordertitle;
+            ordertime = array[temp].ordertime;
+            id = array[temp].id;
+
+            image = array[temp].image;
+            receivername = array[temp].receivername
+
+            array[temp] = {
+              id: id,
+              ordertype: ordertype,
+              ordertime: ordertime,// 1000//res.data[i].Order_Time,
+              ordertitle: ordertitle,
+              sendername: sendername,
+              ordermax: ordermax,
+              ordernow: ordernow,
+              receivername: receivername + ';' + res.data[i].Wechat_Number_Get,
+              image: image
+            }
+          }
+        }
+        that.setData({
+          sendorder: array,
+          orderindex: indexarray
+        });
       }
     })
     }

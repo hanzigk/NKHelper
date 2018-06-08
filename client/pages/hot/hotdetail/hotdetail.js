@@ -24,7 +24,8 @@ Page({
             id: res.data[0].OrderPut_ID,
             time: res.data[0].Order_Time,
             Order_MaxNumber: res.data[0].Order_MaxNumber,
-            Order_NowNumber: res.data[0].Order_NowNumber
+            Order_NowNumber: res.data[0].Order_NowNumber,
+            image: res.data[0].Image
           });
         }
       })
@@ -111,6 +112,7 @@ Page({
         time:"",
         Order_MaxNumber:"",
         Order_NowNumber: "",
-        mid:0
+        mid:0,
+        image:""
   }
 })

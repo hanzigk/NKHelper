@@ -32,7 +32,8 @@
   <view class='list' wx:for='{{sendorder}}'style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'bindtap='listdetails' data-order-id="{{item.id}}"data-receiver-name="{{item.receivername}}">
   <view class='userinfo'>
    <view class='user1'>
-     <image class='icon-image' src='/images/pig.jpg'></image>
+
+     <image class='icon-image' src='{{item.image}}'></image>
      <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.sendername}}</text>
    </view>
    <view class='item'>
@@ -62,7 +63,8 @@
   <view class='list' wx:for='{{receiveorder}}'style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'bindtap='listdetails' data-order-id="{{item.id}}">
   <view class='userinfo'>
    <view class='user1'>
-     <image class='icon-image' src='/images/pig.jpg'></image>
+
+     <image class='icon-image' src='{{item.image}}'></image>
      <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.sendername}}</text>
    </view>
    <view class='item'>
