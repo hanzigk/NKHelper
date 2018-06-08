@@ -68,10 +68,12 @@
 .icon-image{
   width: 65rpx;
   height: 65rpx;
+  border-radius:50%;
 }
 .order-image{
   width: 100rpx;
   height: 100rpx;
+  border-radius:50%;
 }
 .details-info
 {
