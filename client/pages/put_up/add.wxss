@@ -72,3 +72,7 @@ page{
     font-size:40rpx;
     text-align:left;
 }
+.ordertype{
+    display: flex;
+    margin-top: 300rpx
+}
