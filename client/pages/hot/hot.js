@@ -21,63 +21,72 @@ Page({
       sendername: "",
       time: "",
       title: "",
-      content: ""
+      content: "",
+      image:""
     }],
     sales: [{
       id: 0,
       sendername: "",
       time: "",
       title: "",
-      content: ""
+      content: "",
+      image: ""
     }],
     Q_A: [{
       id: 0,
       sendername: "",
       time: "",
       title: "",
-      content: ""
+      content: "",
+      image: ""
     }],
     activity: [{
       id: 0,
       sendername: "",
       time: "",
       title: "",
-      content: ""
+      content: "",
+      image: ""
     }],
     lostandfound: [{
       id: 0,
       sendername: "",
       time: "",
       title: "",
-      content: ""
+      content: "",
+      image: ""
     }],
     car: [{
       id: 0,
       sendername: "",
       time: "",
       title: "",
-      content: ""
+      content: "",
+      image: ""
     }],
     delivery: [{
       id: 0,
       sendername: "",
       time: "",
       title: "",
-      content: ""
+      content: "",
+      image: ""
     }],
     buy: [{
       id: 0,
       sendername: "",
       time: "",
       title: "",
-      content: ""
+      content: "",
+      image: ""
     }],
     second_hand: [{
       id: 0,
       sendername: "",
       time: "",
       title: "",
-      content: ""
+      content: "",
+      image: ""
     }],
     currentTab: 0,
     inputShowed: false,
@@ -107,7 +116,8 @@ Page({
               time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
               title: res.data[i].Order_Title,
               content: res.data[i].Order_Content,
-              sendername: res.data[i].Nickname
+              sendername: res.data[i].Nickname,
+              image: res.data[i].Image
             }
           }
           that.setData({
@@ -139,7 +149,8 @@ Page({
                 time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
                 title: res.data[i].Order_Title,
                 content: res.data[i].Order_Content,
-                sendername: res.data[i].Nickname
+                sendername: res.data[i].Nickname,
+                image: res.data[i].Image
               }
             } else {
               array[i] = {
@@ -148,7 +159,8 @@ Page({
                 time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
                 title: res.data[i].Order_Title,
                 content: res.data[i].Order_Content,
-                sendername: res.data[i].Nickname
+                sendername: res.data[i].Nickname,
+                image: res.data[i].Image
               }
             }
           }
@@ -225,7 +237,8 @@ Page({
             time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
             title: res.data[i].Order_Title,
             content: res.data[i].Order_Content,
-            sendername: res.data[i].Nickname
+            sendername: res.data[i].Nickname,
+            image: res.data[i].Image
           }
         }
         that.setData({
@@ -263,7 +276,8 @@ Page({
             time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
             title: res.data[i].Order_Title,
             content: res.data[i].Order_Content,
-            sendername: res.data[i].Nickname
+            sendername: res.data[i].Nickname,
+            image: res.data[i].Image
           }
         }
         that.setData({
@@ -308,7 +322,8 @@ Page({
             time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
             title: res.data[i].Order_Title,
             content: res.data[i].Order_Content,
-            sendername: res.data[i].Nickname
+            sendername: res.data[i].Nickname,
+            image: res.data[i].Image
           }
         }
         that.setData({
