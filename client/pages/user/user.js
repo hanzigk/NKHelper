@@ -1,4 +1,4 @@
-﻿// pages/wxml/index.js]
+// pages/wxml/index.js]
 var app = getApp();
 Page({
   data: {
@@ -115,7 +115,7 @@ navbarTap: function (e) {
             ordertime: res.data[i].Order_Time,
             ordertitle: res.data[i].Order_Title,
             content: res.data[i].Order_Content,
-            sendername: res.data[i].Wechat_Number_Get,
+            sendername: res.data[i].Nickname,
             ordermax: res.data[i].Order_MaxNumber,
             ordernow: res.data[i].Order_NowNumber
           }
