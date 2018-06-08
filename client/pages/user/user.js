@@ -55,11 +55,8 @@ Page({
         ordertitle: "",
         ordertime: "",
         id: 0,
-<<<<<<< HEAD
-        image:""
-=======
+
         image: ""
->>>>>>> 94215e63f0f8a7ce40c98c4b8f71ea9715ed999e
       }
     ],
     orderindex: [
@@ -621,13 +618,9 @@ onLoad: function (options) {
               receivername: res.data[i].Wechat_Number_Get,
               ordermax: res.data[i].Order_MaxNumber,
               ordernow: res.data[i].Order_NowNumber,
-<<<<<<< HEAD
-              content: res.data[i].Order_Content,
-              image: res.data[i].Image
-=======
+
               image: res.data[i].Image,
               content: res.data[i].Order_Content
->>>>>>> 94215e63f0f8a7ce40c98c4b8f71ea9715ed999e
             }
             indexarray[j - 1] = {
               id: res.data[i].OrderPut_ID
