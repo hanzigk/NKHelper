@@ -41,7 +41,8 @@ Page({
         ordertitle: "",
         ordertime: "",
         content:"",
-        id: 0
+        id: 0,
+        image:""
       }
     ],
     receiveorder: [
@@ -52,7 +53,8 @@ Page({
         sendername: "",
         ordertitle: "",
         ordertime: "",
-        id: 0
+        id: 0,
+        image:""
       }
     ],
     orderindex: [
@@ -117,7 +119,8 @@ navbarTap: function (e) {
             content: res.data[i].Order_Content,
             sendername: res.data[i].Nickname,
             ordermax: res.data[i].Order_MaxNumber,
-            ordernow: res.data[i].Order_NowNumber
+            ordernow: res.data[i].Order_NowNumber,
+            image: res.data[i].Image
           }
         }
         that.setData({
@@ -254,7 +257,8 @@ login:function(userinfo){
                           receivername: res.data[i].Wechat_Number_Get,
                           ordermax: res.data[i].Order_MaxNumber,
                           ordernow: res.data[i].Order_NowNumber,
-                          content: res.data[i].Order_Content
+                          content: res.data[i].Order_Content,
+                          image: res.data[i].Image
                         }
                         indexarray[j - 1] = {
                           id: res.data[i].OrderPut_ID
@@ -269,6 +273,7 @@ login:function(userinfo){
                         ordertitle = array[temp].ordertitle;
                         ordertime = array[temp].ordertime;
                         id = array[temp].id;
+                        image = array[temp].image;
                         receivername = array[temp].receivername
                         array[temp] = {
                           id: id,
@@ -278,7 +283,8 @@ login:function(userinfo){
                           sendername: sendername,
                           ordermax: ordermax,
                           ordernow: ordernow,
-                          receivername: receivername + ';' + res.data[i].Wechat_Number_Get
+                          receivername: receivername + ';' + res.data[i].Wechat_Number_Get,
+                          image:image
                         }
                       }
                     }
@@ -464,7 +470,8 @@ onLoad: function (options) {
               receivername: res.data[i].Wechat_Number_Get,
               ordermax: res.data[i].Order_MaxNumber,
               ordernow: res.data[i].Order_NowNumber,
-              content: res.data[i].Order_Content
+              content: res.data[i].Order_Content,
+              image: res.data[i].Image
             }
             indexarray[j - 1] = {
               id: res.data[i].OrderPut_ID
@@ -479,6 +486,7 @@ onLoad: function (options) {
             ordertitle = array[temp].ordertitle;
             ordertime = array[temp].ordertime;
             id = array[temp].id;
+            image = array[temp].image;
             receivername = array[temp].receivername
             array[temp] = {
               id: id,
@@ -488,7 +496,8 @@ onLoad: function (options) {
               sendername: sendername,
               ordermax: ordermax,
               ordernow: ordernow,
-              receivername: receivername + ';' + res.data[i].Wechat_Number_Get
+              receivername: receivername + ';' + res.data[i].Wechat_Number_Get,
+              image: image
             }
           }
         }
@@ -598,7 +607,8 @@ onLoad: function (options) {
               receivername: res.data[i].Wechat_Number_Get,
               ordermax: res.data[i].Order_MaxNumber,
               ordernow: res.data[i].Order_NowNumber,
-              content: res.data[i].Order_Content
+              content: res.data[i].Order_Content,
+              image: res.data[i].Image
             }
             indexarray[j - 1] = {
               id: res.data[i].OrderPut_ID
@@ -613,6 +623,7 @@ onLoad: function (options) {
             ordertitle = array[temp].ordertitle;
             ordertime = array[temp].ordertime;
             id = array[temp].id;
+            image = array[temp].image;
             receivername = array[temp].receivername
             array[temp] = {
               id: id,
@@ -622,7 +633,8 @@ onLoad: function (options) {
               sendername: sendername,
               ordermax: ordermax,
               ordernow: ordernow,
-              receivername: receivername + ';' + res.data[i].Wechat_Number_Get
+              receivername: receivername + ';' + res.data[i].Wechat_Number_Get,
+              image: image
             }
           }
         }
