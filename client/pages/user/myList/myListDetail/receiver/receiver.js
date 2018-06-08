@@ -1,4 +1,4 @@
-
+var app=getApp();
 Page({
   data: {
     receivername:"",
@@ -16,25 +16,49 @@ Page({
     this.setData({
       receivername: options.receivername ,
       listid:options.listid,
-      Wechat_Number_Get: options.Wechat_Number_Get
+      Wechat_Number_Get: options.Wechat_Number_Get,
+      getput: options.getput
     })
-    wx.request({
-      url: 'http://10.134.39.81:3000/getMyOnePut',
-      data: {
-        "OrderGet_ID": options.listid,
-      },
-      success: function (res) {
-        console.log(res.data)
-        //已经评论过
-        if (res.data[0].Credit_PtoG!=-1){
-          that.setData({
-            choose: 0,
-            PutNumber: res.data[0].Credit_PtoG-1,
-            Content:res.data[0].Comment
-          })
-        }
-      },
-    })
+    if(this.data.getput=='-1')//给接收者评分
+    {
+      wx.request({
+        url: 'http://10.134.39.81:3000/getMyOnePut',
+        data: {
+          "OrderGet_ID": options.listid,
+        },
+        success: function (res) {
+          console.log(res.data)
+          //已经评论过
+          if (res.data[0].Credit_PtoG != -1) {
+            that.setData({
+              choose: 0,
+              PutNumber: res.data[0].Credit_PtoG - 1,
+              Content: res.data[0].Comment
+            })
+          }
+        },
+      })
+    }
+    if (this.data.getput == '1')//给发布者评分
+    {
+      wx.request({
+        url: 'http://10.134.39.81:3000/getMyOnePut',
+        data: {
+          "OrderGet_ID": options.listid,
+        },
+        success: function (res) {
+          console.log(res.data)
+          //已经评论过
+          if (res.data[0].Credit_GtoP != -1) {
+            that.setData({
+              choose: 0,
+              PutNumber: res.data[0].Credit_GtoP - 1,
+              Content: '不好意思您不能评论'
+            })
+          }
+        },
+      })
+    }
 
   },
   // 监听页面初次渲染完成
@@ -84,14 +108,17 @@ Page({
   showTopTips: function () {
     var that = this;
     if (that.data.Content == "") {
+      if(that.data.getput==-1){
       wx.showToast({
         title: '请输入您的评论',
         icon: 'none',
         duration: 1500
-      });
+        });
       return;
+      }
     }
     var listid=that.data.listid
+    if (that.data.getput == -1) {
     //增加评分
     wx.request({
       url: 'http://10.134.39.81:3000/PtoG',
@@ -131,5 +158,36 @@ Page({
         })
       },
     })
+    }
+    if (that.data.getput == 1) {
+      //增加评分
+      wx.request({
+        url: 'http://10.134.39.81:3000/GtoP',
+        data: {
+          "OrderGet_ID": listid,
+          "Wechat_Number_Get": getApp().globalData.Wechat_Number,
+          "Credit_GtoP": that.data.Number[that.data.PutNumber],
+          "Wechat_Number_Put": that.data.Wechat_Number_Get
+        },
+        success: function (res) {
+          console.log(res);
+          console.log(res.data)
+          
+          wx.showToast({
+            title: '添加成功',
+            icon: 'success',
+            duration: 1500,
+            success: function () {
+              setTimeout(function () {
+                wx.switchTab({
+                  url: '/pages/user/myList/myListDetail/receiver/receiver',
+                })
+              }, 1500)
+            }
+          })
+        },
+      })
+    }
+
   }
 })

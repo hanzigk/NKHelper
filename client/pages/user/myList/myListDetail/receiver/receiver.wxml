@@ -1,4 +1,4 @@
-<view>
+         <view>
     <view class="weui-cells__title" style='font-size:30rpx'>用户名</view>
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">

@@ -6,7 +6,7 @@
     <view class="answerer-wrp">
         <view class="bg-half"></view>
         <view class="answerer flex-wrp">
-            <view class="avatar flex-item">
+            <view class="avatar flex-item" catchtap='navigate'data-receiver-name='{{sendername}}' data-list-id='{{mid}}'data-wechat-number='{{Wechat_Number_Put}}'data-get-put='1' >
                 <image src="/images/pig.jpg"></image>
             </view>
             <view class="answerer-info flex-item">
@@ -48,7 +48,7 @@
         <text>
         {{time}}
         </text>
-       <view wx:for='{{receivername}}'catchtap='navigate' data-receiver-name='{{item.nickname}}' data-list-id='{{mid}}'data-wechat-number='{{item.WechatNumber}}'>
+       <view wx:for='{{receivername}}'catchtap='navigate' data-receiver-name='{{item.nickname}}' data-list-id='{{mid}}'data-wechat-number='{{item.WechatNumber}}'data-get-put='-1'>
         <text>
          接单人:{{item.nickname}}
         </text>

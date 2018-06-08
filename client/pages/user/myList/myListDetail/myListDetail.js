@@ -19,7 +19,7 @@ Page({
         that.setData({
           ordername: res.data[0].Order_Title,
           sendername: res.data[0].Nickname,
-          //receivername: res.data[0].Wechat_Number_Put,
+          Wechat_Number_Put: res.data[0].Wechat_Number_Put,
           Order_Type: res.data[0].Order_Type,
           content: res.data[0].Order_Content,
           id: res.data[0].OrderPut_ID,
@@ -56,16 +56,18 @@ Page({
     var receivername = event.currentTarget.dataset.receiverName 
     var listid = event.currentTarget.dataset.listId
     var wechatnumber = event.currentTarget.dataset.wechatNumber
+    var getput = event.currentTarget.dataset.getPut//1表示给发布者评分，-1表示给接收者评分
     console.log(receivername);
     console.log(wechatnumber );
     wx.navigateTo({
-      url: '/pages/user/myList/myListDetail/receiver/receiver?receivername=' + receivername + '&listid=' + listid + '&Wechat_Number_Get=' + wechatnumber 
+      url: '/pages/user/myList/myListDetail/receiver/receiver?receivername=' + receivername + '&listid=' + listid + '&Wechat_Number_Get=' + wechatnumber+'&getput='+getput
       })
   },
   data: {
     id: 0,
     ordername: "",
     sendername: "",
+    Wechat_Number_Put:"",
     receivername: [{ WechatNumber: "",nickname:""}],
     content: "",
     Order_Type: 0,

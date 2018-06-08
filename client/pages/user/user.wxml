@@ -6,7 +6,7 @@
      <text style="font-size:32rpx;font-family:黑体;padding-top:5rpx">积分:{{score}}</text>
      
      <view class='bar'>
-       <view class='user-text' wx:for="{{details}}" catchtap='navigate' data-detail-id="{{item.detailsid}}">
+       <view class='user-text' wx:for="{{details}}" data-detail-id="{{item.detailsid}}">
          <text style="font-size:40rpx;font-family:黑体;font-weight:bold;">{{item.detailsnumber}}</text>
          <text style="font-size:32rpx;font-family:黑体;padding-top:5rpx">{{item.text}}</text>
        </view>
