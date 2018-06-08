@@ -28,7 +28,7 @@ Page({
         receivername: "",
         time:"",
         ordermax:0,
-        ordernow:0,
+        orderfinish:0,
         id: 1,
         image: ""
       }],
@@ -37,7 +37,7 @@ Page({
         ordertype: 0,
         receivername: "",
         ordermax: "",
-        ordernow: "",
+        orderfinish: "",
         sendername: "",
         ordertitle: "",
         ordertime: "",
@@ -50,7 +50,7 @@ Page({
       {
         ordertype: 0,
         ordermax: "",
-        ordernow: "",
+        orderfinish: "",
         sendername: "",
         ordertitle: "",
         ordertime: "",
@@ -121,7 +121,7 @@ navbarTap: function (e) {
             content: res.data[i].Order_Content,
             sendername: res.data[i].Nickname,
             ordermax: res.data[i].Order_MaxNumber,
-            ordernow: res.data[i].Order_NowNumber,
+            orderfinish: res.data[i].Order_Finish,
 
 
             image: res.data[i].Image,
@@ -233,7 +233,7 @@ login:function(userinfo){
                     var ordertype = 0;
                     var receivername = "";
                     var ordermax = 0;
-                    var ordernow = 0;
+                    var orderfinish = 0;
                     var sendername = "";
                     var ordertitle = "";
                     var ordertime = "";
@@ -261,7 +261,7 @@ login:function(userinfo){
                           sendername: res.data[i].Nickname,
                           receivername: res.data[i].Wechat_Number_Get,
                           ordermax: res.data[i].Order_MaxNumber,
-                          ordernow: res.data[i].Order_NowNumber,
+                          orderfinish: res.data[i].Order_Finish,
                           content: res.data[i].Order_Content,
 
                           image: res.data[i].Image
@@ -275,7 +275,7 @@ login:function(userinfo){
                         console.log(temp);
                         ordertype = array[temp].ordertype;
                         ordermax = array[temp].ordermax;
-                        ordernow = array[temp].ordernow;
+                        orderfinish = array[temp].orderfinish;
                         sendername = array[temp].sendername;
                         ordertitle = array[temp].ordertitle;
                         ordertime = array[temp].ordertime;
@@ -291,7 +291,7 @@ login:function(userinfo){
                           ordertitle: ordertitle,
                           sendername: sendername,
                           ordermax: ordermax,
-                          ordernow: ordernow,
+                          orderfinish: orderfinish,
                           receivername: receivername + ';' + res.data[i].Wechat_Number_Get,
 
                           image:image
@@ -452,7 +452,7 @@ onLoad: function (options) {
         var ordertype = 0;
         var receivername = "";
         var ordermax = 0;
-        var ordernow = 0;
+        var orderfinish = 0;
         var sendername = "";
         var ordertitle = "";
         var ordertime = "";
@@ -480,7 +480,7 @@ onLoad: function (options) {
               sendername: res.data[i].Nickname,
               receivername: res.data[i].Wechat_Number_Get,
               ordermax: res.data[i].Order_MaxNumber,
-              ordernow: res.data[i].Order_NowNumber,
+              orderfinish: res.data[i].Order_Finish,
               content: res.data[i].Order_Content,
               image: res.data[i].Image
             }
@@ -492,7 +492,7 @@ onLoad: function (options) {
             console.log(temp);
             ordertype = array[temp].ordertype;
             ordermax = array[temp].ordermax;
-            ordernow = array[temp].ordernow;
+            orderfinish = array[temp].orderfinish;
             sendername = array[temp].sendername;
             ordertitle = array[temp].ordertitle;
             ordertime = array[temp].ordertime;
@@ -506,7 +506,7 @@ onLoad: function (options) {
               ordertitle: ordertitle,
               sendername: sendername,
               ordermax: ordermax,
-              ordernow: ordernow,
+              orderfinish: orderfinish,
               receivername: receivername + ';' + res.data[i].Wechat_Number_Get,
               image: image
             }
@@ -589,7 +589,7 @@ onLoad: function (options) {
         var ordertype = 0;
         var receivername = "";
         var ordermax = 0;
-        var ordernow = 0;
+        var orderfinish = 0;
         var sendername = "";
         var ordertitle = "";
         var ordertime = "";
@@ -617,7 +617,7 @@ onLoad: function (options) {
               sendername: res.data[i].Nickname,
               receivername: res.data[i].Wechat_Number_Get,
               ordermax: res.data[i].Order_MaxNumber,
-              ordernow: res.data[i].Order_NowNumber,
+              orderfinish: res.data[i].Order_Finish,
 
               image: res.data[i].Image,
               content: res.data[i].Order_Content
@@ -630,7 +630,7 @@ onLoad: function (options) {
             console.log(temp);
             ordertype = array[temp].ordertype;
             ordermax = array[temp].ordermax;
-            ordernow = array[temp].ordernow;
+            orderfinish = array[temp].orderfinish;
             sendername = array[temp].sendername;
             ordertitle = array[temp].ordertitle;
             ordertime = array[temp].ordertime;
@@ -646,7 +646,7 @@ onLoad: function (options) {
               ordertitle: ordertitle,
               sendername: sendername,
               ordermax: ordermax,
-              ordernow: ordernow,
+              orderfinish: orderfinish,
               receivername: receivername + ';' + res.data[i].Wechat_Number_Get,
               image: image
             }

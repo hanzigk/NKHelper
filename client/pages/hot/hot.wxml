@@ -16,7 +16,7 @@
     <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
 </view>
 -->
-
+<view class='background'>
 <view class="weui-search-bar">
     <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
@@ -57,7 +57,7 @@
  </scroll-view>
 </view> 
 
-<view class='background'>
+
 
  <!--热门-->  
 <scroll-view hidden="{{currentTab!==0}}" scroll-y="true" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >

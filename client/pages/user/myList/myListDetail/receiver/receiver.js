@@ -149,7 +149,7 @@ Page({
               success: function () {
                 setTimeout(function () {
                   wx.switchTab({
-                    url: '/pages/user/myList/myListDetail/receiver/receiver',
+                    url: '/pages/user/user',
                   })
                 }, 1500)
               }
@@ -180,7 +180,7 @@ Page({
             success: function () {
               setTimeout(function () {
                 wx.switchTab({
-                  url: '/pages/user/myList/myListDetail/receiver/receiver',
+                  url: '/pages/user/user',
                 })
               }, 1500)
             }
