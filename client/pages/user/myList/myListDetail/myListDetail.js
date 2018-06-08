@@ -1,13 +1,11 @@
 Page({
   onLoad: function (options) {
     console.log(options.id);
-    console.log(options.receivername);
     wx.setNavigationBarTitle({
       title: '订单详情'
     })
     this.setData({
       mid: options.id,
-      mreceivername: options.receivername
     })
     var temp = this.data.mid
     var that = this;
@@ -20,8 +18,8 @@ Page({
         console.log(res.data);
         that.setData({
           ordername: res.data[0].Order_Title,
-          sendername: res.data[0].Wechat_Number_Put,
-          receivername: res.data[0].Wechat_Number_Put,
+          sendername: res.data[0].Nickname,
+          //receivername: res.data[0].Wechat_Number_Put,
           Order_Type: res.data[0].Order_Type,
           content: res.data[0].Order_Content,
           id: res.data[0].OrderPut_ID,
@@ -36,7 +34,7 @@ Page({
     id: 0,
     ordername: "",
     sendername: "",
-    receivername: "",
+    receivername: [],
     content: "",
     Order_Type: 0,
     time: "",
