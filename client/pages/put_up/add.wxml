@@ -10,9 +10,6 @@
             <view class="weather">{{weather}}|{{temp}}</view>
         </view>
   </view>
-
-  <view class="ordertype">---请选择任务类型---</view>
-
   
   <view class="type">
     <view class='item'>
