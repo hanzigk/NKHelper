@@ -1,4 +1,3 @@
-
 <view class='user'>
 <scroll-view scroll-y>
  <view class='user-info' >

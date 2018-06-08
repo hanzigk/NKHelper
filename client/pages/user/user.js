@@ -63,7 +63,6 @@ Page({
     time: (new Date()).toString(),
     currentTab: 0
   },
-
 navigate:function(event){
   var detailid = event.currentTarget.dataset.detailId
   console.log(detailid);
@@ -527,10 +526,10 @@ onLoad: function (options) {
               detailsnumber: on.data.orderNumber,
               text: "订单"
             };
-  }
+          }
         })
       }
-    });
+    })
   },
 
   /**

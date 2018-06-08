@@ -87,7 +87,6 @@ Page({
     this.setData({
       currentTab: e.currentTarget.dataset.idx,
     })
-    console.log(e.currentTarget.dataset.idx)
     var temp = e.currentTarget.dataset.idx
     var temp1=temp-1
     var that=this
@@ -307,7 +306,8 @@ Page({
             Order_Type: res.data[i].Order_Type,
             time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
             title: res.data[i].Order_Title,
-            content: res.data[i].Order_Content
+            content: res.data[i].Order_Content,
+            sendername: res.data[i].Nickname
           }
         }
         that.setData({

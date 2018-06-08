@@ -1,0 +1,46 @@
+<!--导航条-->  
+<view class="navbar">  
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+</view>  
+  
+<!--我发送的订单-->  
+<view hidden="{{currentTab!==0}}" >
+  <view class='list' wx:for='{{sendorder}}'style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'bindtap='listdetails' data-list-id="{{item.id}}">
+  <view class='userinfo'>
+   <view class='user'>
+     <image class='icon-image' src='/images/pig.jpg'></image>
+     <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">猪小妹</text>
+   </view>
+   <view class='item'>
+      <text style="font-size:30rpx;font-family:黑体;">2017-7-1</text>
+      <text style="font-size:30rpx;font-family:黑体;"> {{item.orderstatus}}</text>
+   </view>
+  </view>
+  <view class='item'>
+     <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
+     <text style="font-size:30rpx;font-family:黑体;">代购两杯梅梅酸奶</text>
+  </view>
+ </view>
+</view>
+
+
+
+<!--我接收的订单-->  
+<view hidden="{{currentTab!==1}}" >
+  <view class='list' wx:for='{{receiveorder}}'style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'bindtap='listdetails' data-list-id="{{item.id}}">
+  <view class='userinfo'>
+   <view class='user'>
+     <image class='icon-image' src='/images/pig.jpg'></image>
+     <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">猪小妹</text>
+   </view>
+   <view class='item'>
+      <text style="font-size:30rpx;font-family:黑体;">2017-7-1</text>
+      <text style="font-size:30rpx;font-family:黑体;"> {{item.orderstatus}}</text>
+   </view>
+  </view>
+  <view class='item'>
+     <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.ordername}}</text>
+     <text style="font-size:30rpx;font-family:黑体;">代购两杯梅梅酸奶</text>
+  </view>
+ </view>
+</view>

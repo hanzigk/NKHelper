@@ -1,0 +1,279 @@
+<!--
+<view class="weui-search-bar">
+    <view class="weui-search-bar__form" bindtap='searchdetail'>
+        <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索内容" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+            <icon class="weui-icon-search" type="search" size="14"></icon>
+            <view class="weui-search-bar__text">搜索内容</view>
+        </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+</view>
+-->
+
+<view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索内容" />
+            <view class="weui-icon-clear" >
+                <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap='searchdetail'>
+            <icon class="weui-icon-search" type="search" size="14"></icon>
+            <view class="weui-search-bar__text">搜索内容</view>
+        </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" >取消</view>
+</view>
+
+<!--
+<view class='background'>
+<scroll-view scroll-y="true" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+<view class="search flex-wrp">
+  <view class="search-left flex-item" bindtap='searchdetail'>
+      <image class="search-placeholder" src="/images/icons/search.jpg" ></image>
+      <input placeholder="搜索话题, 问题或人" placeholder-class="search-placeholder" />
+  </view>
+    <view class="search-right flex-item" bindtap="upper">
+      <image src="/images/icons/lighting.png"></image>
+  </view>
+</view>
+</scroll-view>
+</view>
+-->
+
+  <!--导航条-->  
+<view class="navbar" style='height:80rpx'>  
+ <scroll-view class='scroll-view_H'scroll-x="true">
+   <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+ </scroll-view>
+</view> 
+
+<view class='background'>
+
+ <!--热门-->  
+<scroll-view hidden="{{currentTab!==0}}" scroll-y="true" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+    
+    <view   class='list' wx:for="{{hot}}" bindtap='navigate' data-list-id="{{item.id}}"
+   style='background-image:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+    <block wx:if='{{item.Order_Type==0}}'>
+      <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+        </view>
+    </block>
+    <block wx:if='{{item.Order_Type==1}}'>
+       <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+    </block>
+    <block wx:if='{{item.Order_Type==2}}'>
+       <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+    </block>
+    <block wx:if='{{item.Order_Type==3}}'>
+       <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+      </block>
+      <block wx:if='{{item.Order_Type==4}}'>
+       <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+      </block>
+         <block wx:if='{{item.Order_Type==5}}'>
+       <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+    
+      </block>
+      <block wx:if='{{item.Order_Type==6}}'>
+       <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+      </block>
+      <block wx:if='{{item.Order_Type==7}}'>
+       <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+      </block>
+  </view>
+</scroll-view>
+
+
+<!--代买-->  
+<scroll-view hidden="{{currentTab!==1}}" scroll-y="true" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+
+  <view class='list'wx:for="{{sales}}"  catchtap='navigate' data-list-id="{{item.id}}"
+    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+      <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+  </view>
+</scroll-view>
+  
+<!--提问-->  
+<scroll-view hidden="{{currentTab!==2}}" scroll-y="true" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+
+   <view class='list'wx:for="{{Q_A}}"  catchtap='navigate' data-list-id="{{item.id}}"
+    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+    <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+  </view>
+</scroll-view>
+  
+<!--约着玩-->  
+<scroll-view hidden="{{currentTab!==3}}" scroll-y="true" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+
+   <view class='list'wx:for="{{activity}}"  catchtap='navigate' data-list-id="{{item.id}}"
+    style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+     <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+  </view>
+</scroll-view>
+  
+<!--找东西-->  
+<scroll-view hidden="{{currentTab!==4}}" scroll-y="true" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+   <view class='list'wx:for="{{lostandfound}}"  catchtap='navigate' data-list-id="{{item.id}}"
+   style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+   <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+  </view>
+</scroll-view>
+
+<!--拼车-->  
+<scroll-view hidden="{{currentTab!==5}}" scroll-y="true" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+
+   <view class='list'wx:for="{{car}}"  catchtap='navigate' data-list-id="{{item.id}}"
+   style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+   <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+  </view>
+</scroll-view>
+
+<!--代取快递-->  
+<scroll-view hidden="{{currentTab!==6}}" scroll-y="true" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+
+   <view class='list'wx:for="{{delivery}}"  catchtap='navigate' data-list-id="{{item.id}}"
+   style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+   <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+  </view>
+</scroll-view>
+
+<!--拼单-->  
+<scroll-view hidden="{{currentTab!==7}}" scroll-y="true" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+
+   <view class='list'wx:for="{{buy}}"  catchtap='navigate' data-list-id="{{item.id}}"
+   style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+   <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+  </view>
+</scroll-view>
+
+<!--二手交易-->  
+<scroll-view hidden="{{currentTab!==8}}" scroll-y="true" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" >
+
+   <view class='list'wx:for="{{second_hand}}"  catchtap='navigate' data-list-id="{{item.id}}"
+   style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+   <view class='item'>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.sendername}}</text>
+         <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
+      </view>
+        <view class='list-item'>
+          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      </view>
+  </view>
+</scroll-view>
+
+</view>  

@@ -1,0 +1,19 @@
+<view class='background'>
+  <view class='list' wx:for='{{scoredetail}}'style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'bindtap='listdetails' data-list-id="{{item.id}}"data-user-name="{{item.receivername}}">
+  <view class='userinfo'>
+    <view class='user'>
+      <image src='/images/pig.jpg'class='icon-image'></image>
+    </view>
+    <view class='item'>
+       <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.username}}</text>
+       <text style="font-size:20rpx;font-family:黑体;;">{{item.time}}</text>
+    </view>
+    <view>
+     <text style="font-size:30rpx;font-family:黑体;font-weight:bold;">{{item.userscore}}</text>
+    </view>
+  </view>
+ </view>
+</view>
+
+
+

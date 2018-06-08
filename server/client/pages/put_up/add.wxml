@@ -1,0 +1,51 @@
+<view class='background'>
+  <view class="today">
+        <view class='time'>
+            <view class="today-time">{{todayTime}}</view>
+            <view class="today-date">{{todayDate}}</view>
+        </view>
+        <view class="info">
+            <view class="city">{{city}}</view>
+            <view class="weather">{{weather}}|{{temp}}</view>
+        </view>
+  </view>
+  
+  <view class="type">
+    <view class='item'>
+        <image class="image" bindtap='daigou' src="/images/icons/daigou.png"  />
+        <text >代买</text>
+    </view>
+    <view class='item'>
+         <image class="image" bindtap='qa' src="/images/icons/qa.png"  />
+         <text>提问</text>
+    </view>
+    <view class='item'>
+         <image class="image" bindtap='huodong' src="/images/icons/huodong.png"  />
+         <text >约着玩</text>
+    </view>
+    <view class='item'>
+        <image class="image" bindtap='find' src="/images/icons/find.png"  />
+        <text >找东西</text>
+    </view>
+  </view>
+  
+    <view class="type2">
+    <view class='item'>
+        <image class="image" bindtap='pinche' src="/images/icons/car.png"  />
+        <text >拼车</text>
+    </view>
+    <view class='item'>
+          <image class="image" bindtap='kuaidi' src="/images/icons/kuaidi.png"  />
+          <text >代取快递</text>
+    </view>
+    <view class='item'>
+          <image class="image" bindtap='pindan' src="/images/icons/pindan.png" />
+          <text>拼单</text>
+    </view>
+    <view class='item'>
+         <image class="image"bindtap='ershou' src="/images/icons/ershou.png"  />
+         <text >二手交易</text>
+    </view>
+  </view>
+
+</view>

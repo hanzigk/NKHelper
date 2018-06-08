@@ -48,10 +48,11 @@
         <text>
         {{time}}
         </text>
-       
+       <view wx:for='{{receivername}}'>
         <text>
-        接单人:{{mreceivername}}
+         接单人:{{item}}
         </text>
+       </view>
     </view>
 
     <view class="answer-footer flex-wrp">

@@ -1,0 +1,147 @@
+.navbar{
+  display: grid;
+  flex-direction: row;
+}
+.navbar{  
+  flex: none;  
+  display: flex;  
+  background: #fff; 
+  font-family: "微软雅黑";
+  font-size: 32rpx;
+  color: #ab998d;
+}  
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;  
+  line-height: 80rpx;  
+}  
+.navbar .item.active{  
+  color: #b7cad8;  
+}  
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  height: 4rpx;  
+  background: #b7cad8;  
+}  
+.background{
+  background-color: #ab998d;
+}
+.list{
+  margin-top: 5rpx;
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  margin-bottom: 10rpx;
+  justify-content: space-around;
+}
+.list .userinfo
+{
+  display: flex;
+  flex-direction: row;
+  width:650rpx;
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+}
+.list .userinfo .user
+{
+  display: flex;
+  flex-direction: row;
+  width:400rpx;
+}
+.list .userinfo .item
+{
+  display: flex;
+  flex-direction: row;
+  width:300rpx;
+}
+.list .item
+{
+  display: flex;
+  flex-direction: column;
+  margin-left: 50rpx;
+}
+.list-item{
+  display: flex;
+  flex-direction: column;
+  margin-top: 90rpx;
+}
+.details{
+  display: flex;
+  margin-top: 5rpx;
+  align-items: center;
+  height: 100rpx;
+}
+.icon-image{
+  width: 65rpx;
+  height: 65rpx;
+  border-radius: 50%;
+}
+.order-image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.details-info
+{
+ display: flex;
+ margin-left: 370rpx;
+}
+.image-info
+{
+  display: flex;
+  margin-left: 60rpx;
+  margin-top: 100rpx;
+}
+.other-button-hover {
+  background-color: green;
+  opacity: 0.7;
+}
+.button-item{
+  display: flex;
+  height: 70rpx;
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+}
+
+
+/**index.wxss**/
+
+.background .search{
+  width: 735rpx;
+  height: 65rpx;
+  padding: 12.5rpx 0 12.5rpx 15rpx;
+  background: #ab998d;
+}
+.background .search-left{
+  flex: 8;
+  background: #c6b0a1;
+  text-align: left;
+}
+.background .search-left input{
+  display: inline-block;
+  height: 65rpx;
+  font-size: 26rpx;
+}
+.search-placeholder{
+  color: #fff;
+  line-height: 20rpx;
+}
+.background .search .search-left image{
+  display: inline-block;
+  width: 35rpx;
+  height: 35rpx;
+  padding: 15rpx 15rpx 15rpx 20rpx;
+}
+.background .search .search-right{
+  flex: 1;
+}
+.background .search .search-right image{
+  width: 45rpx;
+  height: 45rpx;
+  padding: 10rpx;
+}
