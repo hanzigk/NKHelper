@@ -328,6 +328,43 @@ onLoad: function (options) {
    */
   onPullDownRefresh: function () {
     wx.request({
+      url: 'http://10.134.39.81:3000/getUserMessage',
+      data: {
+        Wechat_Number: opt.data.openid
+      },
+      success: function (de) {
+        wx.request({
+          url: 'http://10.134.39.81:3000/getOrderNumber',
+          data: {
+            Wechat_Number: opt.data.openid
+          },
+          success: function (on) {
+            that.setData({
+              score: de.data[0].Credit
+            });
+            //console.log(on.data.orderNumber);
+
+            var temp2 = that.data.details;
+            //console.log(de.data[0].Total_Order);
+            temp2[0] = {
+              detailsid: "0",
+              detailsnumber: on.data.orderNumber,
+              text: "订单"
+            };
+
+            temp2[1] = {
+              detailsid: "3",
+              detailsnumber: de.data[0].Total_Order,
+              text: "积分详情"
+            };
+            that.setData({
+              details: temp2
+            });
+          }
+        })
+      }
+    });
+    wx.request({
       url: 'http://10.134.39.81:3000/searchMyPut',//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
