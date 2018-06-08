@@ -417,7 +417,7 @@ onLoad: function (options) {
       }
     });
     wx.request({
-      url: 'http://10.134.39.81:3000/searchMyPut',//此处填写你后台请求地址
+      url: 'http://10.134.39.81:3000/getMyPut',//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },
@@ -425,8 +425,7 @@ onLoad: function (options) {
         Wechat_Number_Put: getApp().globalData.Wechat_Number
       },
       success: function (res) {
-        console.log(res.data)
-        var array = that.data.order
+        var array = that.data.sendorder
         var indexarray = that.data.orderindex
         var i = 0
         var temp = -1;
@@ -434,13 +433,18 @@ onLoad: function (options) {
         var count = 0;
         //
         var ordertype = 0;
-        var ordername = "";
         var receivername = "";
-        var time = "";
         var ordermax = 0;
         var ordernow = 0;
+        var sendername = "";
+        var ordertitle = "";
+        var ordertime = "";
         var id = 0;
+        var content = "";
         console.log(res.data);
+        that.setData({
+          putnumber: res.data.length,
+        });
         for (i; i < res.data.length; i++) {
           temp = -1;
           for (j = 0; j < indexarray.length; j++) {
@@ -454,30 +458,34 @@ onLoad: function (options) {
             array[count] = {
               id: res.data[i].OrderPut_ID,
               ordertype: res.data[i].Order_Type,
-              time: res.data[i].Order_Time,
-              ordername: res.data[i].Order_Title,
+              ordertime: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
+              ordertitle: res.data[i].Order_Title,
+              sendername: res.data[i].Nickname,
               receivername: res.data[i].Wechat_Number_Get,
               ordermax: res.data[i].Order_MaxNumber,
-              ordernow: res.data[i].Order_NowNumber
+              ordernow: res.data[i].Order_NowNumber,
+              content: res.data[i].Order_Content
             }
             indexarray[j - 1] = {
               id: res.data[i].OrderPut_ID
             }
             count++;
           } else {
-            //console.log(temp);
+            console.log(temp);
             ordertype = array[temp].ordertype;
             ordermax = array[temp].ordermax;
             ordernow = array[temp].ordernow;
-            ordername = array[temp].ordername;
-            time = array[temp].time;
+            sendername = array[temp].sendername;
+            ordertitle = array[temp].ordertitle;
+            ordertime = array[temp].ordertime;
             id = array[temp].id;
             receivername = array[temp].receivername
             array[temp] = {
               id: id,
               ordertype: ordertype,
-              time: time,// 1000//res.data[i].Order_Time,
-              ordername: ordername,
+              ordertime: ordertime,// 1000//res.data[i].Order_Time,
+              ordertitle: ordertitle,
+              sendername: sendername,
               ordermax: ordermax,
               ordernow: ordernow,
               receivername: receivername + ';' + res.data[i].Wechat_Number_Get
@@ -485,7 +493,7 @@ onLoad: function (options) {
           }
         }
         that.setData({
-          order: array,
+          sendorder: array,
           orderindex: indexarray
         });
       }
@@ -543,7 +551,7 @@ onLoad: function (options) {
       }
     })
     wx.request({
-      url: 'http://10.134.39.81:3000/searchMyPut',//此处填写你后台请求地址
+      url: 'http://10.134.39.81:3000/getMyPut',//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },
@@ -551,8 +559,7 @@ onLoad: function (options) {
         Wechat_Number_Put: getApp().globalData.Wechat_Number
       },
       success: function (res) {
-        console.log(res.data)
-        var array = that.data.order
+        var array = that.data.sendorder
         var indexarray = that.data.orderindex
         var i = 0
         var temp = -1;
@@ -560,13 +567,18 @@ onLoad: function (options) {
         var count = 0;
         //
         var ordertype = 0;
-        var ordername = "";
         var receivername = "";
-        var time = "";
         var ordermax = 0;
         var ordernow = 0;
+        var sendername = "";
+        var ordertitle = "";
+        var ordertime = "";
         var id = 0;
+        var content = "";
         console.log(res.data);
+        that.setData({
+          putnumber: res.data.length,
+        });
         for (i; i < res.data.length; i++) {
           temp = -1;
           for (j = 0; j < indexarray.length; j++) {
@@ -580,30 +592,34 @@ onLoad: function (options) {
             array[count] = {
               id: res.data[i].OrderPut_ID,
               ordertype: res.data[i].Order_Type,
-              time: res.data[i].Order_Time,
-              ordername: res.data[i].Order_Title,
+              ordertime: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
+              ordertitle: res.data[i].Order_Title,
+              sendername: res.data[i].Nickname,
               receivername: res.data[i].Wechat_Number_Get,
               ordermax: res.data[i].Order_MaxNumber,
-              ordernow: res.data[i].Order_NowNumber
+              ordernow: res.data[i].Order_NowNumber,
+              content: res.data[i].Order_Content
             }
             indexarray[j - 1] = {
               id: res.data[i].OrderPut_ID
             }
             count++;
           } else {
-            //console.log(temp);
+            console.log(temp);
             ordertype = array[temp].ordertype;
             ordermax = array[temp].ordermax;
             ordernow = array[temp].ordernow;
-            ordername = array[temp].ordername;
-            time = array[temp].time;
+            sendername = array[temp].sendername;
+            ordertitle = array[temp].ordertitle;
+            ordertime = array[temp].ordertime;
             id = array[temp].id;
             receivername = array[temp].receivername
             array[temp] = {
               id: id,
               ordertype: ordertype,
-              time: time,// 1000//res.data[i].Order_Time,
-              ordername: ordername,
+              ordertime: ordertime,// 1000//res.data[i].Order_Time,
+              ordertitle: ordertitle,
+              sendername: sendername,
               ordermax: ordermax,
               ordernow: ordernow,
               receivername: receivername + ';' + res.data[i].Wechat_Number_Get
@@ -611,7 +627,7 @@ onLoad: function (options) {
           }
         }
         that.setData({
-          order: array,
+          sendorder: array,
           orderindex: indexarray
         });
       }
