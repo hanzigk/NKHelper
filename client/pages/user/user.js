@@ -166,7 +166,8 @@ login:function(userinfo){
                     Wechat_Name: userinfo.detail.userInfo.nickName,
                     Phone_Number:null,
                     NickName: userinfo.detail.userInfo.nickName,
-                    Address:null
+                    Address:null,
+                    Image: userinfo.detail.userInfo.avatarUrl
                   }
                 }); 
                 wx.request({
@@ -326,7 +327,8 @@ login:function(userinfo){
                                 Wechat_Name: userinfo.detail.userInfo.nickName,
                                 Phone_Number: null,
                                 NickName: userinfo.detail.userInfo.nickName,
-                                Address: null
+                                Address: null,
+                                Image: userinfo.detail.userInfo.avatarUrl
                               }
                             });
                           }
@@ -342,6 +344,14 @@ login:function(userinfo){
             }
           })
         }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络中断',
+          icon: 'none',
+          duration: 1500
+        })
+        return;
       }
     });
     
