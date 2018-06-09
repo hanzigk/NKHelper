@@ -35,7 +35,7 @@
 }  
 .scroll-view_H{white-space:nowrap;width: 100%;box-sizing: border-box;}
 .background{
-  background-color: #ab998d;
+  background-color: #eeda9d;
   height: 100vh;
 }
 .list{

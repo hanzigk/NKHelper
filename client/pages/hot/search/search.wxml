@@ -31,9 +31,9 @@
         </view>
         <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
     </view>
-
+<block wx:if='{{search[0].title!=""}}'>
     <view   class='list' wx:for="{{search}}" bindtap='navigate' data-list-id="{{item.id}}"
-   style='background-image:url("/images/detailbackground.png");-webkit-background-size:cover;'>
+   style='background-image:url("/images/detailbackground21.png");-webkit-background-size:cover;'>
     <block wx:if='{{item.Order_Type==0}}'>
       <view class='item'>
          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
@@ -114,6 +114,8 @@
          <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
       </view>
       </block>
+      
   </view>
+  </block>
 </scroll-view>
 </view>  

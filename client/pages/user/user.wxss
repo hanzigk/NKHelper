@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #ab998d;
+  background-color: #eeda9d;
 }
 .user-info{
  display: flex;
@@ -11,7 +11,7 @@
  height: 600rpx;
 }
 .hiddenbtn{
-  background-color: #ab998d;
+  background-color: #eeda9d;
 }
 button[class='hiddenbtn']::after{
   border: 0;
@@ -37,7 +37,7 @@ button[class='hiddenbtn']::after{
  width: 700rpx;
  height: 110rpx;
  align-items:center;
- background-color: #efdca4;
+ background-color: #bbb39b;
  border-radius: 15rpx;
  justify-content: space-around;
 }

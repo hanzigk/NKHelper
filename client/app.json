@@ -39,9 +39,9 @@
   "window":{
     "backgroundColor": "#0000",
     "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#ab998d",
+    "navigationBarBackgroundColor": "#eeda9d",
     "navigationBarTitleText": "南开帮",
-    "navigationBarTextStyle":"WHITE",
+    "navigationBarTextStyle":"black",
     "enablePullDownRefresh":true
   }
 }
