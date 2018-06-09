@@ -29,7 +29,7 @@ page{
 }
 .image{
   height: 65rpx;
-   width: 65rpx;
+   width: 70rpx;
 }
 .type2{
   display: flex;
