@@ -64,10 +64,6 @@
     <block wx:if='{{hot[0].title!=""}}'>
     <view   class='list' wx:for="{{hot}}" bindtap='navigate' data-list-id="{{item.id}}"
    style='background-image:url("/images/detailbackground.png");-webkit-background-size:cover;'>
-
-    <!--
-    <block wx:if='{{item.Order_Type==0}}'>
-    -->
     <block>
       <view class='item'>
          <image class='order-image' src='{{item.image}}'></image>
