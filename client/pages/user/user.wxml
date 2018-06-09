@@ -29,7 +29,7 @@
 <!--我发送的订单-->  
 <view hidden="{{currentTab!==0}}" >
 <block wx:if='{{putnumber>0}}'>
-  <view class='list' wx:for='{{sendorder}}'style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'bindtap='listdetails' data-order-id="{{item.id}}"data-receiver-name="{{item.receivername}}">
+  <view class='list' wx:for='{{sendorder}}'style='background:url("/images/detailbackground21.png");-webkit-background-size:cover;'bindtap='listdetails' data-order-id="{{item.id}}"data-receiver-name="{{item.receivername}}">
   <view class='userinfo'>
    <view class='user1'>
 
@@ -60,7 +60,7 @@
 <!--我接收的订单-->  
 <view hidden="{{currentTab!==1}}" >
 <block wx:if='{{getnumber>0}}'>
-  <view class='list' wx:for='{{receiveorder}}'style='background:url("/images/detailbackground.png");-webkit-background-size:cover;'bindtap='listdetails' data-order-id="{{item.id}}">
+  <view class='list' wx:for='{{receiveorder}}'style='background:url("/images/detailbackground21.png");-webkit-background-size:cover;'bindtap='listdetails' data-order-id="{{item.id}}">
   <view class='userinfo'>
    <view class='user1'>
 

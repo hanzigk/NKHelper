@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #ab998d;
+  background-color: #eeda9d;
 }
 .user-info{
  display: flex;
@@ -11,7 +11,7 @@
  height: 600rpx;
 }
 .hiddenbtn{
-  background-color: #ab998d;
+  background-color: #eeda9d;
 }
 button[class='hiddenbtn']::after{
   border: 0;
@@ -26,8 +26,8 @@ button[class='hiddenbtn']::after{
 }
 .user-image{
   margin-top: 20rpx;
-  width: 300rpx;
-  height: 300rpx;
+  width: 250rpx;
+  height: 250rpx;
   border-radius: 50%;
 }
 .bar{
@@ -35,9 +35,10 @@ button[class='hiddenbtn']::after{
  display: flex;
  flex-direction: row;
  width: 700rpx;
- height: 100rpx;
+ height: 110rpx;
  align-items:center;
- background-color: #ab998d;
+ background-color: #bbb39b;
+ border-radius: 15rpx;
  justify-content: space-around;
 }
 .user-text{

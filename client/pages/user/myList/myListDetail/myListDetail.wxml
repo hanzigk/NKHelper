@@ -52,6 +52,9 @@
         <text>
          接单人:{{item.nickname}}
         </text>
+        <text>
+         发布者对您说:{{comment}}
+        </text>
        </view>
     </view>
 

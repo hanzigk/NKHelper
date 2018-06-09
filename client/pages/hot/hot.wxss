@@ -35,7 +35,7 @@
 }  
 .scroll-view_H{white-space:nowrap;width: 100%;box-sizing: border-box;}
 .background{
-  background-color: #ab998d;
+  background-color: #eeda9d;
   height: 100vh;
 }
 .list{
@@ -75,6 +75,10 @@
   width: 65rpx;
   height: 65rpx;
   border-radius:50%;
+}
+.myicon-image{
+  width: 65rpx;
+  height: 65rpx;
 }
 .order-image{
   width: 100rpx;

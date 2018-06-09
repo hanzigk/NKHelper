@@ -2,7 +2,7 @@
 {
   display: flex;
   flex-direction: column;
-  background-color: #ab998d;
+  background-color: #eeda9d;
   height: 100vh;
 }
 .background .title
