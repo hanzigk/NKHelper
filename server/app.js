@@ -18,17 +18,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/',function (req, res) {
-  const rea ={code: 0, message: 'ok'}
-  const a = {data: [{row: 1, con: 1}, {row: 2, con: 2}]}
-  res.json({...rea, ...a})
-})
-
-app.get('/1',function (req, res) {
-  const rea ={code: 1, message: 'error'}
-  const a = {error: 'sjoabaile'}
-  res.json({...rea, ...a})
-})
 
 //  POST 请求
 app.post('/', function (req, res) {
