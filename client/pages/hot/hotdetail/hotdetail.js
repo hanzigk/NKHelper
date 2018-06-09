@@ -10,7 +10,7 @@ Page({
       var temp=this.data.mid
       var that = this;
       wx.request({
-        url: 'http://10.134.39.81:3000/searchByOrderPutID?OrderPut_ID=' + options.id,//此处填写你后台请求地址
+        url: 'https://1fpvdbfz.qcloud.la:5757/searchByOrderPutID?OrderPut_ID=' + options.id,//此处填写你后台请求地址
         header: {
           'content-type': 'application/json' // 默认值
         },
@@ -49,7 +49,7 @@ Page({
         return;
     }
     wx.request({
-      url: 'http://10.134.39.81:3000/addOrderGet?OrderGet_ID=' + this.data.id + '&Wechat_Number_Get=' + getApp().globalData.Wechat_Number,//此处填写你后台请求地址
+      url: 'https://1fpvdbfz.qcloud.la:5757/addOrderGet?OrderGet_ID=' + this.data.id + '&Wechat_Number_Get=' + getApp().globalData.Wechat_Number,//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },

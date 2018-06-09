@@ -79,7 +79,7 @@ Page({
       return;
     }
     wx.request({
-      url: 'http://10.134.39.81:3000/addOrderPut',
+      url: 'https://1fpvdbfz.qcloud.la:5757/addOrderPut',
       data: {
         "Wechat_Number_Put": getApp().globalData.Wechat_Number,
         "Order_Type":that.data.mytype,

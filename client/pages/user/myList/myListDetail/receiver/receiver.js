@@ -22,7 +22,7 @@ Page({
     if(this.data.getput=='-1')//给接收者评分
     {
       wx.request({
-        url: 'http://10.134.39.81:3000/getMyOnePut',
+        url: 'https://1fpvdbfz.qcloud.la:5757/getMyOnePut',
         data: {
           "OrderGet_ID": options.listid,
         },
@@ -42,7 +42,7 @@ Page({
     if (this.data.getput == '1')//给发布者评分
     {
       wx.request({
-        url: 'http://10.134.39.81:3000/getMyOnePut',
+        url: 'https://1fpvdbfz.qcloud.la:5757/getMyOnePut',
         data: {
           "OrderGet_ID": options.listid,
         },
@@ -121,7 +121,7 @@ Page({
     if (that.data.getput == -1) {
     //增加评分
     wx.request({
-      url: 'http://10.134.39.81:3000/PtoG',
+      url: 'https://1fpvdbfz.qcloud.la:5757/PtoG',
       data: {
         "OrderGet_ID":listid,
         "Wechat_Number_Get": that.data.Wechat_Number_Get,
@@ -132,7 +132,7 @@ Page({
         console.log(res.data)
        //增加评论
         wx.request({
-          url: 'http://10.134.39.81:3000/addComment',
+          url: 'https://1fpvdbfz.qcloud.la:5757/addComment',
           data: {
             "OrderGet_ID": listid,
             "Wechat_Number_Get": that.data.Wechat_Number_Get,
@@ -162,7 +162,7 @@ Page({
     if (that.data.getput == 1) {
       //增加评分
       wx.request({
-        url: 'http://10.134.39.81:3000/GtoP',
+        url: 'https://1fpvdbfz.qcloud.la:5757/GtoP',
         data: {
           "OrderGet_ID": listid,
           "Wechat_Number_Get": getApp().globalData.Wechat_Number,

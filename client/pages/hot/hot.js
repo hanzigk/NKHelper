@@ -101,7 +101,7 @@ Page({
     var that = this
     if (temp == 0) {
       wx.request({
-        url: 'http://10.134.39.81:3000/searchAll',//此处填写你后台请求地址
+        url: 'https://1fpvdbfz.qcloud.la:5757/searchAll',//此处填写你后台请求地址
         header: {
           'content-type': 'application/json' // 默认值
         },
@@ -127,7 +127,7 @@ Page({
       })
     } else {
       wx.request({
-        url: 'http://10.134.39.81:3000/searchByType?type=' + temp1,//此处填写你后台请求地址
+        url: 'https://1fpvdbfz.qcloud.la:5757/searchByType?type=' + temp1,//此处填写你后台请求地址
         header: {
           'content-type': 'application/json' // 默认值
         },
@@ -221,7 +221,7 @@ Page({
     //console.log(2)
     var that = this;
     wx.request({
-      url: 'http://10.134.39.81:3000/searchAll',//此处填写你后台请求地址
+      url: 'https://1fpvdbfz.qcloud.la:5757/searchAll',//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },
@@ -261,7 +261,7 @@ Page({
   onShow: function () {
     var that = this;
     wx.request({
-      url: 'http://10.134.39.81:3000/searchAll',//此处填写你后台请求地址
+      url: 'https://1fpvdbfz.qcloud.la:5757/searchAll',//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },
@@ -307,7 +307,7 @@ Page({
   onPullDownRefresh: function () {
     var that = this;
     wx.request({
-      url: 'http://10.134.39.81:3000/searchAll',//此处填写你后台请求地址
+      url: 'https://1fpvdbfz.qcloud.la:5757/searchAll',//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },

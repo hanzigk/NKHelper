@@ -44,6 +44,7 @@
       <block  wx:if='{{item.ordermax>item.orderfinish}}'>
       <text style="font-size:30rpx;font-family:黑体;font-weight:bold;"> 未完成</text>
       </block>
+      
    </view>
   </view>
   <view class='item'>

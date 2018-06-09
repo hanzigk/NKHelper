@@ -35,7 +35,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'http://10.134.39.81:3000/searchMyGet?Wechat_Number_Get=ludi5757',//此处填写你后台请求地址
+      url: 'https://1fpvdbfz.qcloud.la:5757/searchMyGet?Wechat_Number_Get=ludi5757',//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },

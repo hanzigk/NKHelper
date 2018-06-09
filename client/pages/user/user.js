@@ -98,7 +98,7 @@ navbarTap: function (e) {
     })
     var that = this;
     wx.request({
-      url: 'http://10.134.39.81:3000/searchMyGet',//此处填写你后台请求地址
+      url: 'https://1fpvdbfz.qcloud.la:5757/searchMyGet',//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },
@@ -150,7 +150,7 @@ login:function(userinfo){
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'http://10.134.39.81:3000/onLogin',
+            url: 'https://1fpvdbfz.qcloud.la:5757/onLogin',
             data: {
               code: res.code
             },
@@ -168,7 +168,7 @@ login:function(userinfo){
                   user: temp
                 });
                 wx.request({
-                  url: 'http://10.134.39.81:3000/addUser',
+                  url: 'https://1fpvdbfz.qcloud.la:5757/addUser',
                   data: {
                     Wechat_Number:opt.data.openid,
                     Wechat_Name: userinfo.detail.userInfo.nickName,
@@ -179,14 +179,14 @@ login:function(userinfo){
                   }
                 }); 
                 wx.request({
-                  url: 'http://10.134.39.81:3000/getUserMessage',
+                  url: 'https://1fpvdbfz.qcloud.la:5757/getUserMessage',
                   data:{
                     Wechat_Number: opt.data.openid
                   },
                   success:function(de)
                   {
                     wx.request({
-                      url: 'http://10.134.39.81:3000/getOrderNumber',
+                      url: 'https://1fpvdbfz.qcloud.la:5757/getOrderNumber',
                       data:{
                         Wechat_Number: opt.data.openid
                       },
@@ -215,7 +215,7 @@ login:function(userinfo){
                   }
                 });
                 wx.request({
-                  url: 'http://10.134.39.81:3000/getMyPut',//此处填写你后台请求地址
+                  url: 'https://1fpvdbfz.qcloud.la:5757/getMyPut',//此处填写你后台请求地址
                   header: {
                     'content-type': 'application/json' // 默认值
                   },
@@ -320,7 +320,7 @@ login:function(userinfo){
                   success: function (res) {
                     if (!res.authSetting["scope.userInfo"]) {
                       wx.request({
-                        url: 'http://10.134.39.81:3000/onLogin',
+                        url: 'https://1fpvdbfz.qcloud.la:5757/onLogin',
                         data: {
                           code: res.code
                         },
@@ -338,7 +338,7 @@ login:function(userinfo){
                               user: temp
                             });
                             wx.request({
-                              url: 'http://10.134.39.81:3000/addUser',
+                              url: 'https://1fpvdbfz.qcloud.la:5757/addUser',
                               data: {
                                 Wechat_Number: opt.data.openid,
                                 Wechat_Name: userinfo.detail.userInfo.nickName,
@@ -397,13 +397,13 @@ onLoad: function (options) {
     {
     var that = this;
     wx.request({
-      url: 'http://10.134.39.81:3000/getUserMessage',
+      url: 'https://1fpvdbfz.qcloud.la:5757/getUserMessage',
       data: {
         Wechat_Number: getApp().globalData.Wechat_Number
       },
       success: function (de) {
         wx.request({
-          url: 'http://10.134.39.81:3000/getOrderNumber',
+          url: 'https://1fpvdbfz.qcloud.la:5757/getOrderNumber',
           data: {
             Wechat_Number: getApp().globalData.Wechat_Number
           },
@@ -434,7 +434,7 @@ onLoad: function (options) {
       }
     });
     wx.request({
-      url: 'http://10.134.39.81:3000/getMyPut',//此处填写你后台请求地址
+      url: 'https://1fpvdbfz.qcloud.la:5757/getMyPut',//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },
@@ -543,13 +543,13 @@ onLoad: function (options) {
     {
     var that=this;
     wx.request({
-      url: 'http://10.134.39.81:3000/getUserMessage',
+      url: 'https://1fpvdbfz.qcloud.la:5757/getUserMessage',
       data: {
         Wechat_Number: getApp().globalData.Wechat_Number
       },
       success: function (de) {
         wx.request({
-          url: 'http://10.134.39.81:3000/getOrderNumber',
+          url: 'https://1fpvdbfz.qcloud.la:5757/getOrderNumber',
           data: {
             Wechat_Number: getApp().globalData.Wechat_Number
           },
@@ -571,7 +571,7 @@ onLoad: function (options) {
       }
     })
     wx.request({
-      url: 'http://10.134.39.81:3000/getMyPut',//此处填写你后台请求地址
+      url: 'https://1fpvdbfz.qcloud.la:5757/getMyPut',//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },

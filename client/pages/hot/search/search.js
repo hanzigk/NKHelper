@@ -54,7 +54,7 @@ Page({
     var temp = this.data.currentTab
     var that = this
     wx.request({
-      url: 'http://10.134.39.81:3000/searchByKey?keyword=' + value,//此处填写你后台请求地址
+      url: 'https://1fpvdbfz.qcloud.la:5757/searchByKey?keyword=' + value,//此处填写你后台请求地址
       header: {
         'content-type': 'application/json' // 默认值
       },
