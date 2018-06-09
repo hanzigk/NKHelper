@@ -4,11 +4,10 @@ var mysql = require("mysql");
 var url = require('url');
 var request = require('request');
 var connection = mysql.createConnection({
-  host      :'localhost',
-  user      :'root',
-  password  :'000000',
+  host      :'https://1fpvdbfz.qcloud.la/phpmyadmin',
+  user      :'root@localhost',
+  password  :'wx790b509e5d6f759f',
   port      :'3306',
-  //atabase  :'courseratingsystem'
   database  :'NKHelper'
 })
 
@@ -63,7 +62,11 @@ router.get('/searchAll',function (req, res) {
 //搜索，按关键字搜索，/searchByKey?keyword=***
 router.get('/searchByKey',function (req, res) {
   var params = url.parse(req.url,true).query;
-  var tempSQL = 'SELECT order_put.*,user.* FROM order_put JOIN user ON order_put.Wechat_Number_Put = user.Wechat_Number WHERE order_put.Order_NowNumber < order_put.Order_MaxNumber AND order_put.Order_Content LIKE "%' + params.keyword + '%" ORDER BY OrderPut_ID DESC';
+  var tempSQL = 'SELECT order_put.*,`user`.* FROM order_put JOIN `user` ON order_put.Wechat_Number_Put = `user`.Wechat_Number \n' +
+    'WHERE order_put.Order_NowNumber < order_put.Order_MaxNumber \n' +
+    'AND ( order_put.Order_Content LIKE "%'+ params.keyword +'%" \n' +
+    'OR order_put.Order_Title LIKE "%'+ params.keyword +'%" OR user.Nickname LIKE "%'+ params.keyword +'%") \n' +
+    'ORDER BY order_put.OrderPut_ID DESC';
   connection.query(tempSQL,function (err, result) {
     if(err){
       console.log('[SELECT ERROR] - ',err.message);
@@ -411,7 +414,7 @@ router.get('/PtoG',function (req, res) {
 
 //接任务的人对发任务的人评分,/GtoP?OrderGet_ID=***&Wechat_Number_Get=***&Credit_GtoP=***&Wechat_Number_Put=***
 router.get('/GtoP',function (req, res) {
-  var params = url.parse(req,url,true).query;
+  var params = url.parse(req.url,true).query;
   //首先修改order_get表
   var tempSQL0 = 'UPDATE order_get SET Credit_GtoP = '+ params.Credit_GtoP +' WHERE OrderGet_ID = '
     + params.OrderGet_ID +' AND Wechat_Number_Get = "'+ params.Wechat_Number_Get +'"';
@@ -452,7 +455,7 @@ router.get('/GtoP',function (req, res) {
             return;
           }
           console.log(fourth_result);
-          var ptog = fourth_result[0]['Credit_PtoG'];
+          var PtoG = fourth_result[0]['Credit_PtoG'];
           console.log('Credit_PtoG:'+ PtoG);
           if(PtoG==-1){
             return;
