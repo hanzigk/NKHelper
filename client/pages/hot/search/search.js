@@ -1,14 +1,16 @@
 // pages/wxml/index.js
 Page({
   data: {
-    inputShowed: false,
+    inputShowed: true,
     inputValue: '',
     search: [{
       id: 0,
       Order_Type: -1,
       time: "",
       title: "",
-      content: ""
+      content: "",
+      image: "",
+      sendername: ""
     }],
     currentTab: 0
   },
@@ -66,7 +68,9 @@ Page({
               Order_Type: res.data[i].Order_Type,
               time: res.data[i].Order_Time,// 1000//res.data[i].Order_Time,
               title: res.data[i].Order_Title,
-              content: res.data[i].Order_Content
+              content: res.data[i].Order_Content,
+              image: res.data[i].Image,
+              sendername: res.data[i].Nickname
             }
         }
        that.setData({ search: array }); 

@@ -15,16 +15,16 @@
     </view>
 -->
     
-    <view class="weui-search-bar">
-        <view class="weui-search-bar__form">
+    <view class="weui-search-bar" >
+        <view class="weui-search-bar__form" >
             <view class="weui-search-bar__box">
                 <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-                <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm='searchdetail'/>
+                <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm='searchdetail' />
                 <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
                     <icon type="clear" size="14"></icon>
                 </view>
             </view>
-            <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+            <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput" >
                 <icon class="weui-icon-search" type="search" size="14"></icon>
                 <view class="weui-search-bar__text">搜索</view>
             </label>
@@ -34,88 +34,121 @@
 <block wx:if='{{search[0].title!=""}}'>
     <view   class='list' wx:for="{{search}}" bindtap='navigate' data-list-id="{{item.id}}"
    style='background-image:url("/images/detailbackground21.png");-webkit-background-size:cover;'>
+    
     <block wx:if='{{item.Order_Type==0}}'>
       <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
-         <image class='order-image' src='/images/icons/order1.png' margin-top="20rpx" ></image>
+         <image class='order-image' src='{{item.image}}'></image>
       </view>
-        <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
-        </view>
+      <view class='list-item'>
+        <text style="font-size:35rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:3rpx;">{{item.sendername}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;">{{item.time}}</text>
+      </view>
+      <view class='click'>
+        <image class='myicon-image' src='/images/icons/mydai.png'></image> 
+      </view>
     </block>
+
     <block wx:if='{{item.Order_Type==1}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
-         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+         <image class='order-image' src='{{item.image}}'></image>
       </view>
-        <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      <view class='list-item'>
+        <text style="font-size:35rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:3rpx;">{{item.sendername}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;">{{item.time}}</text>
+      </view>
+      <view class='click'>
+        <image class='myicon-image' src='/images/icons/myqa.png'></image> 
       </view>
     </block>
+
     <block wx:if='{{item.Order_Type==2}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
-         <image class='order-image' src='/images/icons/activity.png' margin-top="20rpx" ></image>
+         <image class='order-image' src='{{item.image}}'></image>
       </view>
-        <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      <view class='list-item'>
+        <text style="font-size:35rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:3rpx;">{{item.sendername}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;">{{item.time}}</text>
+      </view>
+      <view class='click'>
+        <image class='myicon-image' src='/images/icons/mytogether.png'></image> 
       </view>
     </block>
+
     <block wx:if='{{item.Order_Type==3}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
-         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+         <image class='order-image' src='{{item.image}}'></image>
       </view>
-        <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      <view class='list-item'>
+        <text style="font-size:35rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:3rpx;">{{item.sendername}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;">{{item.time}}</text>
       </view>
-      </block>
-      <block wx:if='{{item.Order_Type==4}}'>
+      <view class='click'>
+        <image class='myicon-image' src='/images/icons/myfind.png'></image> 
+      </view>
+    </block>
+
+    <block wx:if='{{item.Order_Type==4}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
-         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+         <image class='order-image' src='{{item.image}}'></image>
       </view>
-        <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      <view class='list-item'>
+        <text style="font-size:35rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:3rpx;">{{item.sendername}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;">{{item.time}}</text>
       </view>
-      </block>
-         <block wx:if='{{item.Order_Type==5}}'>
+      <view class='click'>
+        <image class='myicon-image' src='/images/icons/mycar.png'></image> 
+      </view>
+    </block>
+
+    <block wx:if='{{item.Order_Type==5}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
-         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+         <image class='order-image' src='{{item.image}}'></image>
       </view>
-        <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      <view class='list-item'>
+        <text style="font-size:35rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:3rpx;">{{item.sendername}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;">{{item.time}}</text>
       </view>
-      </block>
-      <block wx:if='{{item.Order_Type==6}}'>
+      <view class='click'>
+        <image class='myicon-image' src='/images/icons/myget.png'></image> 
+      </view>
+    </block>
+
+    <block wx:if='{{item.Order_Type==6}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
-         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+         <image class='order-image' src='{{item.image}}'></image>
       </view>
-        <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      <view class='list-item'>
+        <text style="font-size:35rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:3rpx;">{{item.sendername}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;">{{item.time}}</text>
       </view>
-      </block>
-      <block wx:if='{{item.Order_Type==7}}'>
+      <view class='click'>
+        <image class='myicon-image' src='/images/icons/mypin.png'></image> 
+      </view>
+    </block>
+
+    <block wx:if='{{item.Order_Type==7}}'>
        <view class='item'>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
-         <image class='order-image' src='/images/icons/Q&A.png' margin-top="20rpx" ></image>
+         <image class='order-image' src='{{item.image}}'></image>
       </view>
-        <view class='list-item'>
-          <text style="font-size:30rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.content}}</text>
-         <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:5rpx;">{{item.time}}</text>
+      <view class='list-item'>
+        <text style="font-size:35rpx;font-family:微软雅黑超细;font-weight:bold;">{{item.title}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;padding-top:3rpx;">{{item.sendername}}</text>
+        <text style="font-size:30rpx;font-family:微软雅黑超细;">{{item.time}}</text>
       </view>
-      </block>
+      <view class='click'>
+        <image class='myicon-image' src='/images/icons/myer.png'></image> 
+      </view>
+    </block>
       
   </view>
   </block>
+
 </scroll-view>
 </view>  

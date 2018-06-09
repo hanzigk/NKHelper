@@ -46,6 +46,7 @@
   margin-bottom: 10rpx;
  
 }
+
 .list .item
 {
   display: flex;
